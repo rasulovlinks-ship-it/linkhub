@@ -1,16 +1,65 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { SiteConfig } from "@/lib/types";
 import { LinkIcon } from "./icons";
 
+type SprinkleKind = "cake" | "candle" | "confetti-square" | "confetti-circle" | "sparkle";
+
+const SPRINKLE_PATHS: Record<SprinkleKind, ReactNode> = {
+  cake: (
+    <>
+      <path d="M12 3 L20 18 H4 Z" />
+      <rect x="7" y="13.4" width="10" height="1.6" rx="0.8" />
+      <circle cx="12" cy="1.6" r="1.3" />
+    </>
+  ),
+  candle: (
+    <>
+      <rect x="10.2" y="9" width="3.6" height="11" rx="1.2" />
+      <path d="M12 2c1.3 1.7 2 2.9 2 3.9a2 2 0 1 1-4 0c0-1 .7-2.2 2-3.9Z" />
+    </>
+  ),
+  "confetti-square": <rect x="6" y="6" width="12" height="12" rx="2.5" />,
+  "confetti-circle": <circle cx="12" cy="12" r="7" />,
+  sparkle: <path d="M12 2 L14.2 9.8 L22 12 L14.2 14.2 L12 22 L9.8 14.2 L2 12 L9.8 9.8 Z" />,
+};
+
+/** Tiny solid glyph for background decoration, viewBox 0 0 24 24. */
+function SprinkleIcon({
+  kind,
+  className,
+  style,
+}: {
+  kind: SprinkleKind;
+  className?: string;
+  style?: CSSProperties;
+}) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" aria-hidden="true">
+      {SPRINKLE_PATHS[kind]}
+    </svg>
+  );
+}
+
 /** Fixed (not random) so server and client render identical markup. */
-const SPRINKLES = [
-  { top: "6%", left: "10%", size: 5, length: 16, rotate: -18, tone: 0, delay: "0s", duration: "6.5s" },
-  { top: "10%", left: "84%", size: 5, length: 18, rotate: 24, tone: 1, delay: "1.1s", duration: "7.5s" },
-  { top: "28%", left: "5%", size: 4, length: 14, rotate: 8, tone: 1, delay: "2.2s", duration: "6s" },
-  { top: "3%", left: "46%", size: 5, length: 15, rotate: -10, tone: 0, delay: "0.6s", duration: "8s" },
-  { top: "20%", left: "68%", size: 4, length: 13, rotate: 32, tone: 0, delay: "2.8s", duration: "7s" },
-  { top: "34%", left: "90%", size: 5, length: 17, rotate: -24, tone: 1, delay: "1.6s", duration: "8.5s" },
-] as const;
+const SPRINKLES: {
+  top: string;
+  left: string;
+  size: number;
+  rotate: number;
+  tone: 0 | 1;
+  kind: SprinkleKind;
+  delay: string;
+  duration: string;
+}[] = [
+  { top: "6%", left: "10%", size: 20, rotate: -18, tone: 0, kind: "cake", delay: "0s", duration: "6.5s" },
+  { top: "10%", left: "84%", size: 18, rotate: 12, tone: 1, kind: "candle", delay: "1.1s", duration: "7.5s" },
+  { top: "28%", left: "5%", size: 12, rotate: 8, tone: 1, kind: "confetti-square", delay: "2.2s", duration: "6s" },
+  { top: "3%", left: "46%", size: 22, rotate: -6, tone: 0, kind: "sparkle", delay: "0.6s", duration: "8s" },
+  { top: "20%", left: "68%", size: 14, rotate: 0, tone: 0, kind: "confetti-circle", delay: "2.8s", duration: "7s" },
+  { top: "34%", left: "90%", size: 16, rotate: -24, tone: 1, kind: "confetti-square", delay: "1.6s", duration: "8.5s" },
+  { top: "16%", left: "38%", size: 18, rotate: 6, tone: 1, kind: "cake", delay: "3.4s", duration: "7.2s" },
+  { top: "5%", left: "62%", size: 14, rotate: -10, tone: 0, kind: "confetti-circle", delay: "1.9s", duration: "6.8s" },
+];
 
 function BackgroundDecoration({
   accent,
@@ -66,17 +115,18 @@ function BackgroundDecoration({
             }
           />
           {SPRINKLES.map((s, i) => (
-            <span
+            <SprinkleIcon
               key={i}
-              className="linkhub-sprinkle absolute rounded-full"
+              kind={s.kind}
+              className="linkhub-sprinkle absolute"
               style={
                 {
                   top: s.top,
                   left: s.left,
                   width: s.size,
-                  height: s.length,
-                  backgroundColor: s.tone === 0 ? accent : secondaryAccent,
-                  opacity: 0.5,
+                  height: s.size,
+                  color: s.tone === 0 ? accent : secondaryAccent,
+                  opacity: 0.55,
                   ["--r"]: `${s.rotate}deg`,
                   transform: `rotate(${s.rotate}deg)`,
                   animationDuration: s.duration,
