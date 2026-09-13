@@ -1,8 +1,14 @@
 {
   "slug": "thebestcakestashkent",
   "name": "The Best Cakes Tashkent",
-  "bio": "Тортики на заказ 🎂 Ташкент",
-  "avatarUrl": "",
+  "bio": "Тортики на заказ 🎂 Ташкент • доставка по городу",
+  "avatarUrl": "https://loremflickr.com/400/400/cake,dessert?lock=7",
+  "coverImageUrl": "https://loremflickr.com/1200/500/bakery,cake?lock=11",
+  "gallery": [
+    "https://loremflickr.com/600/600/cake?lock=21",
+    "https://loremflickr.com/600/600/cake,dessert?lock=22",
+    "https://loremflickr.com/600/600/wedding,cake?lock=23"
+  ],
   "theme": {
     "background": "linear-gradient(180deg,#fdf3f4 0%,#ffffff 60%)",
     "accent": "#be123c",

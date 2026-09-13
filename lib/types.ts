@@ -42,6 +42,10 @@ export type SiteConfig = {
   name: string;
   bio?: string;
   avatarUrl?: string;
+  /** Wide banner photo shown above the avatar */
+  coverImageUrl?: string;
+  /** Small photo strip (product shots, portfolio pieces, etc.) shown below the bio */
+  gallery?: string[];
   theme?: SiteTheme;
   links: LinkItem[];
 };
