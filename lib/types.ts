@@ -24,6 +24,15 @@ export type SiteTheme = {
   accentText?: string;
   /** Main page text color */
   textColor?: string;
+  /** Second decorative color, paired with accent for richer backgrounds */
+  secondaryAccent?: string;
+  /**
+   * Background decoration style.
+   * "plain": two static soft blurred blobs (default).
+   * "confetti": drifting blobs plus small scattered sprinkle shapes,
+   * for businesses (bakeries, parties, kids' brands) where that fits.
+   */
+  backgroundStyle?: "plain" | "confetti";
 };
 
 export type SiteConfig = {

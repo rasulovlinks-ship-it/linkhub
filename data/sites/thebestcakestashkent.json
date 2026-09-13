@@ -6,8 +6,10 @@
   "theme": {
     "background": "linear-gradient(180deg,#fdf3f4 0%,#ffffff 60%)",
     "accent": "#be123c",
+    "secondaryAccent": "#ca8a04",
     "accentText": "#ffffff",
-    "textColor": "#18181b"
+    "textColor": "#18181b",
+    "backgroundStyle": "confetti"
   },
   "links": [
     { "id": "telegram", "type": "telegram", "label": "Написать в Telegram", "url": "https://t.me/thebestcakestashkent" },

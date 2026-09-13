@@ -47,3 +47,47 @@ body {
     transform: none;
   }
 }
+
+@keyframes linkhub-blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(var(--dx, 4%), var(--dy, 4%)) scale(1.08);
+  }
+}
+
+.linkhub-blob {
+  animation-name: linkhub-blob-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes linkhub-sprinkle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--r, 0deg));
+    opacity: 0.85;
+  }
+}
+
+.linkhub-sprinkle {
+  animation-name: linkhub-sprinkle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkhub-blob {
+    animation: none;
+  }
+  .linkhub-sprinkle {
+    animation: none;
+    opacity: 0.6;
+  }
+}
