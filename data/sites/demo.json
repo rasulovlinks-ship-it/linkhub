@@ -4,10 +4,10 @@
   "bio": "Blogger • Tashkent, Uzbekistan",
   "avatarUrl": "",
   "theme": {
-    "background": "linear-gradient(180deg,#eef2ff 0%,#ffffff 60%)",
-    "accent": "#4f46e5",
+    "background": "linear-gradient(180deg,#f6f4f1 0%,#ffffff 60%)",
+    "accent": "#0f766e",
     "accentText": "#ffffff",
-    "textColor": "#1f2937"
+    "textColor": "#18181b"
   },
   "links": [
     { "id": "telegram", "type": "telegram", "label": "Telegram канал", "url": "https://t.me/example" },
