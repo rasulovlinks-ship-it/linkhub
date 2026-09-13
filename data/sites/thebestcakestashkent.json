@@ -1,0 +1,19 @@
+{
+  "slug": "thebestcakestashkent",
+  "name": "The Best Cakes Tashkent",
+  "bio": "Тортики на заказ 🎂 Ташкент",
+  "avatarUrl": "",
+  "theme": {
+    "background": "linear-gradient(180deg,#fff1f5 0%,#ffffff 60%)",
+    "accent": "#e11d48",
+    "accentText": "#ffffff",
+    "textColor": "#1f2937"
+  },
+  "links": [
+    { "id": "telegram", "type": "telegram", "label": "Написать в Telegram", "url": "https://t.me/thebestcakestashkent" },
+    { "id": "instagram", "type": "instagram", "label": "Instagram", "url": "https://instagram.com/thebestcakestashkent" },
+    { "id": "whatsapp", "type": "whatsapp", "label": "WhatsApp заказ", "url": "https://wa.me/998900000000" },
+    { "id": "phone", "type": "phone", "label": "+998 90 000 00 00", "url": "tel:+998900000000" },
+    { "id": "location", "type": "location", "label": "Наша локация", "url": "https://maps.google.com/?q=Tashkent" }
+  ]
+}

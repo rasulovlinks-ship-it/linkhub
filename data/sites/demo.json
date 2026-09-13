@@ -1,0 +1,20 @@
+{
+  "slug": "demo",
+  "name": "Aziza Karimova",
+  "bio": "Blogger • Tashkent, Uzbekistan",
+  "avatarUrl": "",
+  "theme": {
+    "background": "linear-gradient(180deg,#eef2ff 0%,#ffffff 60%)",
+    "accent": "#4f46e5",
+    "accentText": "#ffffff",
+    "textColor": "#1f2937"
+  },
+  "links": [
+    { "id": "telegram", "type": "telegram", "label": "Telegram канал", "url": "https://t.me/example" },
+    { "id": "instagram", "type": "instagram", "label": "Instagram", "url": "https://instagram.com/example" },
+    { "id": "youtube", "type": "youtube", "label": "YouTube", "url": "https://youtube.com/@example" },
+    { "id": "whatsapp", "type": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/998900000000" },
+    { "id": "location", "type": "location", "label": "Локация", "url": "https://maps.google.com/?q=Tashkent" },
+    { "id": "website", "type": "website", "label": "Мой сайт", "url": "https://example.com" }
+  ]
+}
