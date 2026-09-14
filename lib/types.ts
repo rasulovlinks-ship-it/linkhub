@@ -6,7 +6,13 @@ export type LinkType =
   | "phone"
   | "location"
   | "website"
-  | "custom";
+  | "custom"
+  | "order"
+  | "shop"
+  | "reviews"
+  | "promo"
+  | "faq"
+  | "contact";
 
 export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose";
 

@@ -3,10 +3,25 @@ import {
   PhoneIcon,
   MapPinIcon,
   GlobeAltIcon,
+  ShoppingBagIcon,
+  ChatBubbleLeftEllipsisIcon,
+  TagIcon,
+  QuestionMarkCircleIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
 type IconProps = { className?: string };
+
+function CakeSliceIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M12 3 L20 18 H4 Z" />
+      <rect x="7" y="13.4" width="10" height="1.6" rx="0.8" />
+      <circle cx="12" cy="1.6" r="1.3" />
+    </svg>
+  );
+}
 
 /** Official brand marks, path data from the simple-icons package (CC0). */
 const BRAND_PATHS: Record<string, string> = {
@@ -33,9 +48,17 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   location: MapPinIcon,
   website: GlobeAltIcon,
   custom: GlobeAltIcon,
+  shop: ShoppingBagIcon,
+  reviews: ChatBubbleLeftEllipsisIcon,
+  promo: TagIcon,
+  faq: QuestionMarkCircleIcon,
+  contact: EnvelopeIcon,
 };
 
 export function LinkIcon({ type, className }: { type: LinkType; className?: string }) {
+  if (type === "order") {
+    return <CakeSliceIcon className={className} />;
+  }
   if (BRAND_PATHS[type]) {
     return <BrandIcon name={type} className={className} />;
   }

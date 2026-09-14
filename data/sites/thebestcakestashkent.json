@@ -20,44 +20,52 @@
   },
   "links": [
     {
-      "id": "telegram",
-      "type": "telegram",
-      "label": "Написать в Telegram",
-      "description": "Быстрые ответы на вопросы",
-      "url": "https://t.me/thebestcakestashkent",
-      "pillColor": "blue"
+      "id": "order",
+      "type": "order",
+      "label": "Заказать торт",
+      "description": "Оформить заказ в WhatsApp",
+      "url": "https://wa.me/998900000000",
+      "pillColor": "pink"
     },
     {
-      "id": "instagram",
-      "type": "instagram",
-      "label": "Instagram",
-      "description": "Фото наших тортов",
+      "id": "shop",
+      "type": "shop",
+      "label": "Наш каталог",
+      "description": "Instagram с фото тортов",
       "url": "https://instagram.com/thebestcakestashkent",
       "pillColor": "pink"
     },
     {
-      "id": "whatsapp",
-      "type": "whatsapp",
-      "label": "WhatsApp заказ",
-      "description": "Оформить заказ",
-      "url": "https://wa.me/998900000000",
-      "pillColor": "green"
-    },
-    {
-      "id": "phone",
-      "type": "phone",
-      "label": "+998 90 000 00 00",
-      "description": "Позвонить нам",
-      "url": "tel:+998900000000",
-      "pillColor": "peach"
-    },
-    {
-      "id": "location",
-      "type": "location",
-      "label": "Наша локация",
-      "description": "Как нас найти",
+      "id": "reviews",
+      "type": "reviews",
+      "label": "Отзывы клиентов",
+      "description": "Смотреть на карте",
       "url": "https://maps.google.com/?q=Tashkent",
-      "pillColor": "purple"
+      "pillColor": "pink"
+    },
+    {
+      "id": "promo",
+      "type": "promo",
+      "label": "Акции",
+      "description": "Новости и скидки в Telegram",
+      "url": "https://t.me/thebestcakestashkent",
+      "pillColor": "pink"
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "label": "Вопросы",
+      "description": "Частые вопросы",
+      "url": "#",
+      "pillColor": "pink"
+    },
+    {
+      "id": "contact",
+      "type": "contact",
+      "label": "Связаться с нами",
+      "description": "+998 90 000 00 00",
+      "url": "tel:+998900000000",
+      "pillColor": "pink"
     }
   ]
 }
