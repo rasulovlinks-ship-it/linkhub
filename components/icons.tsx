@@ -12,6 +12,10 @@ import {
   HeartIcon,
   ChartBarIcon,
   BeakerIcon,
+  MapIcon,
+  LightBulbIcon,
+  CameraIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
@@ -61,6 +65,11 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   nutrition: HeartIcon,
   progress: ChartBarIcon,
   supplements: BeakerIcon,
+  guides: MapIcon,
+  destinations: MapPinIcon,
+  tips: LightBulbIcon,
+  gallery: CameraIcon,
+  itinerary: DocumentTextIcon,
 };
 
 export function LinkIcon({ type, className }: { type: LinkType; className?: string }) {

@@ -10,6 +10,7 @@ const PILL_COLORS: Record<PillColor, { bg: string; text: string; badgeBg?: strin
   green: { bg: "#d7f5e0", text: "#166534" },
   purple: { bg: "#e6dcfb", text: "#5b21b6" },
   charcoal: { bg: "#211c16", text: "#f5c451", badgeBg: "#15120d" },
+  teal: { bg: "#cdeae6", text: "#065f56" },
 };
 const PILL_COLOR_ORDER: PillColor[] = ["blue", "pink", "green", "rose", "purple", "peach"];
 

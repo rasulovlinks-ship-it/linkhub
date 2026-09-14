@@ -16,9 +16,14 @@ export type LinkType =
   | "workout"
   | "nutrition"
   | "progress"
-  | "supplements";
+  | "supplements"
+  | "guides"
+  | "destinations"
+  | "tips"
+  | "gallery"
+  | "itinerary";
 
-export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose" | "charcoal";
+export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose" | "charcoal" | "teal";
 
 export type LinkItem = {
   id: string;

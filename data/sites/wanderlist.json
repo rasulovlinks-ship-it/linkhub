@@ -1,0 +1,70 @@
+{
+  "slug": "wanderlist",
+  "name": "Explore More",
+  "bio": "Travel • Guides • Tips — collect moments, not things ✈️",
+  "theme": {
+    "background": "linear-gradient(180deg,#fdf6ec 0%,#ffffff 60%)",
+    "accent": "#0f6e66",
+    "secondaryAccent": "#1d4e73",
+    "accentText": "#ffffff",
+    "textColor": "#1c2427",
+    "backgroundImageUrl": "/sites/wanderlist/background.webp",
+    "buttonStyle": "pill"
+  },
+  "links": [
+    {
+      "id": "guides",
+      "type": "guides",
+      "label": "Travel Guides",
+      "description": "City & country guides",
+      "url": "https://t.me/exploremore",
+      "pillColor": "teal",
+      "iconUrl": "/sites/wanderlist/icons/guides.png"
+    },
+    {
+      "id": "destinations",
+      "type": "destinations",
+      "label": "Destinations",
+      "description": "Where we've been",
+      "url": "https://instagram.com/exploremore",
+      "pillColor": "teal",
+      "iconUrl": "/sites/wanderlist/icons/destinations.png"
+    },
+    {
+      "id": "tips",
+      "type": "tips",
+      "label": "Travel Tips",
+      "description": "Packing, budgeting & more",
+      "url": "https://t.me/exploremore",
+      "pillColor": "teal",
+      "iconUrl": "/sites/wanderlist/icons/tips.png"
+    },
+    {
+      "id": "gallery",
+      "type": "gallery",
+      "label": "Photo Gallery",
+      "description": "Trip photos & reels",
+      "url": "https://instagram.com/exploremore",
+      "pillColor": "teal",
+      "iconUrl": "/sites/wanderlist/icons/gallery.png"
+    },
+    {
+      "id": "itinerary",
+      "type": "itinerary",
+      "label": "Sample Itineraries",
+      "description": "Ready-made trip plans",
+      "url": "#",
+      "pillColor": "teal",
+      "iconUrl": "/sites/wanderlist/icons/itinerary.png"
+    },
+    {
+      "id": "contact",
+      "type": "contact",
+      "label": "Contact Us",
+      "description": "Trip planning help",
+      "url": "https://wa.me/998900000000",
+      "pillColor": "teal",
+      "iconUrl": "/sites/wanderlist/icons/contact.png"
+    }
+  ]
+}
