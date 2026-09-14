@@ -142,16 +142,16 @@ function BackgroundDecoration({
 }
 
 /**
- * Whole-page background photo: blurred and washed with the site's own
- * background gradient so it reads as ambiance, not a busy backdrop, and
- * text/buttons stay legible no matter what the photo contains.
+ * Whole-page background photo, shown sharp (no blur). A very light wash
+ * of the site's own background gradient keeps body text/buttons legible
+ * without hiding the photo itself.
  */
 function PageBackgroundPhoto({ src, wash }: { src: string; wash: string }) {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt="" className="h-full w-full scale-110 object-cover blur-md" />
-      <div className="absolute inset-0" style={{ background: wash, opacity: 0.22 }} />
+      <img src={src} alt="" className="h-full w-full object-cover" />
+      <div className="absolute inset-0" style={{ background: wash, opacity: 0.1 }} />
     </div>
   );
 }
@@ -167,6 +167,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const initial = site.name?.trim()?.charAt(0)?.toUpperCase() || "?";
   const hasCover = Boolean(site.coverImageUrl);
   const backgroundImageUrl = theme.backgroundImageUrl;
+  const avatarNeedsRing = hasCover || Boolean(backgroundImageUrl);
   const gallery = site.gallery ?? [];
 
   const rootStyle = {
@@ -219,7 +220,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
               animationDelay: `${avatarDelay}ms`,
               backgroundColor: accent,
               color: accentText,
-              ...(hasCover
+              ...(avatarNeedsRing
                 ? { boxShadow: "0 0 0 4px rgba(255,255,255,0.9), 0 10px 25px rgba(0,0,0,0.15)" }
                 : {}),
             }}
