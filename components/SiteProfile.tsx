@@ -150,8 +150,8 @@ function PageBackgroundPhoto({ src, wash }: { src: string; wash: string }) {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt="" className="h-full w-full scale-110 object-cover blur-2xl" />
-      <div className="absolute inset-0" style={{ background: wash, opacity: 0.55 }} />
+      <img src={src} alt="" className="h-full w-full scale-110 object-cover blur-md" />
+      <div className="absolute inset-0" style={{ background: wash, opacity: 0.22 }} />
     </div>
   );
 }
@@ -189,7 +189,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const linksBaseDelay = delay;
 
   return (
-    <main className="relative min-h-screen w-full overflow-hidden" style={rootStyle}>
+    <main className="isolate relative min-h-screen w-full overflow-hidden" style={rootStyle}>
       {backgroundImageUrl ? (
         <PageBackgroundPhoto src={backgroundImageUrl} wash={background} />
       ) : (
