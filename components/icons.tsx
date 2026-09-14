@@ -8,6 +8,10 @@ import {
   TagIcon,
   QuestionMarkCircleIcon,
   EnvelopeIcon,
+  FireIcon,
+  HeartIcon,
+  ChartBarIcon,
+  BeakerIcon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
@@ -53,6 +57,10 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   promo: TagIcon,
   faq: QuestionMarkCircleIcon,
   contact: EnvelopeIcon,
+  workout: FireIcon,
+  nutrition: HeartIcon,
+  progress: ChartBarIcon,
+  supplements: BeakerIcon,
 };
 
 export function LinkIcon({ type, className }: { type: LinkType; className?: string }) {

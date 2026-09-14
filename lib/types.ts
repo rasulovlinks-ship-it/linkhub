@@ -12,9 +12,13 @@ export type LinkType =
   | "reviews"
   | "promo"
   | "faq"
-  | "contact";
+  | "contact"
+  | "workout"
+  | "nutrition"
+  | "progress"
+  | "supplements";
 
-export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose";
+export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose" | "charcoal";
 
 export type LinkItem = {
   id: string;

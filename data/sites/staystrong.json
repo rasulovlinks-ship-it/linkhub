@@ -1,0 +1,70 @@
+{
+  "slug": "staystrong",
+  "name": "Stay Strong",
+  "bio": "Fitness • Nutrition • Lifestyle — A healthier you 💪",
+  "theme": {
+    "background": "linear-gradient(180deg,#0f0c09 0%,#1a140d 55%,#0f0c09 100%)",
+    "accent": "#f2a91d",
+    "secondaryAccent": "#e07b23",
+    "accentText": "#1a1408",
+    "textColor": "#f5efe4",
+    "backgroundImageUrl": "/sites/staystrong/background.webp",
+    "buttonStyle": "pill"
+  },
+  "links": [
+    {
+      "id": "workout",
+      "type": "workout",
+      "label": "Workout Plans",
+      "description": "Weekly training programs",
+      "url": "https://t.me/staystrong",
+      "pillColor": "charcoal",
+      "iconUrl": "/sites/staystrong/icons/workout.png"
+    },
+    {
+      "id": "nutrition",
+      "type": "nutrition",
+      "label": "Nutrition Guides",
+      "description": "Meal plans & macros",
+      "url": "https://instagram.com/staystrong",
+      "pillColor": "charcoal",
+      "iconUrl": "/sites/staystrong/icons/nutrition.png"
+    },
+    {
+      "id": "progress",
+      "type": "progress",
+      "label": "Progress Stories",
+      "description": "Real client transformations",
+      "url": "https://instagram.com/staystrong",
+      "pillColor": "charcoal",
+      "iconUrl": "/sites/staystrong/icons/progress.png"
+    },
+    {
+      "id": "supplements",
+      "type": "supplements",
+      "label": "Supplements",
+      "description": "What we recommend & why",
+      "url": "#",
+      "pillColor": "charcoal",
+      "iconUrl": "/sites/staystrong/icons/supplements.png"
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "label": "FAQs",
+      "description": "Common questions",
+      "url": "#",
+      "pillColor": "charcoal",
+      "iconUrl": "/sites/staystrong/icons/faq.png"
+    },
+    {
+      "id": "contact",
+      "type": "contact",
+      "label": "Contact / Coaching",
+      "description": "Book a 1:1 session",
+      "url": "https://wa.me/998900000000",
+      "pillColor": "charcoal",
+      "iconUrl": "/sites/staystrong/icons/contact.png"
+    }
+  ]
+}

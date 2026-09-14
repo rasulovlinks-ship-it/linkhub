@@ -2,13 +2,14 @@ import type { CSSProperties, ReactNode } from "react";
 import type { PillColor, SiteConfig } from "@/lib/types";
 import { LinkIcon } from "./icons";
 
-const PILL_COLORS: Record<PillColor, { bg: string; text: string }> = {
+const PILL_COLORS: Record<PillColor, { bg: string; text: string; badgeBg?: string }> = {
   pink: { bg: "#fbd5e3", text: "#9d174d" },
   rose: { bg: "#fbd0d0", text: "#9f1239" },
   peach: { bg: "#fde8cd", text: "#9a3412" },
   blue: { bg: "#d3ecfb", text: "#075985" },
   green: { bg: "#d7f5e0", text: "#166534" },
   purple: { bg: "#e6dcfb", text: "#5b21b6" },
+  charcoal: { bg: "#211c16", text: "#f5c451", badgeBg: "#15120d" },
 };
 const PILL_COLOR_ORDER: PillColor[] = ["blue", "pink", "green", "rose", "purple", "peach"];
 
@@ -343,7 +344,10 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   className="linkhub-enter group flex w-full items-center gap-3 rounded-full py-2.5 pr-4 pl-2.5 transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] active:duration-150 active:ease-[cubic-bezier(0.25,0.46,0.45,0.94)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pill-text)]"
                   style={pillStyle}
                 >
-                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+                  <span
+                    className="flex size-11 shrink-0 items-center justify-center rounded-full shadow-sm"
+                    style={{ backgroundColor: pill.badgeBg ?? "#ffffff" }}
+                  >
                     {link.iconUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
