@@ -1,6 +1,33 @@
 import type { CSSProperties, ReactNode } from "react";
-import type { SiteConfig } from "@/lib/types";
+import type { PillColor, SiteConfig } from "@/lib/types";
 import { LinkIcon } from "./icons";
+
+const PILL_COLORS: Record<PillColor, { bg: string; text: string }> = {
+  pink: { bg: "#fbd5e3", text: "#9d174d" },
+  rose: { bg: "#fbd0d0", text: "#9f1239" },
+  peach: { bg: "#fde8cd", text: "#9a3412" },
+  blue: { bg: "#d3ecfb", text: "#075985" },
+  green: { bg: "#d7f5e0", text: "#166534" },
+  purple: { bg: "#e6dcfb", text: "#5b21b6" },
+};
+const PILL_COLOR_ORDER: PillColor[] = ["blue", "pink", "green", "rose", "purple", "peach"];
+
+function ChevronRightIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 6l6 6-6 6" />
+    </svg>
+  );
+}
 
 type SprinkleKind = "cake" | "candle" | "confetti-square" | "confetti-circle" | "sparkle";
 
@@ -169,6 +196,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const backgroundImageUrl = theme.backgroundImageUrl;
   const avatarNeedsRing = hasCover || Boolean(backgroundImageUrl);
   const gallery = site.gallery ?? [];
+  const pillButtons = theme.buttonStyle === "pill";
 
   const rootStyle = {
     background,
@@ -268,22 +296,62 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
           )}
 
           <div className="mt-9 flex w-full flex-col gap-3">
-            {site.links.map((link, index) => (
-              <a
-                key={link.id}
-                href={link.url}
-                target={link.url.startsWith("tel:") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                className="linkhub-enter group flex w-full items-center gap-3 rounded-2xl bg-white/80 px-5 py-4 ring-1 ring-black/5 backdrop-blur transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 active:translate-y-0 active:scale-[0.98] active:duration-150 active:ease-[cubic-bezier(0.25,0.46,0.45,0.94)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-                style={{ animationDelay: `${linksBaseDelay + index * 45}ms` }}
-              >
-                <LinkIcon
-                  type={link.type}
-                  className="size-5 shrink-0 text-[var(--accent)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
-                />
-                <span className="font-medium">{link.label}</span>
-              </a>
-            ))}
+            {site.links.map((link, index) => {
+              if (!pillButtons) {
+                return (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target={link.url.startsWith("tel:") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    className="linkhub-enter group flex w-full items-center gap-3 rounded-2xl bg-white/80 px-5 py-4 ring-1 ring-black/5 backdrop-blur transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 active:translate-y-0 active:scale-[0.98] active:duration-150 active:ease-[cubic-bezier(0.25,0.46,0.45,0.94)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                    style={{ animationDelay: `${linksBaseDelay + index * 45}ms` }}
+                  >
+                    <LinkIcon
+                      type={link.type}
+                      className="size-5 shrink-0 text-[var(--accent)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+                    />
+                    <span className="font-medium">{link.label}</span>
+                  </a>
+                );
+              }
+
+              const pill =
+                PILL_COLORS[link.pillColor ?? PILL_COLOR_ORDER[index % PILL_COLOR_ORDER.length]];
+              const pillStyle = {
+                animationDelay: `${linksBaseDelay + index * 45}ms`,
+                backgroundColor: pill.bg,
+                color: pill.text,
+                ["--pill-text" as string]: pill.text,
+              } as CSSProperties;
+
+              return (
+                <a
+                  key={link.id}
+                  href={link.url}
+                  target={link.url.startsWith("tel:") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  className="linkhub-enter group flex w-full items-center gap-3 rounded-full py-2.5 pr-4 pl-2.5 transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] active:duration-150 active:ease-[cubic-bezier(0.25,0.46,0.45,0.94)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pill-text)]"
+                  style={pillStyle}
+                >
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+                    <LinkIcon
+                      type={link.type}
+                      className="size-5 text-[var(--pill-text)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+                    />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-bold leading-tight">{link.label}</span>
+                    {link.description && (
+                      <span className="block truncate text-sm leading-tight opacity-75">
+                        {link.description}
+                      </span>
+                    )}
+                  </span>
+                  <ChevronRightIcon className="size-5 shrink-0 opacity-70 transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5" />
+                </a>
+              );
+            })}
           </div>
 
           <footer

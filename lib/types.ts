@@ -8,11 +8,17 @@ export type LinkType =
   | "website"
   | "custom";
 
+export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose";
+
 export type LinkItem = {
   id: string;
   type: LinkType;
   label: string;
+  /** Short subtitle shown under the label, only used by the "pill" button style */
+  description?: string;
   url: string;
+  /** Explicit color for the "pill" button style; auto-cycled if omitted */
+  pillColor?: PillColor;
 };
 
 export type SiteTheme = {
@@ -40,6 +46,13 @@ export type SiteTheme = {
    * Replaces the blob/confetti decoration when set.
    */
   backgroundImageUrl?: string;
+  /**
+   * Link button style.
+   * "card": translucent white card, single-line label, icon in accent color (default).
+   * "pill": fully rounded, solid pastel color per button, icon in a white
+   * badge, optional description line, trailing chevron.
+   */
+  buttonStyle?: "card" | "pill";
 };
 
 export type SiteConfig = {

@@ -15,38 +15,49 @@
     "accentText": "#ffffff",
     "textColor": "#18181b",
     "backgroundStyle": "confetti",
-    "backgroundImageUrl": "/sites/thebestcakestashkent/background.webp"
+    "backgroundImageUrl": "/sites/thebestcakestashkent/background.webp",
+    "buttonStyle": "pill"
   },
   "links": [
     {
       "id": "telegram",
       "type": "telegram",
       "label": "Написать в Telegram",
-      "url": "https://t.me/thebestcakestashkent"
+      "description": "Быстрые ответы на вопросы",
+      "url": "https://t.me/thebestcakestashkent",
+      "pillColor": "blue"
     },
     {
       "id": "instagram",
       "type": "instagram",
       "label": "Instagram",
-      "url": "https://instagram.com/thebestcakestashkent"
+      "description": "Фото наших тортов",
+      "url": "https://instagram.com/thebestcakestashkent",
+      "pillColor": "pink"
     },
     {
       "id": "whatsapp",
       "type": "whatsapp",
       "label": "WhatsApp заказ",
-      "url": "https://wa.me/998900000000"
+      "description": "Оформить заказ",
+      "url": "https://wa.me/998900000000",
+      "pillColor": "green"
     },
     {
       "id": "phone",
       "type": "phone",
       "label": "+998 90 000 00 00",
-      "url": "tel:+998900000000"
+      "description": "Позвонить нам",
+      "url": "tel:+998900000000",
+      "pillColor": "peach"
     },
     {
       "id": "location",
       "type": "location",
       "label": "Наша локация",
-      "url": "https://maps.google.com/?q=Tashkent"
+      "description": "Как нас найти",
+      "url": "https://maps.google.com/?q=Tashkent",
+      "pillColor": "purple"
     }
   ]
 }
