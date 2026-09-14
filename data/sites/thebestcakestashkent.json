@@ -15,7 +15,8 @@
     "secondaryAccent": "#ca8a04",
     "accentText": "#ffffff",
     "textColor": "#18181b",
-    "backgroundStyle": "confetti"
+    "backgroundStyle": "confetti",
+    "backgroundImageUrl": "/sites/thebestcakestashkent/background.webp"
   },
   "links": [
     {
