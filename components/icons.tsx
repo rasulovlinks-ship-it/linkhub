@@ -16,6 +16,9 @@ import {
   LightBulbIcon,
   CameraIcon,
   DocumentTextIcon,
+  SwatchIcon,
+  SparklesIcon,
+  ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
@@ -70,6 +73,9 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   tips: LightBulbIcon,
   gallery: CameraIcon,
   itinerary: DocumentTextIcon,
+  looks: SwatchIcon,
+  selfcare: SparklesIcon,
+  routine: ClipboardDocumentListIcon,
 };
 
 export function LinkIcon({ type, className }: { type: LinkType; className?: string }) {

@@ -1,0 +1,70 @@
+{
+  "slug": "glow",
+  "name": "Glow Everyday",
+  "bio": "Beauty • Lifestyle • Self Care — happy mind, brighter you ♡",
+  "theme": {
+    "background": "linear-gradient(180deg,#fdf6f3 0%,#ffffff 60%)",
+    "accent": "#b76e79",
+    "secondaryAccent": "#c9a227",
+    "accentText": "#ffffff",
+    "textColor": "#3a2a2f",
+    "backgroundImageUrl": "/sites/glow/background.webp",
+    "buttonStyle": "pill"
+  },
+  "links": [
+    {
+      "id": "tips",
+      "type": "tips",
+      "label": "Beauty Tips",
+      "description": "Skincare & makeup advice",
+      "url": "https://t.me/gloweveryday",
+      "pillColor": "mauve",
+      "iconUrl": "/sites/glow/icons/tips.png"
+    },
+    {
+      "id": "shop",
+      "type": "shop",
+      "label": "Shop Products",
+      "description": "My favorite picks",
+      "url": "https://instagram.com/gloweveryday",
+      "pillColor": "mauve",
+      "iconUrl": "/sites/glow/icons/shop.png"
+    },
+    {
+      "id": "looks",
+      "type": "looks",
+      "label": "Makeup Looks",
+      "description": "Tutorials & inspiration",
+      "url": "https://instagram.com/gloweveryday",
+      "pillColor": "mauve",
+      "iconUrl": "/sites/glow/icons/looks.png"
+    },
+    {
+      "id": "selfcare",
+      "type": "selfcare",
+      "label": "Self-Care Tips",
+      "description": "Happy mind, brighter you",
+      "url": "https://t.me/gloweveryday",
+      "pillColor": "mauve",
+      "iconUrl": "/sites/glow/icons/selfcare.png"
+    },
+    {
+      "id": "routine",
+      "type": "routine",
+      "label": "Skincare Routine",
+      "description": "My daily routine",
+      "url": "#",
+      "pillColor": "mauve",
+      "iconUrl": "/sites/glow/icons/routine.png"
+    },
+    {
+      "id": "contact",
+      "type": "contact",
+      "label": "Contact Us",
+      "description": "Collabs & questions",
+      "url": "https://wa.me/998900000000",
+      "pillColor": "mauve",
+      "iconUrl": "/sites/glow/icons/contact.png"
+    }
+  ]
+}

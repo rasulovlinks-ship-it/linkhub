@@ -21,9 +21,21 @@ export type LinkType =
   | "destinations"
   | "tips"
   | "gallery"
-  | "itinerary";
+  | "itinerary"
+  | "looks"
+  | "selfcare"
+  | "routine";
 
-export type PillColor = "pink" | "peach" | "blue" | "green" | "purple" | "rose" | "charcoal" | "teal";
+export type PillColor =
+  | "pink"
+  | "peach"
+  | "blue"
+  | "green"
+  | "purple"
+  | "rose"
+  | "charcoal"
+  | "teal"
+  | "mauve";
 
 export type LinkItem = {
   id: string;
