@@ -141,6 +141,21 @@ function BackgroundDecoration({
   );
 }
 
+/**
+ * Whole-page background photo: blurred and washed with the site's own
+ * background gradient so it reads as ambiance, not a busy backdrop, and
+ * text/buttons stay legible no matter what the photo contains.
+ */
+function PageBackgroundPhoto({ src, wash }: { src: string; wash: string }) {
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt="" className="h-full w-full scale-110 object-cover blur-2xl" />
+      <div className="absolute inset-0" style={{ background: wash, opacity: 0.55 }} />
+    </div>
+  );
+}
+
 export default function SiteProfile({ site }: { site: SiteConfig }) {
   const theme = site.theme ?? {};
   const background = theme.background ?? "linear-gradient(180deg,#fafaf9 0%,#ffffff 60%)";
@@ -151,6 +166,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const confetti = theme.backgroundStyle === "confetti";
   const initial = site.name?.trim()?.charAt(0)?.toUpperCase() || "?";
   const hasCover = Boolean(site.coverImageUrl);
+  const backgroundImageUrl = theme.backgroundImageUrl;
   const gallery = site.gallery ?? [];
 
   const rootStyle = {
@@ -174,7 +190,11 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden" style={rootStyle}>
-      <BackgroundDecoration accent={accent} secondaryAccent={secondaryAccent} confetti={confetti} />
+      {backgroundImageUrl ? (
+        <PageBackgroundPhoto src={backgroundImageUrl} wash={background} />
+      ) : (
+        <BackgroundDecoration accent={accent} secondaryAccent={secondaryAccent} confetti={confetti} />
+      )}
 
       {hasCover && (
         <div className="linkhub-enter relative h-40 w-full overflow-hidden sm:h-56">

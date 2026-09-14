@@ -31,8 +31,15 @@ export type SiteTheme = {
    * "plain": two static soft blurred blobs (default).
    * "confetti": drifting blobs plus small scattered sprinkle shapes,
    * for businesses (bakeries, parties, kids' brands) where that fits.
+   * Ignored when backgroundImageUrl is set.
    */
   backgroundStyle?: "plain" | "confetti";
+  /**
+   * Full-page background photo, shown blurred behind a tint of `background`
+   * so text and buttons stay legible regardless of the photo's content.
+   * Replaces the blob/confetti decoration when set.
+   */
+  backgroundImageUrl?: string;
 };
 
 export type SiteConfig = {
