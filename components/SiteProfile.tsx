@@ -199,6 +199,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const backgroundImageUrl = theme.backgroundImageUrl;
   const avatarNeedsRing = hasCover || Boolean(backgroundImageUrl);
   const gallery = site.gallery ?? [];
+  const services = site.services ?? [];
   const pillButtons = theme.buttonStyle === "pill";
 
   const rootStyle = {
@@ -218,6 +219,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const nameDelay = nextDelay(70);
   const bioDelay = nextDelay(60);
   const galleryDelay = gallery.length ? nextDelay(70) : delay;
+  const servicesBaseDelay = delay;
+  if (services.length) nextDelay(services.length * 40 + 40);
   const linksBaseDelay = delay;
 
   return (
@@ -294,6 +297,33 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   aria-hidden="true"
                   className="aspect-square w-full rounded-xl object-cover ring-1 ring-black/5 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.04]"
                 />
+              ))}
+            </div>
+          )}
+
+          {services.length > 0 && (
+            <div className="mt-7 flex w-full flex-col gap-4 rounded-3xl bg-white/75 p-4 shadow-sm ring-1 ring-black/5 backdrop-blur-sm">
+              {services.map((service, index) => (
+                <div
+                  key={service.id}
+                  className="linkhub-enter flex w-full items-center gap-3"
+                  style={{ animationDelay: `${servicesBaseDelay + index * 40}ms` }}
+                >
+                  <span
+                    className="flex size-11 shrink-0 items-center justify-center rounded-full"
+                    style={{ backgroundColor: service.badgeBg, color: service.iconColor }}
+                  >
+                    <LinkIcon type={service.type} className="size-5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-bold leading-tight">{service.label}</span>
+                    {service.description && (
+                      <span className="block text-sm leading-tight opacity-75">
+                        {service.description}
+                      </span>
+                    )}
+                  </span>
+                </div>
               ))}
             </div>
           )}

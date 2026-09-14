@@ -1,0 +1,115 @@
+{
+  "slug": "babyland",
+  "name": "Babyland by Komola",
+  "bio": "Sog'lom bolalik — baxtli kelajak! 💕",
+  "avatarUrl": "/sites/babyland/avatar.webp",
+  "theme": {
+    "background": "linear-gradient(180deg,#fdf1f8 0%,#ffffff 60%)",
+    "accent": "#9d2fae",
+    "secondaryAccent": "#db2777",
+    "accentText": "#ffffff",
+    "textColor": "#3b1240",
+    "backgroundImageUrl": "/sites/babyland/background.webp",
+    "buttonStyle": "pill"
+  },
+  "services": [
+    {
+      "id": "babymassage",
+      "type": "babymassage",
+      "label": "Bolajonlar massaji",
+      "description": "0-12 yoshgacha",
+      "badgeBg": "#fbdce7",
+      "iconColor": "#db2777"
+    },
+    {
+      "id": "therapeutic",
+      "type": "therapeutic",
+      "label": "Davolovchi massajlar",
+      "description": "Sog'liq uchun",
+      "badgeBg": "#fdf6d8",
+      "iconColor": "#65a30d"
+    },
+    {
+      "id": "corrective",
+      "type": "corrective",
+      "label": "Korreksiyalovchi massaj",
+      "description": "To'g'ri rivojlanish uchun",
+      "badgeBg": "#ede9fe",
+      "iconColor": "#7c3aed"
+    },
+    {
+      "id": "hydro",
+      "type": "hydro",
+      "label": "Gidro massaj",
+      "description": "Suv bilan sog'lomlashtiruvchi",
+      "badgeBg": "#dbeafe",
+      "iconColor": "#0284c7"
+    },
+    {
+      "id": "therapies",
+      "type": "therapies",
+      "label": "Elektrofarez • Parafin • LFK",
+      "description": "Zamonaviy muolajalar",
+      "badgeBg": "#dcfce7",
+      "iconColor": "#16a34a"
+    },
+    {
+      "id": "education",
+      "type": "education",
+      "label": "Oliy ma'lumotli",
+      "description": "Massajist",
+      "badgeBg": "#fef9c3",
+      "iconColor": "#854d0e"
+    }
+  ],
+  "links": [
+    {
+      "id": "phone1",
+      "type": "phone",
+      "label": "Qo'ng'iroq qilish",
+      "description": "+998 99 721 99 39",
+      "url": "tel:+998997219939",
+      "pillColor": "pink"
+    },
+    {
+      "id": "phone2",
+      "type": "phone",
+      "label": "Qo'ng'iroq qilish",
+      "description": "+998 97 721 99 39",
+      "url": "tel:+998977219939",
+      "pillColor": "purple"
+    },
+    {
+      "id": "address",
+      "type": "location",
+      "label": "Manzil",
+      "description": "Yakkasaroy, Dajmbul 13",
+      "url": "https://maps.google.com/?q=Yakkasaroy,+Dajmbul+13,+Tashkent",
+      "pillColor": "pink"
+    },
+    {
+      "id": "telegram",
+      "type": "telegram",
+      "label": "Telegram kanalimizga qo'shiling",
+      "description": "Yangiliklar, foydali maslahatlar va aksiyalar",
+      "url": "https://t.me/babylandkomola",
+      "pillColor": "blue"
+    },
+    {
+      "id": "landmark",
+      "type": "landmark",
+      "label": "Orentir",
+      "description": "Salomatnina mahalla",
+      "url": "https://maps.google.com/?q=Yakkasaroy,+Dajmbul+13,+Tashkent",
+      "pillColor": "peach"
+    },
+    {
+      "id": "yandex",
+      "type": "yandexpin",
+      "label": "Yandeks adres",
+      "description": "Baby Lend_be comola",
+      "url": "https://yandex.com/maps/?text=Baby+Land+Komola+Tashkent",
+      "pillColor": "green"
+    }
+  ]
+}

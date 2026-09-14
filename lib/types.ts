@@ -24,7 +24,15 @@ export type LinkType =
   | "itinerary"
   | "looks"
   | "selfcare"
-  | "routine";
+  | "routine"
+  | "babymassage"
+  | "therapeutic"
+  | "corrective"
+  | "hydro"
+  | "therapies"
+  | "education"
+  | "landmark"
+  | "yandexpin";
 
 export type PillColor =
   | "pink"
@@ -84,6 +92,17 @@ export type SiteTheme = {
   buttonStyle?: "card" | "pill";
 };
 
+export type ServiceItem = {
+  id: string;
+  type: LinkType;
+  label: string;
+  description?: string;
+  /** Pastel circle background behind the icon */
+  badgeBg: string;
+  /** Icon color within the badge */
+  iconColor: string;
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -95,6 +114,12 @@ export type SiteConfig = {
   coverImageUrl?: string;
   /** Small photo strip (product shots, portfolio pieces, etc.) shown below the bio */
   gallery?: string[];
+  /**
+   * Plain informational rows (icon + title + subtitle, no pill background
+   * or link chevron) shown above the clickable links. For listing service
+   * categories, features, etc. that aren't individually clickable.
+   */
+  services?: ServiceItem[];
   theme?: SiteTheme;
   links: LinkItem[];
 };

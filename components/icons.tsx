@@ -19,6 +19,8 @@ import {
   SwatchIcon,
   SparklesIcon,
   ClipboardDocumentListIcon,
+  AcademicCapIcon,
+  StarIcon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
@@ -30,6 +32,91 @@ function CakeSliceIcon({ className }: IconProps) {
       <path d="M12 3 L20 18 H4 Z" />
       <rect x="7" y="13.4" width="10" height="1.6" rx="0.8" />
       <circle cx="12" cy="1.6" r="1.3" />
+    </svg>
+  );
+}
+
+function BabyFaceIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <circle cx="12" cy="13" r="8" />
+      <path
+        d="M9.5 3.2c.6-1 1.7-1.6 2.9-1.2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        fill="none"
+      />
+      <circle cx="9" cy="12" r="1.1" fill="#fff" />
+      <circle cx="15" cy="12" r="1.1" fill="#fff" />
+      <path
+        d="M9 16c.9.9 2 1.3 3 1.3s2.1-.4 3-1.3"
+        stroke="#fff"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+function LeafIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M19.5 4.5c-9 0-14 5-14 14 0 .6 0 1.1.1 1.6C15 19.5 19.5 14 19.5 4.5Z" />
+      <path
+        d="M6 19.5c3-3 6-6.5 10.5-13"
+        stroke="#fff"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+function CorrectiveIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <circle cx="12" cy="6.2" r="3" />
+      <path d="M6.5 20.5c0-4 2.5-7 5.5-7s5.5 3 5.5 7Z" />
+      <path
+        d="M8.3 12.6c-1 1-1.8 2.2-2.3 3.6M15.7 12.6c1 1 1.8 2.2 2.3 3.6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
+function WaveIcon({ className }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M2.5 9.5c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 4 1.4" />
+      <path d="M2.5 15.5c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 4 1.4" />
+    </svg>
+  );
+}
+
+function CloverIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <circle cx="9" cy="9" r="4" />
+      <circle cx="15" cy="9" r="4" />
+      <circle cx="9" cy="15" r="4" />
+      <circle cx="15" cy="15" r="4" />
+      <rect x="11" y="11" width="2" height="9" rx="1" transform="rotate(0 12 12)" />
     </svg>
   );
 }
@@ -76,11 +163,24 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   looks: SwatchIcon,
   selfcare: SparklesIcon,
   routine: ClipboardDocumentListIcon,
+  education: AcademicCapIcon,
+  landmark: StarIcon,
+  yandexpin: MapPinIcon,
+};
+
+const CUSTOM_ICONS: Partial<Record<LinkType, ComponentType<IconProps>>> = {
+  order: CakeSliceIcon,
+  babymassage: BabyFaceIcon,
+  therapeutic: LeafIcon,
+  corrective: CorrectiveIcon,
+  hydro: WaveIcon,
+  therapies: CloverIcon,
 };
 
 export function LinkIcon({ type, className }: { type: LinkType; className?: string }) {
-  if (type === "order") {
-    return <CakeSliceIcon className={className} />;
+  const Custom = CUSTOM_ICONS[type];
+  if (Custom) {
+    return <Custom className={className} />;
   }
   if (BRAND_PATHS[type]) {
     return <BrandIcon name={type} className={className} />;
