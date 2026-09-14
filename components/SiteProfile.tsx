@@ -307,10 +307,19 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                     className="linkhub-enter group flex w-full items-center gap-3 rounded-2xl bg-white/80 px-5 py-4 ring-1 ring-black/5 backdrop-blur transition-[transform,box-shadow] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 active:translate-y-0 active:scale-[0.98] active:duration-150 active:ease-[cubic-bezier(0.25,0.46,0.45,0.94)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
                     style={{ animationDelay: `${linksBaseDelay + index * 45}ms` }}
                   >
-                    <LinkIcon
-                      type={link.type}
-                      className="size-5 shrink-0 text-[var(--accent)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
-                    />
+                    {link.iconUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={link.iconUrl}
+                        alt=""
+                        className="size-5 shrink-0 object-contain transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+                      />
+                    ) : (
+                      <LinkIcon
+                        type={link.type}
+                        className="size-5 shrink-0 text-[var(--accent)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+                      />
+                    )}
                     <span className="font-medium">{link.label}</span>
                   </a>
                 );
@@ -335,10 +344,19 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   style={pillStyle}
                 >
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-                    <LinkIcon
-                      type={link.type}
-                      className="size-5 text-[var(--pill-text)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
-                    />
+                    {link.iconUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={link.iconUrl}
+                        alt=""
+                        className="size-6 object-contain transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+                      />
+                    ) : (
+                      <LinkIcon
+                        type={link.type}
+                        className="size-5 text-[var(--pill-text)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
+                      />
+                    )}
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block font-bold leading-tight">{link.label}</span>

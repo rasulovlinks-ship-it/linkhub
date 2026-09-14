@@ -25,6 +25,8 @@ export type LinkItem = {
   url: string;
   /** Explicit color for the "pill" button style; auto-cycled if omitted */
   pillColor?: PillColor;
+  /** Custom icon image (PNG/SVG/data URI) shown instead of the built-in vector icon */
+  iconUrl?: string;
 };
 
 export type SiteTheme = {
