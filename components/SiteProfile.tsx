@@ -308,7 +308,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                 <div
                   key={service.id}
                   className={`linkhub-enter flex items-center gap-1.5 rounded-2xl ${
-                    service.large ? "flex-[1.15] px-2.5 py-3" : "flex-1 px-2 py-2"
+                    service.large ? "flex-[1.2] px-2 py-3" : "flex-1 px-2 py-2"
                   }`}
                   style={{
                     backgroundColor: service.badgeBg,
@@ -317,7 +317,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                 >
                   <span
                     className={`flex shrink-0 items-center justify-center rounded-full bg-white/80 ${
-                      service.large ? "size-10" : "size-7"
+                      service.large ? "size-11" : "size-7"
                     }`}
                     style={{ color: service.iconColor }}
                   >
@@ -326,7 +326,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   <span className="min-w-0 flex-1" style={{ color: service.iconColor }}>
                     <span
                       className={`block leading-tight font-bold text-balance ${
-                        service.large ? "text-base" : "text-xs"
+                        service.large ? "text-lg" : "text-xs"
                       }`}
                     >
                       {service.label}
@@ -334,7 +334,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                     {service.description && (
                       <span
                         className={`block leading-tight opacity-80 text-balance ${
-                          service.large ? "text-xs" : "text-[11px]"
+                          service.large ? "text-sm" : "text-[11px]"
                         }`}
                       >
                         {service.description}
