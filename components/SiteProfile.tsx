@@ -583,14 +583,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                         className="relative aspect-[4/3] w-full"
                         style={{ backgroundColor: card.badgeBg }}
                       >
-                        {card.cloudLeftUrl && card.cloudRightUrl ? (
-                          <CloudReveal
-                            cloudLeftUrl={card.cloudLeftUrl}
-                            cloudRightUrl={card.cloudRightUrl}
-                            className="h-full w-full"
-                          >
-                            {photo}
-                          </CloudReveal>
+                        {site.serviceCardsCloudCover ? (
+                          <CloudReveal className="h-full w-full">{photo}</CloudReveal>
                         ) : (
                           photo
                         )}

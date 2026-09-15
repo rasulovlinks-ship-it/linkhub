@@ -114,13 +114,6 @@ export type ServiceCard = {
   description?: string;
   /** Photo shown at the top of the card; falls back to a solid tint of badgeBg when omitted */
   photoUrl?: string;
-  /**
-   * When set (together with cloudRightUrl), the photo starts hidden behind
-   * two cloud "doors" that part left/right the first time it scrolls into
-   * view, revealing the photo underneath.
-   */
-  cloudLeftUrl?: string;
-  cloudRightUrl?: string;
   /** Icon badge background, and the placeholder tint when photoUrl is missing */
   badgeBg: string;
   iconColor: string;
@@ -166,6 +159,12 @@ export type SiteConfig = {
    * are used, cycling through fixed slots if fewer are given.
    */
   serviceCardsPuffUrls?: string[];
+  /**
+   * When true, each service card's photo starts hidden behind 4 flat
+   * cartoon cloud pieces (one per corner) that part outward the first
+   * time it scrolls into view, revealing the photo underneath.
+   */
+  serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
   theme?: SiteTheme;
   links: LinkItem[];

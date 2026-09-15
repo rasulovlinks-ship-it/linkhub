@@ -51,6 +51,7 @@
     "/sites/babyland/puffs/left3.webp",
     "/sites/babyland/puffs/right3.webp"
   ],
+  "serviceCardsCloudCover": true,
   "serviceCards": [
     {
       "id": "hydro",
@@ -58,8 +59,6 @@
       "label": "Gidro massaj",
       "description": "Suv bilan sog'lomlashtiruvchi",
       "photoUrl": "/sites/babyland/cards/hydro.webp",
-      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
-      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#dbeafe",
       "iconColor": "#0284c7"
     },
@@ -69,8 +68,6 @@
       "label": "Bolajonlar massaji",
       "description": "0-12 yoshgacha",
       "photoUrl": "/sites/babyland/cards/babymassage.webp",
-      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
-      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#fbdce7",
       "iconColor": "#db2777"
     },
@@ -80,8 +77,6 @@
       "label": "Korreksiyalovchi massaj",
       "description": "To'g'ri rivojlanish uchun",
       "photoUrl": "/sites/babyland/cards/corrective.webp",
-      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
-      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#ede9fe",
       "iconColor": "#7c3aed"
     },
@@ -91,8 +86,6 @@
       "label": "Davolovchi massajlar",
       "description": "Sog'liq uchun",
       "photoUrl": "/sites/babyland/cards/therapeutic.webp",
-      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
-      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#dcfce7",
       "iconColor": "#16a34a"
     },
@@ -102,8 +95,6 @@
       "label": "Elektrofarez • Parafin • LFK",
       "description": "Zamonaviy muolajalar",
       "photoUrl": "/sites/babyland/cards/therapies.webp",
-      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
-      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#fdf6d8",
       "iconColor": "#65a30d"
     },
@@ -113,8 +104,6 @@
       "label": "Oliy ma'lumotli",
       "description": "Massajist",
       "photoUrl": "/sites/babyland/cards/education2.webp",
-      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
-      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#fef9c3",
       "iconColor": "#854d0e"
     }
