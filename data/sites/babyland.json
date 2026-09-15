@@ -84,7 +84,7 @@
       "type": "location",
       "label": "Manzil",
       "description": "Yakkasaroy, Dajmbul 13",
-      "url": "https://maps.google.com/?q=Yakkasaroy,+Dajmbul+13,+Tashkent",
+      "url": "https://yandex.uz/maps/org/baby_land_be_komola/198667062235/?ll=69.236806%2C41.273793&z=17",
       "pillColor": "pink"
     },
     {
@@ -94,21 +94,6 @@
       "description": "Yangiliklar, foydali maslahatlar va aksiyalar",
       "url": "https://t.me/baby_gidro_massaj",
       "pillColor": "blue"
-    },
-    {
-      "id": "landmark",
-      "type": "landmark",
-      "label": "Orentir",
-      "description": "Salomatnina mahalla",
-      "url": "https://maps.google.com/?q=Yakkasaroy,+Dajmbul+13,+Tashkent",
-      "pillColor": "peach"
-    },
-    {
-      "id": "yandex",
-      "type": "yandexpin",
-      "label": "Yandeks adres",
-      "url": "https://yandex.uz/maps/org/baby_land_be_komola/198667062235/?ll=69.236806%2C41.273793&z=17",
-      "pillColor": "green"
     }
   ]
 }
