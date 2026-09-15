@@ -44,12 +44,14 @@
   "serviceCardsSubtitle": "Sog'lom bolalik — baxtli kelajak!",
   "serviceCardsBackgroundUrl": "/sites/babyland/clouds.webp",
   "serviceCardsPuffUrls": [
+    "/sites/babyland/puffs/top-left.webp",
+    "/sites/babyland/puffs/top-right.webp",
+    "/sites/babyland/puffs/bottom-left.webp",
+    "/sites/babyland/puffs/bottom-right.webp",
     "/sites/babyland/puffs/left1.webp",
     "/sites/babyland/puffs/right1.webp",
     "/sites/babyland/puffs/left2.webp",
-    "/sites/babyland/puffs/right2.webp",
-    "/sites/babyland/puffs/left3.webp",
-    "/sites/babyland/puffs/right3.webp"
+    "/sites/babyland/puffs/right2.webp"
   ],
   "serviceCardsCloudCover": true,
   "serviceCards": [

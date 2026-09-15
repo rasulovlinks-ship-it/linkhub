@@ -78,6 +78,8 @@ const PUFF_SLOTS: PuffSlot[] = [
   { style: { top: "48%", right: "0%", ["--dx" as string]: "-4%", ["--dy" as string]: "3%", animationDuration: "24s", animationDelay: "2.2s" }, widthClass: "w-[32%]" },
   { style: { bottom: "2%", left: "0%", ["--dx" as string]: "3%", ["--dy" as string]: "3%", animationDuration: "17s", animationDelay: "0.4s" }, widthClass: "w-[26%]" },
   { style: { bottom: "4%", right: "0%", ["--dx" as string]: "-3%", ["--dy" as string]: "-3%", animationDuration: "21s", animationDelay: "1.1s" }, widthClass: "w-[24%]" },
+  { style: { top: "18%", left: "30%", ["--dx" as string]: "-3%", ["--dy" as string]: "3%", animationDuration: "23s", animationDelay: "1.8s" }, widthClass: "w-[22%]" },
+  { style: { bottom: "16%", right: "26%", ["--dx" as string]: "3%", ["--dy" as string]: "-3%", animationDuration: "20s", animationDelay: "0.6s" }, widthClass: "w-[20%]" },
 ];
 
 /** Extra floating cloud-puff cutouts, layered above the panel background and its text for depth. */
