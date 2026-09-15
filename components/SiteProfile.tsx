@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { PillColor, SiteConfig } from "@/lib/types";
 import { LinkIcon } from "./icons";
+import ScrollReveal from "./ScrollReveal";
 
 const PILL_COLORS: Record<PillColor, { bg: string; text: string; badgeBg?: string }> = {
   pink: { bg: "#fbd5e3", text: "#9d174d" },
@@ -523,12 +524,10 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
 
               <div className="relative mt-5 flex flex-col gap-6">
                 {serviceCards.map((card, index) => (
-                  <div
+                  <ScrollReveal
                     key={card.id}
+                    direction={index % 2 === 0 ? "left" : "right"}
                     className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
-                    style={{
-                      animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + index * 60}ms`,
-                    }}
                   >
                     <div
                       className="relative aspect-[4/3] w-full"
@@ -557,7 +556,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                         <div className="mt-0.5 text-sm opacity-70">{card.description}</div>
                       )}
                     </div>
-                  </div>
+                  </ScrollReveal>
                 ))}
               </div>
             </div>

@@ -91,3 +91,25 @@ body {
     opacity: 0.6;
   }
 }
+
+.linkhub-scroll-hidden {
+  opacity: 0;
+  transform: translateX(var(--reveal-x, 72px));
+  transition:
+    opacity 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.linkhub-scroll-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkhub-scroll-hidden,
+  .linkhub-scroll-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

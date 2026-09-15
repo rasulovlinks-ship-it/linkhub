@@ -49,6 +49,7 @@
       "type": "hydro",
       "label": "Gidro massaj",
       "description": "Suv bilan sog'lomlashtiruvchi",
+      "photoUrl": "/sites/babyland/cards/hydro.webp",
       "badgeBg": "#dbeafe",
       "iconColor": "#0284c7"
     },
@@ -57,6 +58,7 @@
       "type": "babymassage",
       "label": "Bolajonlar massaji",
       "description": "0-12 yoshgacha",
+      "photoUrl": "/sites/babyland/cards/babymassage.webp",
       "badgeBg": "#fbdce7",
       "iconColor": "#db2777"
     },
@@ -73,6 +75,7 @@
       "type": "therapeutic",
       "label": "Davolovchi massajlar",
       "description": "Sog'liq uchun",
+      "photoUrl": "/sites/babyland/cards/therapeutic.webp",
       "badgeBg": "#dcfce7",
       "iconColor": "#16a34a"
     },
