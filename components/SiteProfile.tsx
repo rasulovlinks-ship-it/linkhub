@@ -32,6 +32,38 @@ function ChevronRightIcon({ className }: { className?: string }) {
   );
 }
 
+function HeartGlyph({ className, style }: { className?: string; style?: CSSProperties }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" aria-hidden="true">
+      <path d="M12 21s-7.5-4.35-9.5-8.5C1 9 2.5 5.5 6 5c2-.3 3.5.7 4.5 2 1-1.3 2.5-2.3 4.5-2 3.5.5 5 4 3.5 7.5C16.5 16.65 12 21 12 21Z" />
+    </svg>
+  );
+}
+
+function StarGlyph({ className, style }: { className?: string; style?: CSSProperties }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor" aria-hidden="true">
+      <path d="M12 2 L14.6 9 L22 9.6 L16.4 14.3 L18.2 21.6 L12 17.6 L5.8 21.6 L7.6 14.3 L2 9.6 L9.4 9 Z" />
+    </svg>
+  );
+}
+
+/** Soft cotton-candy cloud puffs + scattered heart/star accents for the photo-card panel. */
+function CloudDecoration() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute -top-12 -left-10 h-40 w-40 rounded-full bg-white/40 blur-2xl" />
+      <div className="absolute -top-6 right-4 h-32 w-32 rounded-full bg-white/35 blur-2xl" />
+      <div className="absolute bottom-8 -left-6 h-32 w-32 rounded-full bg-white/30 blur-2xl" />
+      <div className="absolute right-0 bottom-1/3 h-28 w-28 rounded-full bg-white/30 blur-2xl" />
+      <HeartGlyph className="absolute top-8 right-10 size-4" style={{ color: "#f472b6", opacity: 0.8 }} />
+      <HeartGlyph className="absolute bottom-16 left-6 size-3.5" style={{ color: "#e879f9", opacity: 0.6 }} />
+      <StarGlyph className="absolute top-24 left-4 size-3" style={{ color: "#fbbf24", opacity: 0.8 }} />
+      <StarGlyph className="absolute right-6 bottom-6 size-3.5" style={{ color: "#fbbf24", opacity: 0.7 }} />
+    </div>
+  );
+}
+
 type SprinkleKind = "cake" | "candle" | "confetti-square" | "confetti-circle" | "sparkle";
 
 const SPRINKLE_PATHS: Record<SprinkleKind, ReactNode> = {
@@ -201,6 +233,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const gallery = site.gallery ?? [];
   const services = site.services ?? [];
   const servicesRow = site.servicesLayout === "row";
+  const serviceCards = site.serviceCards ?? [];
   const pillButtons = theme.buttonStyle === "pill";
 
   const rootStyle = {
@@ -453,9 +486,88 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             })}
           </div>
 
+          {serviceCards.length > 0 && (
+            <div
+              className="linkhub-enter isolate relative mt-9 w-full overflow-hidden rounded-[2rem] p-5"
+              style={{
+                background: site.serviceCardsBackgroundUrl
+                  ? undefined
+                  : "linear-gradient(180deg,#fbcfe8 0%,#f0d9fb 100%)",
+                animationDelay: `${linksBaseDelay + site.links.length * 45 + 60}ms`,
+              }}
+            >
+              {site.serviceCardsBackgroundUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={site.serviceCardsBackgroundUrl}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 -z-10 h-full w-full object-cover"
+                />
+              ) : (
+                <CloudDecoration />
+              )}
+              <div className="relative text-center">
+                <h2
+                  className="text-4xl leading-tight"
+                  style={{ fontFamily: "var(--font-script)", color: "#7c3aed" }}
+                >
+                  {site.serviceCardsTitle ?? "Bizning xizmatlarimiz"}
+                </h2>
+                {site.serviceCardsSubtitle && (
+                  <p className="mt-1 text-sm font-medium" style={{ color: "#6b21a8" }}>
+                    {site.serviceCardsSubtitle}
+                  </p>
+                )}
+              </div>
+
+              <div className="relative mt-5 flex flex-col gap-6">
+                {serviceCards.map((card, index) => (
+                  <div
+                    key={card.id}
+                    className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
+                    style={{
+                      animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + index * 60}ms`,
+                    }}
+                  >
+                    <div
+                      className="relative aspect-[4/3] w-full"
+                      style={{ backgroundColor: card.badgeBg }}
+                    >
+                      {card.photoUrl && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={card.photoUrl}
+                          alt=""
+                          className="h-full w-full object-cover"
+                        />
+                      )}
+                      <span
+                        className="absolute bottom-0 left-1/2 flex size-14 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md ring-4 ring-white"
+                        style={{ color: card.iconColor }}
+                      >
+                        <LinkIcon type={card.type} className="size-7" />
+                      </span>
+                    </div>
+                    <div className="px-4 pt-9 pb-5 text-center">
+                      <div className="font-bold" style={{ color: textColor }}>
+                        {card.label}
+                      </div>
+                      {card.description && (
+                        <div className="mt-0.5 text-sm opacity-70">{card.description}</div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <footer
             className="linkhub-enter mt-10 text-xs text-zinc-500 opacity-70"
-            style={{ animationDelay: `${linksBaseDelay + site.links.length * 45 + 50}ms` }}
+            style={{
+              animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + serviceCards.length * 60 + 40}ms`,
+            }}
           >
             Сделано на <span className="font-semibold">LinkHub.uz</span>
           </footer>

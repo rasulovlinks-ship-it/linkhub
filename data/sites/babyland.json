@@ -40,6 +40,59 @@
       "iconColor": "#7c3aed"
     }
   ],
+  "serviceCardsTitle": "Bizning xizmatlarimiz",
+  "serviceCardsSubtitle": "Sog'lom bolalik — baxtli kelajak!",
+  "serviceCardsBackgroundUrl": "/sites/babyland/clouds.webp",
+  "serviceCards": [
+    {
+      "id": "hydro",
+      "type": "hydro",
+      "label": "Gidro massaj",
+      "description": "Suv bilan sog'lomlashtiruvchi",
+      "badgeBg": "#dbeafe",
+      "iconColor": "#0284c7"
+    },
+    {
+      "id": "babymassage",
+      "type": "babymassage",
+      "label": "Bolajonlar massaji",
+      "description": "0-12 yoshgacha",
+      "badgeBg": "#fbdce7",
+      "iconColor": "#db2777"
+    },
+    {
+      "id": "corrective",
+      "type": "corrective",
+      "label": "Korreksiyalovchi massaj",
+      "description": "To'g'ri rivojlanish uchun",
+      "badgeBg": "#ede9fe",
+      "iconColor": "#7c3aed"
+    },
+    {
+      "id": "therapeutic",
+      "type": "therapeutic",
+      "label": "Davolovchi massajlar",
+      "description": "Sog'liq uchun",
+      "badgeBg": "#dcfce7",
+      "iconColor": "#16a34a"
+    },
+    {
+      "id": "therapies",
+      "type": "therapies",
+      "label": "Elektrofarez • Parafin • LFK",
+      "description": "Zamonaviy muolajalar",
+      "badgeBg": "#fdf6d8",
+      "iconColor": "#65a30d"
+    },
+    {
+      "id": "education2",
+      "type": "education",
+      "label": "Oliy ma'lumotli",
+      "description": "Massajist",
+      "badgeBg": "#fef9c3",
+      "iconColor": "#854d0e"
+    }
+  ],
   "links": [
     {
       "id": "phone1",

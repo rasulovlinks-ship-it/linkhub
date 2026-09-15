@@ -107,6 +107,18 @@ export type ServiceItem = {
   large?: boolean;
 };
 
+export type ServiceCard = {
+  id: string;
+  type: LinkType;
+  label: string;
+  description?: string;
+  /** Photo shown at the top of the card; falls back to a solid tint of badgeBg when omitted */
+  photoUrl?: string;
+  /** Icon badge background, and the placeholder tint when photoUrl is missing */
+  badgeBg: string;
+  iconColor: string;
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -130,6 +142,17 @@ export type SiteConfig = {
    * or credentials (e.g. "100+ students").
    */
   servicesLayout?: "list" | "row";
+  /**
+   * Standalone section rendered at the very bottom of the page (after the
+   * links), on its own pastel "cloud" card background with a script-font
+   * heading: a vertical stack of photo cards, each with an icon badge
+   * overlapping the photo's bottom edge.
+   */
+  serviceCardsTitle?: string;
+  serviceCardsSubtitle?: string;
+  /** Decorative background photo for the section panel; falls back to a plain pink gradient */
+  serviceCardsBackgroundUrl?: string;
+  serviceCards?: ServiceCard[];
   theme?: SiteTheme;
   links: LinkItem[];
 };
