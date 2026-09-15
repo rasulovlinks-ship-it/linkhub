@@ -225,7 +225,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const linksBaseDelay = delay;
 
   return (
-    <main className="isolate relative min-h-screen w-full overflow-hidden" style={rootStyle}>
+    <main className="isolate relative min-h-dvh w-full overflow-hidden" style={rootStyle}>
       {backgroundImageUrl ? (
         <PageBackgroundPhoto src={backgroundImageUrl} wash={background} />
       ) : (
