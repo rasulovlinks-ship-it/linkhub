@@ -114,6 +114,13 @@ export type ServiceCard = {
   description?: string;
   /** Photo shown at the top of the card; falls back to a solid tint of badgeBg when omitted */
   photoUrl?: string;
+  /**
+   * When set (together with cloudRightUrl), the photo starts hidden behind
+   * two cloud "doors" that part left/right the first time it scrolls into
+   * view, revealing the photo underneath.
+   */
+  cloudLeftUrl?: string;
+  cloudRightUrl?: string;
   /** Icon badge background, and the placeholder tint when photoUrl is missing */
   badgeBg: string;
   iconColor: string;

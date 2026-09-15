@@ -50,6 +50,8 @@
       "label": "Gidro massaj",
       "description": "Suv bilan sog'lomlashtiruvchi",
       "photoUrl": "/sites/babyland/cards/hydro.webp",
+      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
+      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#dbeafe",
       "iconColor": "#0284c7"
     },
@@ -59,6 +61,8 @@
       "label": "Bolajonlar massaji",
       "description": "0-12 yoshgacha",
       "photoUrl": "/sites/babyland/cards/babymassage.webp",
+      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
+      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#fbdce7",
       "iconColor": "#db2777"
     },
@@ -67,6 +71,8 @@
       "type": "corrective",
       "label": "Korreksiyalovchi massaj",
       "description": "To'g'ri rivojlanish uchun",
+      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
+      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#ede9fe",
       "iconColor": "#7c3aed"
     },
@@ -76,6 +82,8 @@
       "label": "Davolovchi massajlar",
       "description": "Sog'liq uchun",
       "photoUrl": "/sites/babyland/cards/therapeutic.webp",
+      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
+      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#dcfce7",
       "iconColor": "#16a34a"
     },
@@ -84,6 +92,8 @@
       "type": "therapies",
       "label": "Elektrofarez • Parafin • LFK",
       "description": "Zamonaviy muolajalar",
+      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
+      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#fdf6d8",
       "iconColor": "#65a30d"
     },
@@ -92,6 +102,8 @@
       "type": "education",
       "label": "Oliy ma'lumotli",
       "description": "Massajist",
+      "cloudLeftUrl": "/sites/babyland/cloud-left.webp",
+      "cloudRightUrl": "/sites/babyland/cloud-right.webp",
       "badgeBg": "#fef9c3",
       "iconColor": "#854d0e"
     }

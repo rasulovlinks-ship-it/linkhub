@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { PillColor, SiteConfig } from "@/lib/types";
 import { LinkIcon } from "./icons";
-import ScrollReveal from "./ScrollReveal";
+import CloudReveal from "./CloudReveal";
 
 const PILL_COLORS: Record<PillColor, { bg: string; text: string; badgeBg?: string }> = {
   pink: { bg: "#fbd5e3", text: "#9d174d" },
@@ -523,16 +523,9 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
               </div>
 
               <div className="relative mt-5 flex flex-col gap-6">
-                {serviceCards.map((card, index) => (
-                  <ScrollReveal
-                    key={card.id}
-                    direction={index % 2 === 0 ? "left" : "right"}
-                    className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
-                  >
-                    <div
-                      className="relative aspect-[4/3] w-full"
-                      style={{ backgroundColor: card.badgeBg }}
-                    >
+                {serviceCards.map((card) => {
+                  const photo = (
+                    <>
                       {card.photoUrl && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -541,23 +534,46 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                           className="h-full w-full object-cover"
                         />
                       )}
-                      <span
-                        className="absolute bottom-0 left-1/2 flex size-14 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md ring-4 ring-white"
-                        style={{ color: card.iconColor }}
+                    </>
+                  );
+                  return (
+                    <div
+                      key={card.id}
+                      className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
+                    >
+                      <div
+                        className="relative aspect-[4/3] w-full"
+                        style={{ backgroundColor: card.badgeBg }}
                       >
-                        <LinkIcon type={card.type} className="size-7" />
-                      </span>
-                    </div>
-                    <div className="px-4 pt-9 pb-5 text-center">
-                      <div className="font-bold" style={{ color: textColor }}>
-                        {card.label}
+                        {card.cloudLeftUrl && card.cloudRightUrl ? (
+                          <CloudReveal
+                            cloudLeftUrl={card.cloudLeftUrl}
+                            cloudRightUrl={card.cloudRightUrl}
+                            className="h-full w-full"
+                          >
+                            {photo}
+                          </CloudReveal>
+                        ) : (
+                          photo
+                        )}
+                        <span
+                          className="absolute bottom-0 left-1/2 z-10 flex size-14 -translate-x-1/2 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md ring-4 ring-white"
+                          style={{ color: card.iconColor }}
+                        >
+                          <LinkIcon type={card.type} className="size-7" />
+                        </span>
                       </div>
-                      {card.description && (
-                        <div className="mt-0.5 text-sm opacity-70">{card.description}</div>
-                      )}
+                      <div className="px-4 pt-9 pb-5 text-center">
+                        <div className="font-bold" style={{ color: textColor }}>
+                          {card.label}
+                        </div>
+                        {card.description && (
+                          <div className="mt-0.5 text-sm opacity-70">{card.description}</div>
+                        )}
+                      </div>
                     </div>
-                  </ScrollReveal>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
