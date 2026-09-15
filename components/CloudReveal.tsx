@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
 /**
- * Wraps a photo so it starts fully hidden behind two cloud "doors" and
- * parts them left/right the first time it scrolls into view, revealing
- * the photo underneath.
+ * Wraps a photo with two cloud "doors" sitting on top of it. The photo
+ * starts fully hidden behind them, and as the user scrolls the card up
+ * through the viewport the doors continuously slide left/right in step
+ * with the scroll position, parting to reveal the photo underneath.
  */
 export default function CloudReveal({
   cloudLeftUrl,
@@ -20,35 +21,61 @@ export default function CloudReveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [open, setOpen] = useState(false);
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setOpen(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.35, rootMargin: "0px 0px -15% 0px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
+    const leftDoor = leftRef.current;
+    const rightDoor = rightRef.current;
+    if (!el || !leftDoor || !rightDoor) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      leftDoor.style.transform = "translateX(-105%)";
+      rightDoor.style.transform = "translateX(105%)";
+      return;
+    }
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      // 0 = card just entering the bottom of the viewport (fully closed),
+      // 1 = card top has scrolled ~65% of the viewport height up (fully open).
+      const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.65)));
+      leftDoor.style.transform = `translateX(${-105 * progress}%)`;
+      rightDoor.style.transform = `translateX(${105 * progress}%)`;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {children}
       <div
+        ref={leftRef}
         aria-hidden="true"
-        className={`linkhub-cloud-door linkhub-cloud-door-left ${open ? "linkhub-cloud-door-open" : ""}`}
+        className="linkhub-cloud-door linkhub-cloud-door-left"
         style={{ backgroundImage: `url(${cloudLeftUrl})` }}
       />
       <div
+        ref={rightRef}
         aria-hidden="true"
-        className={`linkhub-cloud-door linkhub-cloud-door-right ${open ? "linkhub-cloud-door-open" : ""}`}
+        className="linkhub-cloud-door linkhub-cloud-door-right"
         style={{ backgroundImage: `url(${cloudRightUrl})` }}
       />
     </div>
