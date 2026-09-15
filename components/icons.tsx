@@ -21,6 +21,8 @@ import {
   ClipboardDocumentListIcon,
   AcademicCapIcon,
   StarIcon,
+  UserGroupIcon,
+  TrophyIcon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
@@ -166,6 +168,8 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   education: AcademicCapIcon,
   landmark: StarIcon,
   yandexpin: MapPinIcon,
+  students: UserGroupIcon,
+  impact: TrophyIcon,
 };
 
 const CUSTOM_ICONS: Partial<Record<LinkType, ComponentType<IconProps>>> = {

@@ -32,7 +32,9 @@ export type LinkType =
   | "therapies"
   | "education"
   | "landmark"
-  | "yandexpin";
+  | "yandexpin"
+  | "students"
+  | "impact";
 
 export type PillColor =
   | "pink"
@@ -120,6 +122,12 @@ export type SiteConfig = {
    * categories, features, etc. that aren't individually clickable.
    */
   services?: ServiceItem[];
+  /**
+   * "list" (default): full-width stacked rows.
+   * "row": compact equal-width pill chips side by side, for short stats
+   * or credentials (e.g. "100+ students").
+   */
+  servicesLayout?: "list" | "row";
   theme?: SiteTheme;
   links: LinkItem[];
 };

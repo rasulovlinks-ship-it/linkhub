@@ -200,6 +200,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const avatarNeedsRing = hasCover || Boolean(backgroundImageUrl);
   const gallery = site.gallery ?? [];
   const services = site.services ?? [];
+  const servicesRow = site.servicesLayout === "row";
   const pillButtons = theme.buttonStyle === "pill";
 
   const rootStyle = {
@@ -301,7 +302,39 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             </div>
           )}
 
-          {services.length > 0 && (
+          {services.length > 0 && servicesRow && (
+            <div className="mt-7 grid w-full grid-cols-3 gap-2">
+              {services.map((service, index) => (
+                <div
+                  key={service.id}
+                  className="linkhub-enter flex items-center gap-1.5 rounded-2xl px-2 py-2"
+                  style={{
+                    backgroundColor: service.badgeBg,
+                    animationDelay: `${servicesBaseDelay + index * 40}ms`,
+                  }}
+                >
+                  <span
+                    className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/80"
+                    style={{ color: service.iconColor }}
+                  >
+                    <LinkIcon type={service.type} className="size-3.5" />
+                  </span>
+                  <span className="min-w-0 flex-1" style={{ color: service.iconColor }}>
+                    <span className="block text-xs leading-tight font-bold text-balance">
+                      {service.label}
+                    </span>
+                    {service.description && (
+                      <span className="block text-[11px] leading-tight opacity-80 text-balance">
+                        {service.description}
+                      </span>
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {services.length > 0 && !servicesRow && (
             <div className="mt-7 flex w-full flex-col gap-4 rounded-3xl bg-white/75 p-4 shadow-sm ring-1 ring-black/5 backdrop-blur-sm">
               {services.map((service, index) => (
                 <div
