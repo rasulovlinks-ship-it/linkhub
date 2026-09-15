@@ -3,38 +3,25 @@
 import { useEffect, useRef } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-const CLOUD_PATH =
-  "M30,140 C10,140 0,115 15,100 C0,85 10,60 35,60 C35,35 60,15 90,25 C100,5 135,0 155,20 C175,0 210,5 215,30 C245,25 265,50 250,70 C270,85 265,115 240,120 C245,140 220,150 195,140 Z";
-
-function CloudShape({ className, style }: { className?: string; style?: CSSProperties }) {
-  return (
-    <svg viewBox="0 0 270 150" preserveAspectRatio="none" className={className} style={style} aria-hidden="true">
-      <path d={CLOUD_PATH} fill="#fbcfe8" stroke="#be185d" strokeWidth="4" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-type Corner = "tl" | "tr" | "bl" | "br";
-
-const CORNERS: {
-  corner: Corner;
+type Piece = {
+  key: string;
+  src: string;
   wrapperStyle: CSSProperties;
-  flip: string;
-  outX: number;
   outY: number;
-}[] = [
-  { corner: "tl", wrapperStyle: { top: "-10%", left: "-8%" }, flip: "", outX: -55, outY: -55 },
-  { corner: "tr", wrapperStyle: { top: "-10%", right: "-8%" }, flip: "scaleX(-1)", outX: 55, outY: -55 },
-  { corner: "bl", wrapperStyle: { bottom: "-10%", left: "-8%" }, flip: "scaleY(-1)", outX: -55, outY: 55 },
-  { corner: "br", wrapperStyle: { bottom: "-10%", right: "-8%" }, flip: "scale(-1,-1)", outX: 55, outY: 55 },
+};
+
+const PIECES: Piece[] = [
+  { key: "top", src: "/sites/babyland/puffs/door-top.webp", wrapperStyle: { top: "-8%", left: 0, width: "100%", height: "58%" }, outY: -102 },
+  { key: "bottom", src: "/sites/babyland/puffs/door-bottom.webp", wrapperStyle: { bottom: "-8%", left: 0, width: "100%", height: "58%" }, outY: 102 },
 ];
 
 /**
- * Wraps a photo with 4 flat cartoon cloud pieces sitting on top of it,
- * one per corner, sized and overlapped so together they fully cover the
+ * Wraps a photo with 2 cloud-band pieces (cropped from the client's own
+ * cloud artwork) sitting on top of it, one covering the top, one the
+ * bottom, overlapping in the middle so together they fully cover the
  * photo at rest. As the user scrolls the card up through the viewport,
- * each piece continuously slides out toward its own corner in step with
- * the scroll position, parting to reveal the photo underneath.
+ * each piece continuously slides out (up/down) in step with the scroll
+ * position, parting to reveal the photo underneath.
  */
 export default function CloudReveal({
   children,
@@ -52,8 +39,8 @@ export default function CloudReveal({
     if (!el || pieces.some((p) => !p)) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      CORNERS.forEach((c, i) => {
-        pieces[i]!.style.transform = `translate(${c.outX}%, ${c.outY}%)`;
+      PIECES.forEach((p, i) => {
+        pieces[i]!.style.transform = `translateY(${p.outY}%)`;
       });
       return;
     }
@@ -66,8 +53,8 @@ export default function CloudReveal({
       // 0 = card just entering the bottom of the viewport (fully closed),
       // 1 = card top has scrolled ~65% of the viewport height up (fully open).
       const progress = Math.min(1, Math.max(0, (vh - rect.top) / (vh * 0.65)));
-      CORNERS.forEach((c, i) => {
-        pieces[i]!.style.transform = `translate(${c.outX * progress}%, ${c.outY * progress}%)`;
+      PIECES.forEach((p, i) => {
+        pieces[i]!.style.transform = `translateY(${p.outY * progress}%)`;
       });
     };
     const onScroll = () => {
@@ -89,17 +76,18 @@ export default function CloudReveal({
   return (
     <div ref={ref} className={`relative overflow-hidden ${className}`}>
       {children}
-      {CORNERS.map((c, i) => (
+      {PIECES.map((p, i) => (
         <div
-          key={c.corner}
+          key={p.key}
           ref={(node) => {
             pieceRefs.current[i] = node;
           }}
           aria-hidden="true"
-          className="absolute z-10 h-[65%] w-[65%]"
-          style={c.wrapperStyle}
+          className="absolute z-10 overflow-hidden"
+          style={p.wrapperStyle}
         >
-          <CloudShape className="h-full w-full" style={{ transform: c.flip }} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={p.src} alt="" className="h-full w-full object-cover" />
         </div>
       ))}
     </div>
