@@ -159,6 +159,13 @@ export type SiteConfig = {
   serviceCardsSubtitle?: string;
   /** Decorative background photo for the section panel; falls back to a plain pink gradient */
   serviceCardsBackgroundUrl?: string;
+  /**
+   * Extra floating cloud-puff cutouts (transparent PNG/WEBP) scattered at
+   * fixed positions/sizes around the section panel, layered above the
+   * background but behind the heading and cards, for extra depth. Up to 6
+   * are used, cycling through fixed slots if fewer are given.
+   */
+  serviceCardsPuffUrls?: string[];
   serviceCards?: ServiceCard[];
   theme?: SiteTheme;
   links: LinkItem[];

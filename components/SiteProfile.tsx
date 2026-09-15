@@ -65,6 +65,42 @@ function CloudDecoration() {
   );
 }
 
+type PuffSlot = {
+  style: CSSProperties;
+  widthClass: string;
+};
+
+/** Fixed (not random) so server and client render identical markup. */
+const PUFF_SLOTS: PuffSlot[] = [
+  { style: { top: "0%", left: "-6%", ["--dx" as string]: "3%", ["--dy" as string]: "-3%", animationDuration: "22s" }, widthClass: "w-[44%]" },
+  { style: { top: "0%", right: "-6%", ["--dx" as string]: "-3%", ["--dy" as string]: "4%", animationDuration: "26s", animationDelay: "1.5s" }, widthClass: "w-[40%]" },
+  { style: { top: "34%", left: "0%", ["--dx" as string]: "4%", ["--dy" as string]: "-2%", animationDuration: "19s", animationDelay: "0.8s" }, widthClass: "w-[36%]" },
+  { style: { top: "48%", right: "0%", ["--dx" as string]: "-4%", ["--dy" as string]: "3%", animationDuration: "24s", animationDelay: "2.2s" }, widthClass: "w-[32%]" },
+  { style: { bottom: "2%", left: "0%", ["--dx" as string]: "3%", ["--dy" as string]: "3%", animationDuration: "17s", animationDelay: "0.4s" }, widthClass: "w-[26%]" },
+  { style: { bottom: "4%", right: "0%", ["--dx" as string]: "-3%", ["--dy" as string]: "-3%", animationDuration: "21s", animationDelay: "1.1s" }, widthClass: "w-[24%]" },
+];
+
+/** Extra floating cloud-puff cutouts, layered above the panel background and its text for depth. */
+function CloudPuffs({ urls }: { urls: string[] }) {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      {PUFF_SLOTS.map((slot, index) => {
+        const url = urls[index % urls.length];
+        return (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={index}
+            src={url}
+            alt=""
+            className={`linkhub-blob absolute z-10 ${slot.widthClass} select-none`}
+            style={{ ...slot.style, filter: "drop-shadow(0 10px 18px rgba(124,58,237,0.3))" }}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
 type SprinkleKind = "cake" | "candle" | "confetti-square" | "confetti-circle" | "sparkle";
 
 const SPRINKLE_PATHS: Record<SprinkleKind, ReactNode> = {
@@ -235,6 +271,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const services = site.services ?? [];
   const servicesRow = site.servicesLayout === "row";
   const serviceCards = site.serviceCards ?? [];
+  const puffUrls = site.serviceCardsPuffUrls ?? [];
   const pillButtons = theme.buttonStyle === "pill";
 
   const rootStyle = {
@@ -508,6 +545,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
               ) : (
                 <CloudDecoration />
               )}
+              {puffUrls.length > 0 && <CloudPuffs urls={puffUrls} />}
               <div className="relative text-center">
                 <h2
                   className="text-4xl leading-tight"
