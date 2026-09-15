@@ -92,7 +92,7 @@
       "type": "telegram",
       "label": "Telegram kanalimizga qo'shiling",
       "description": "Yangiliklar, foydali maslahatlar va aksiyalar",
-      "url": "https://t.me/babylandkomola",
+      "url": "https://t.me/baby_gidro_massaj",
       "pillColor": "blue"
     },
     {
@@ -107,8 +107,7 @@
       "id": "yandex",
       "type": "yandexpin",
       "label": "Yandeks adres",
-      "description": "Baby Lend_be comola",
-      "url": "https://yandex.com/maps/?text=Baby+Land+Komola+Tashkent",
+      "url": "https://yandex.uz/maps/org/baby_land_be_komola/198667062235/?ll=69.236806%2C41.273793&z=17",
       "pillColor": "green"
     }
   ]
