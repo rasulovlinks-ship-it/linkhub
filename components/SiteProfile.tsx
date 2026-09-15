@@ -303,28 +303,40 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
           )}
 
           {services.length > 0 && servicesRow && (
-            <div className="mt-7 grid w-full grid-cols-3 gap-2">
+            <div className="mt-7 flex w-full items-stretch gap-2">
               {services.map((service, index) => (
                 <div
                   key={service.id}
-                  className="linkhub-enter flex items-center gap-1.5 rounded-2xl px-2 py-2"
+                  className={`linkhub-enter flex items-center gap-1.5 rounded-2xl ${
+                    service.large ? "flex-[1.15] px-2.5 py-3" : "flex-1 px-2 py-2"
+                  }`}
                   style={{
                     backgroundColor: service.badgeBg,
                     animationDelay: `${servicesBaseDelay + index * 40}ms`,
                   }}
                 >
                   <span
-                    className="flex size-7 shrink-0 items-center justify-center rounded-full bg-white/80"
+                    className={`flex shrink-0 items-center justify-center rounded-full bg-white/80 ${
+                      service.large ? "size-10" : "size-7"
+                    }`}
                     style={{ color: service.iconColor }}
                   >
-                    <LinkIcon type={service.type} className="size-3.5" />
+                    <LinkIcon type={service.type} className={service.large ? "size-5" : "size-3.5"} />
                   </span>
                   <span className="min-w-0 flex-1" style={{ color: service.iconColor }}>
-                    <span className="block text-xs leading-tight font-bold text-balance">
+                    <span
+                      className={`block leading-tight font-bold text-balance ${
+                        service.large ? "text-base" : "text-xs"
+                      }`}
+                    >
                       {service.label}
                     </span>
                     {service.description && (
-                      <span className="block text-[11px] leading-tight opacity-80 text-balance">
+                      <span
+                        className={`block leading-tight opacity-80 text-balance ${
+                          service.large ? "text-xs" : "text-[11px]"
+                        }`}
+                      >
                         {service.description}
                       </span>
                     )}

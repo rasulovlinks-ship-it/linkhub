@@ -103,6 +103,8 @@ export type ServiceItem = {
   badgeBg: string;
   /** Icon color within the badge */
   iconColor: string;
+  /** In "row" layout, renders this item larger than its siblings */
+  large?: boolean;
 };
 
 export type SiteConfig = {
