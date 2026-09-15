@@ -94,7 +94,7 @@ function CloudPuffs({ urls }: { urls: string[] }) {
             key={index}
             src={url}
             alt=""
-            className={`linkhub-blob absolute z-10 ${slot.widthClass} select-none`}
+            className={`linkhub-blob absolute -z-10 ${slot.widthClass} select-none`}
             style={{ ...slot.style, filter: "drop-shadow(0 10px 18px rgba(124,58,237,0.3))" }}
           />
         );
