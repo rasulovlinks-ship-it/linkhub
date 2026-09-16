@@ -58,6 +58,14 @@ export type LinkItem = {
   pillColor?: PillColor;
   /** Custom icon image (PNG/SVG/data URI) shown instead of the built-in vector icon */
   iconUrl?: string;
+  /**
+   * Pre-made full button graphic (badge, label, description, chevron all
+   * baked in). When set, "pill" button style renders this image on its
+   * own instead of the composed pill markup — label, description,
+   * pillColor, and iconUrl are ignored. Needs a transparent background
+   * outside the pill shape.
+   */
+  imageUrl?: string;
 };
 
 export type SiteTheme = {
@@ -86,6 +94,20 @@ export type SiteTheme = {
    */
   backgroundImageUrl?: string;
   /**
+   * How the background photo fills the page.
+   * "cover" (default): scaled to fill the page completely, cropping
+   * whichever side overflows.
+   * "contain": whole photo shown uncropped, letterboxed if needed.
+   */
+  backgroundImageFit?: "cover" | "contain";
+  /**
+   * CSS object-position for the background photo, e.g. "center", "top",
+   * "center 20%". Controls which part of the photo stays visible when
+   * "cover" crops it, or where it's anchored under "contain". Defaults
+   * to "center".
+   */
+  backgroundImagePosition?: string;
+  /**
    * Link button style.
    * "card": translucent white card, single-line label, icon in accent color (default).
    * "pill": fully rounded, solid pastel color per button, icon in a white
@@ -105,6 +127,12 @@ export type ServiceItem = {
   iconColor: string;
   /** In "row" layout, renders this item larger than its siblings */
   large?: boolean;
+  /**
+   * Pre-made badge image (icon + label baked in). When set, "row" layout
+   * renders this image on its own instead of the icon/badgeBg/label
+   * composition — label, description, badgeBg, and iconColor are ignored.
+   */
+  imageUrl?: string;
 };
 
 export type ServiceCard = {
@@ -168,4 +196,6 @@ export type SiteConfig = {
   serviceCards?: ServiceCard[];
   theme?: SiteTheme;
   links: LinkItem[];
+  /** Hides the "Сделано на LinkHub.uz" footer credit when true. */
+  hideBranding?: boolean;
 };

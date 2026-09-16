@@ -10,6 +10,7 @@
     "accentText": "#ffffff",
     "textColor": "#3b1240",
     "backgroundImageUrl": "/sites/babyland/background.webp",
+    "backgroundImagePosition": "center 50%",
     "buttonStyle": "pill"
   },
   "servicesLayout": "row",
@@ -20,7 +21,8 @@
       "label": "10,000+",
       "description": "bolalarga yordam",
       "badgeBg": "#fdf1d6",
-      "iconColor": "#b45309"
+      "iconColor": "#b45309",
+      "imageUrl": "/sites/babyland/services/icon3.webp"
     },
     {
       "id": "education",
@@ -29,7 +31,8 @@
       "description": "massajist",
       "badgeBg": "#fbdce7",
       "iconColor": "#be185d",
-      "large": true
+      "large": true,
+      "imageUrl": "/sites/babyland/services/icon2.webp"
     },
     {
       "id": "students",
@@ -37,7 +40,8 @@
       "label": "100+",
       "description": "shogirdlar",
       "badgeBg": "#ede9fe",
-      "iconColor": "#7c3aed"
+      "iconColor": "#7c3aed",
+      "imageUrl": "/sites/babyland/services/icon1.webp"
     }
   ],
   "serviceCardsTitle": "Bizning xizmatlarimiz",
@@ -117,7 +121,8 @@
       "label": "Qo'ng'iroq qilish",
       "description": "+998 99 721 99 39",
       "url": "tel:+998997219939",
-      "pillColor": "pink"
+      "pillColor": "pink",
+      "imageUrl": "/sites/babyland/links/phone1.webp"
     },
     {
       "id": "phone2",
@@ -125,7 +130,8 @@
       "label": "Qo'ng'iroq qilish",
       "description": "+998 97 721 99 39",
       "url": "tel:+998977219939",
-      "pillColor": "purple"
+      "pillColor": "purple",
+      "imageUrl": "/sites/babyland/links/phone2.webp"
     },
     {
       "id": "address",
@@ -133,7 +139,8 @@
       "label": "Manzil",
       "description": "Yakkasaroy, Dajmbul 13",
       "url": "https://yandex.uz/maps/org/baby_land_be_komola/198667062235/?ll=69.236806%2C41.273793&z=17",
-      "pillColor": "pink"
+      "pillColor": "pink",
+      "imageUrl": "/sites/babyland/links/location.webp"
     },
     {
       "id": "telegram",
@@ -141,7 +148,9 @@
       "label": "Telegram kanalimizga qo'shiling",
       "description": "Yangiliklar, foydali maslahatlar va aksiyalar",
       "url": "https://t.me/baby_gidro_massaj",
-      "pillColor": "blue"
+      "pillColor": "blue",
+      "imageUrl": "/sites/babyland/links/telegram.webp"
     }
-  ]
+  ],
+  "hideBranding": true
 }

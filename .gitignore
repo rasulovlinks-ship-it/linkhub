@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# raw design source uploads, not needed for the deployed site
+/materials
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -247,11 +247,26 @@ function BackgroundDecoration({
  * of the site's own background gradient keeps body text/buttons legible
  * without hiding the photo itself.
  */
-function PageBackgroundPhoto({ src, wash }: { src: string; wash: string }) {
+function PageBackgroundPhoto({
+  src,
+  wash,
+  fit = "cover",
+  position = "center",
+}: {
+  src: string;
+  wash: string;
+  fit?: "cover" | "contain";
+  position?: string;
+}) {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt="" className="h-full w-full object-cover" />
+      <img
+        src={src}
+        alt=""
+        className={`h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
+        style={{ objectPosition: position }}
+      />
       <div className="absolute inset-0" style={{ background: wash, opacity: 0.1 }} />
     </div>
   );
@@ -271,6 +286,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const avatarNeedsRing = hasCover || Boolean(backgroundImageUrl);
   const gallery = site.gallery ?? [];
   const services = site.services ?? [];
+  const servicesHaveImages = services.some((s) => s.imageUrl);
   const servicesRow = site.servicesLayout === "row";
   const serviceCards = site.serviceCards ?? [];
   const puffUrls = site.serviceCardsPuffUrls ?? [];
@@ -300,7 +316,12 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   return (
     <main className="isolate relative min-h-dvh w-full overflow-hidden" style={rootStyle}>
       {backgroundImageUrl ? (
-        <PageBackgroundPhoto src={backgroundImageUrl} wash={background} />
+        <PageBackgroundPhoto
+          src={backgroundImageUrl}
+          wash={background}
+          fit={theme.backgroundImageFit}
+          position={theme.backgroundImagePosition}
+        />
       ) : (
         <BackgroundDecoration accent={accent} secondaryAccent={secondaryAccent} confetti={confetti} />
       )}
@@ -376,46 +397,61 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
           )}
 
           {services.length > 0 && servicesRow && (
-            <div className="mt-7 flex w-full items-stretch gap-2">
-              {services.map((service, index) => (
-                <div
-                  key={service.id}
-                  className={`linkhub-enter flex items-center gap-1.5 rounded-2xl ${
-                    service.large ? "flex-[1.2] px-2 py-3" : "flex-1 px-2 py-2"
-                  }`}
-                  style={{
-                    backgroundColor: service.badgeBg,
-                    animationDelay: `${servicesBaseDelay + index * 40}ms`,
-                  }}
-                >
-                  <span
-                    className={`flex shrink-0 items-center justify-center rounded-full bg-white/80 ${
-                      service.large ? "size-11" : "size-7"
-                    }`}
-                    style={{ color: service.iconColor }}
+            <div className={`mt-7 flex w-full items-stretch ${servicesHaveImages ? "gap-6" : "gap-2"}`}>
+              {services.map((service, index) =>
+                service.imageUrl ? (
+                  <div
+                    key={service.id}
+                    className={`linkhub-enter flex overflow-visible ${service.large ? "flex-[1.2]" : "flex-1"}`}
+                    style={{ animationDelay: `${servicesBaseDelay + index * 40}ms` }}
                   >
-                    <LinkIcon type={service.type} className={service.large ? "size-5" : "size-3.5"} />
-                  </span>
-                  <span className="min-w-0 flex-1" style={{ color: service.iconColor }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={service.imageUrl}
+                      alt={service.label}
+                      className="h-auto w-full scale-[1.3] object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    key={service.id}
+                    className={`linkhub-enter flex items-center gap-1.5 rounded-2xl ${
+                      service.large ? "flex-[1.2] px-2 py-3" : "flex-1 px-2 py-2"
+                    }`}
+                    style={{
+                      backgroundColor: service.badgeBg,
+                      animationDelay: `${servicesBaseDelay + index * 40}ms`,
+                    }}
+                  >
                     <span
-                      className={`block leading-tight font-bold text-balance ${
-                        service.large ? "text-lg" : "text-xs"
+                      className={`flex shrink-0 items-center justify-center rounded-full bg-white/80 ${
+                        service.large ? "size-11" : "size-7"
                       }`}
+                      style={{ color: service.iconColor }}
                     >
-                      {service.label}
+                      <LinkIcon type={service.type} className={service.large ? "size-5" : "size-3.5"} />
                     </span>
-                    {service.description && (
+                    <span className="min-w-0 flex-1" style={{ color: service.iconColor }}>
                       <span
-                        className={`block leading-tight opacity-80 text-balance ${
-                          service.large ? "text-sm" : "text-[11px]"
+                        className={`block leading-tight font-bold text-balance ${
+                          service.large ? "text-lg" : "text-xs"
                         }`}
                       >
-                        {service.description}
+                        {service.label}
                       </span>
-                    )}
-                  </span>
-                </div>
-              ))}
+                      {service.description && (
+                        <span
+                          className={`block leading-tight opacity-80 text-balance ${
+                            service.large ? "text-sm" : "text-[11px]"
+                          }`}
+                        >
+                          {service.description}
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                )
+              )}
             </div>
           )}
 
@@ -472,6 +508,22 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                       />
                     )}
                     <span className="font-medium">{link.label}</span>
+                  </a>
+                );
+              }
+
+              if (link.imageUrl) {
+                return (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target={link.url.startsWith("tel:") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    className="linkhub-enter group block w-full transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] active:duration-150 active:ease-[cubic-bezier(0.25,0.46,0.45,0.94)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                    style={{ animationDelay: `${linksBaseDelay + index * 45}ms` }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={link.imageUrl} alt={link.label} className="h-auto w-full object-contain" />
                   </a>
                 );
               }
@@ -612,14 +664,16 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             </div>
           )}
 
-          <footer
-            className="linkhub-enter mt-10 text-xs text-zinc-500 opacity-70"
-            style={{
-              animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + serviceCards.length * 60 + 40}ms`,
-            }}
-          >
-            Сделано на <span className="font-semibold">LinkHub.uz</span>
-          </footer>
+          {!site.hideBranding && (
+            <footer
+              className="linkhub-enter mt-10 text-xs text-zinc-500 opacity-70"
+              style={{
+                animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + serviceCards.length * 60 + 40}ms`,
+              }}
+            >
+              Сделано на <span className="font-semibold">LinkHub.uz</span>
+            </footer>
+          )}
         </div>
       </div>
     </main>
