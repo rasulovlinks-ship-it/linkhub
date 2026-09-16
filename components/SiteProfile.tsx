@@ -94,6 +94,8 @@ function CloudPuffs({ urls }: { urls: string[] }) {
             key={index}
             src={url}
             alt=""
+            loading="lazy"
+            decoding="async"
             className={`linkhub-blob absolute -z-10 ${slot.widthClass} select-none`}
             style={{ ...slot.style, filter: "drop-shadow(0 10px 18px rgba(124,58,237,0.3))" }}
           />
@@ -264,6 +266,9 @@ function PageBackgroundPhoto({
       <img
         src={src}
         alt=""
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className={`h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         style={{ objectPosition: position }}
       />
@@ -333,6 +338,9 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             src={site.coverImageUrl}
             alt=""
             aria-hidden="true"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10" />
@@ -356,7 +364,14 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
           >
             {site.avatarUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={site.avatarUrl} alt={site.name} className="h-full w-full object-cover" />
+              <img
+                src={site.avatarUrl}
+                alt={site.name}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="h-full w-full object-cover"
+              />
             ) : (
               initial
             )}
@@ -390,6 +405,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   src={src}
                   alt=""
                   aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
                   className="aspect-square w-full rounded-xl object-cover ring-1 ring-black/5 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-[1.04]"
                 />
               ))}
@@ -409,6 +426,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                     <img
                       src={service.imageUrl}
                       alt={service.label}
+                      loading="lazy"
+                      decoding="async"
                       className="h-auto w-full scale-[1.3] object-contain"
                     />
                   </div>
@@ -499,6 +518,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                       <img
                         src={link.iconUrl}
                         alt=""
+                        loading="lazy"
+                        decoding="async"
                         className="size-5 shrink-0 object-contain transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                       />
                     ) : (
@@ -523,7 +544,13 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                     style={{ animationDelay: `${linksBaseDelay + index * 45}ms` }}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={link.imageUrl} alt={link.label} className="h-auto w-full object-contain" />
+                    <img
+                      src={link.imageUrl}
+                      alt={link.label}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-auto w-full object-contain"
+                    />
                   </a>
                 );
               }
@@ -555,6 +582,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                       <img
                         src={link.iconUrl}
                         alt=""
+                        loading="lazy"
+                        decoding="async"
                         className="size-6 object-contain transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                       />
                     ) : (
@@ -594,6 +623,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   src={site.serviceCardsBackgroundUrl}
                   alt=""
                   aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 -z-10 h-full w-full object-cover"
                 />
               ) : (
@@ -623,6 +654,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                         <img
                           src={card.photoUrl}
                           alt=""
+                          loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover"
                         />
                       )}

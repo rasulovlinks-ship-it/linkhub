@@ -87,7 +87,13 @@ export default function CloudReveal({
           style={p.wrapperStyle}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={p.src} alt="" className="h-full w-full object-cover" />
+          <img
+            src={p.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
         </div>
       ))}
     </div>
