@@ -123,6 +123,12 @@ body {
   }
   .linkhub-marquee-static.linkhub-marquee-viewport {
     overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: none;
+  }
+  .linkhub-marquee-static.linkhub-marquee-viewport::-webkit-scrollbar {
+    display: none;
   }
 }
 
