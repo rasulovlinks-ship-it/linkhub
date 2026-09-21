@@ -114,24 +114,6 @@ body {
   animation-play-state: paused;
 }
 
-@media (min-width: 1024px) {
-  .linkhub-marquee-static .linkhub-marquee-track {
-    animation: none;
-  }
-  .linkhub-marquee-static .linkhub-marquee-duplicate {
-    display: none;
-  }
-  .linkhub-marquee-static.linkhub-marquee-viewport {
-    overflow-x: auto;
-    -webkit-mask-image: none;
-    mask-image: none;
-    scrollbar-width: none;
-  }
-  .linkhub-marquee-static.linkhub-marquee-viewport::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .linkhub-marquee-track {
     animation: none;

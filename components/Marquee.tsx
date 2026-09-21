@@ -16,28 +16,15 @@ export default function Marquee({
   children,
   duration = "32s",
   gap = "1rem",
-  staticAtDesktop = false,
 }: {
   children: ReactNode;
   duration?: string;
   gap?: string;
-  /**
-   * When the surrounding layout goes full-width at desktop sizes, the
-   * viewport can get wide enough to show both duplicated groups (the ones
-   * that make the loop seamless) at once, which reads as a glitch/repeat
-   * rather than an infinite scroll. Setting this stops the animation and
-   * hides the duplicate group at the lg breakpoint (1024px+), falling back
-   * to a plain static row there; below lg it's unaffected.
-   */
-  staticAtDesktop?: boolean;
 }) {
   const items = Children.toArray(children);
 
   const group = (hidden: boolean) => (
-    <div
-      className={`flex shrink-0 ${hidden && staticAtDesktop ? "linkhub-marquee-duplicate" : ""}`}
-      aria-hidden={hidden || undefined}
-    >
+    <div className="flex shrink-0" aria-hidden={hidden || undefined}>
       {items.map((child, i) => (
         <div key={i} className="shrink-0" style={{ marginRight: gap }}>
           {child}
@@ -47,9 +34,7 @@ export default function Marquee({
   );
 
   return (
-    <div
-      className={`linkhub-marquee-viewport relative w-full overflow-hidden ${staticAtDesktop ? "linkhub-marquee-static" : ""}`}
-    >
+    <div className="linkhub-marquee-viewport relative w-full overflow-hidden">
       <div
         className="linkhub-marquee-track flex w-max"
         style={{ ["--marquee-duration" as string]: duration } as CSSProperties}

@@ -715,9 +715,16 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   <p className="text-sm opacity-70">{site.teachersSubtitle}</p>
                 )}
               </div>
-              <Marquee duration={`${teachers.length * 6}s`} staticAtDesktop={splitDesktop}>
-                {teacherCards}
-              </Marquee>
+              {splitDesktop ? (
+                <>
+                  <div className="lg:hidden">
+                    <Marquee duration={`${teachers.length * 6}s`}>{teacherCards}</Marquee>
+                  </div>
+                  <div className="hidden lg:flex lg:flex-wrap lg:gap-4">{teacherCards}</div>
+                </>
+              ) : (
+                <Marquee duration={`${teachers.length * 6}s`}>{teacherCards}</Marquee>
+              )}
             </section>
           )}
 
@@ -734,9 +741,16 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   <p className="text-sm opacity-70">{site.certificatesSubtitle}</p>
                 )}
               </div>
-              <Marquee duration={`${certificates.length * 6}s`} staticAtDesktop={splitDesktop}>
-                {certificateCards}
-              </Marquee>
+              {splitDesktop ? (
+                <>
+                  <div className="lg:hidden">
+                    <Marquee duration={`${certificates.length * 6}s`}>{certificateCards}</Marquee>
+                  </div>
+                  <div className="hidden lg:flex lg:flex-wrap lg:gap-4">{certificateCards}</div>
+                </>
+              ) : (
+                <Marquee duration={`${certificates.length * 6}s`}>{certificateCards}</Marquee>
+              )}
             </section>
           )}
 
