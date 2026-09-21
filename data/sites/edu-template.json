@@ -1,0 +1,202 @@
+{
+  "slug": "edu-template",
+  "name": "EDU Template",
+  "bio": "Ta'lim markazlari uchun havolalar sahifasi shabloni ✏️",
+  "avatarUrl": "",
+  "theme": {
+    "background": "linear-gradient(180deg,#eef4ff 0%,#ffffff 55%)",
+    "accent": "#2f5fdb",
+    "secondaryAccent": "#f59e0b",
+    "accentText": "#ffffff",
+    "textColor": "#1c2536",
+    "buttonStyle": "pill"
+  },
+  "desktopLayout": "split",
+  "servicesLayout": "row",
+  "services": [
+    {
+      "id": "students",
+      "type": "students",
+      "label": "500+",
+      "description": "o'quvchilar",
+      "badgeBg": "#dbeafe",
+      "iconColor": "#1d4ed8"
+    },
+    {
+      "id": "experience",
+      "type": "education",
+      "label": "12 yil",
+      "description": "ta'lim tajribasi",
+      "badgeBg": "#fef3c7",
+      "iconColor": "#92400e",
+      "large": true
+    },
+    {
+      "id": "satisfaction",
+      "type": "impact",
+      "label": "98%",
+      "description": "ota-onalar tavsiyasi",
+      "badgeBg": "#dcfce7",
+      "iconColor": "#166534"
+    }
+  ],
+  "links": [
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Qo'ng'iroq qilish",
+      "description": "+998 90 123 45 67",
+      "url": "tel:+998901234567",
+      "pillColor": "blue"
+    },
+    {
+      "id": "trial",
+      "type": "contact",
+      "label": "Bepul sinov darsiga yozilish",
+      "description": "Joy sonini oldindan bron qiling",
+      "url": "https://t.me/edutemplate",
+      "pillColor": "peach"
+    },
+    {
+      "id": "telegram",
+      "type": "telegram",
+      "label": "Telegram kanalimiz",
+      "description": "Yangiliklar va bepul materiallar",
+      "url": "https://t.me/edutemplate",
+      "pillColor": "blue"
+    },
+    {
+      "id": "instagram",
+      "type": "instagram",
+      "label": "Instagram sahifamiz",
+      "description": "Darslardan lavhalar",
+      "url": "https://instagram.com/edutemplate",
+      "pillColor": "rose"
+    },
+    {
+      "id": "location",
+      "type": "location",
+      "label": "Bosh filial manzili",
+      "description": "Yunusobod tumani, Amir Temur ko'chasi 45",
+      "url": "https://www.google.com/maps/search/?api=1&query=Toshkent+Yunusobod+Amir+Temur+45",
+      "pillColor": "green"
+    }
+  ],
+  "teachersTitle": "Bizning ustozlarimiz",
+  "teachersSubtitle": "Sohasining tajribali mutaxassislari",
+  "teachers": [
+    {
+      "id": "t1",
+      "type": "education",
+      "name": "Dilnoza Yusupova",
+      "role": "Ingliz tili",
+      "badgeBg": "#dbeafe",
+      "iconColor": "#1d4ed8"
+    },
+    {
+      "id": "t2",
+      "type": "education",
+      "name": "Sardor Aliyev",
+      "role": "Matematika",
+      "badgeBg": "#fef3c7",
+      "iconColor": "#92400e"
+    },
+    {
+      "id": "t3",
+      "type": "education",
+      "name": "Madina Tosheva",
+      "role": "Rus tili",
+      "badgeBg": "#fce7f3",
+      "iconColor": "#be185d"
+    },
+    {
+      "id": "t4",
+      "type": "education",
+      "name": "Jasur Nematov",
+      "role": "IT va dasturlash",
+      "badgeBg": "#dcfce7",
+      "iconColor": "#15803d"
+    },
+    {
+      "id": "t5",
+      "type": "education",
+      "name": "Kamola Rashidova",
+      "role": "Fizika",
+      "badgeBg": "#ede9fe",
+      "iconColor": "#6d28d9"
+    }
+  ],
+  "certificatesTitle": "O'quvchilarimiz natijalari",
+  "certificatesSubtitle": "Xalqaro va milliy sertifikatlar",
+  "certificates": [
+    {
+      "id": "c1",
+      "type": "certificate",
+      "label": "IELTS 7.5 — Dilnoza R.",
+      "badgeBg": "#dbeafe",
+      "iconColor": "#1d4ed8"
+    },
+    {
+      "id": "c2",
+      "type": "certificate",
+      "label": "Matematika olimpiadasi — 1-o'rin",
+      "badgeBg": "#fef3c7",
+      "iconColor": "#92400e"
+    },
+    {
+      "id": "c3",
+      "type": "certificate",
+      "label": "IELTS 8.0 — Sardor T.",
+      "badgeBg": "#dcfce7",
+      "iconColor": "#166534"
+    },
+    {
+      "id": "c4",
+      "type": "certificate",
+      "label": "IT olimpiada — Respublika bosqichi",
+      "badgeBg": "#ede9fe",
+      "iconColor": "#6d28d9"
+    },
+    {
+      "id": "c5",
+      "type": "certificate",
+      "label": "SAT 1450 — Madina Y.",
+      "badgeBg": "#fce7f3",
+      "iconColor": "#be185d"
+    }
+  ],
+  "branchesTitle": "Filiallarimiz",
+  "branchesSubtitle": "Sizga qulay filialni tanlang",
+  "branches": [
+    {
+      "id": "b1",
+      "type": "branch",
+      "name": "Chilonzor filiali",
+      "address": "Chilonzor tumani, Bunyodkor shoh ko'chasi 12",
+      "phone": "+998 90 123 45 67",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Chilonzor+Bunyodkor+12",
+      "badgeBg": "#dbeafe",
+      "iconColor": "#1d4ed8"
+    },
+    {
+      "id": "b2",
+      "type": "branch",
+      "name": "Yunusobod filiali",
+      "address": "Yunusobod tumani, Amir Temur ko'chasi 45",
+      "phone": "+998 90 234 56 78",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Yunusobod+Amir+Temur+45",
+      "badgeBg": "#fef3c7",
+      "iconColor": "#92400e"
+    },
+    {
+      "id": "b3",
+      "type": "branch",
+      "name": "Sergeli filiali",
+      "address": "Sergeli tumani, Qatortol ko'chasi 8",
+      "phone": "+998 90 345 67 89",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Sergeli+Qatortol+8",
+      "badgeBg": "#dcfce7",
+      "iconColor": "#166534"
+    }
+  ]
+}

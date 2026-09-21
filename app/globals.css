@@ -92,3 +92,34 @@ body {
   }
 }
 
+@keyframes linkhub-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.linkhub-marquee-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.linkhub-marquee-track {
+  animation: linkhub-marquee var(--marquee-duration, 32s) linear infinite;
+}
+
+.linkhub-marquee-viewport:hover .linkhub-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linkhub-marquee-track {
+    animation: none;
+  }
+  .linkhub-marquee-viewport {
+    overflow-x: auto;
+  }
+}
+

@@ -34,7 +34,9 @@ export type LinkType =
   | "landmark"
   | "yandexpin"
   | "students"
-  | "impact";
+  | "impact"
+  | "certificate"
+  | "branch";
 
 export type PillColor =
   | "pink"
@@ -147,6 +149,47 @@ export type ServiceCard = {
   iconColor: string;
 };
 
+export type TeacherItem = {
+  id: string;
+  /** Icon shown when photoUrl is omitted; typically "education" */
+  type: LinkType;
+  name: string;
+  /** Subject or role, e.g. "Ingliz tili o'qituvchisi" */
+  role?: string;
+  photoUrl?: string;
+  /** Fallback tint behind the icon when photoUrl is omitted */
+  badgeBg: string;
+  iconColor: string;
+};
+
+export type CertificateItem = {
+  id: string;
+  /** Icon shown when photoUrl is omitted; typically "certificate" */
+  type: LinkType;
+  /** Caption under the photo, e.g. "IELTS 8.0 — Dilnoza R." */
+  label?: string;
+  photoUrl?: string;
+  /** Fallback tint behind the icon when photoUrl is omitted */
+  badgeBg: string;
+  iconColor: string;
+};
+
+export type BranchItem = {
+  id: string;
+  /** Icon shown on the photo badge and as fallback; typically "branch" */
+  type: LinkType;
+  name: string;
+  address: string;
+  /** Display phone number; also used (digits only) to build the tel: link */
+  phone?: string;
+  /** Opens when the branch card is clicked (map/location link) */
+  mapUrl: string;
+  photoUrl?: string;
+  /** Fallback tint behind the icon when photoUrl is omitted */
+  badgeBg: string;
+  iconColor: string;
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -194,6 +237,37 @@ export type SiteConfig = {
    */
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
+  /**
+   * Slowly auto-scrolling photo strip introducing staff/instructors, shown
+   * below the links. Pauses on hover; each card falls back to a tinted
+   * icon badge when photoUrl is omitted.
+   */
+  teachersTitle?: string;
+  teachersSubtitle?: string;
+  teachers?: TeacherItem[];
+  /**
+   * Slowly auto-scrolling photo strip of student results (certificates,
+   * diplomas, exam scores), shown below the teachers strip.
+   */
+  certificatesTitle?: string;
+  certificatesSubtitle?: string;
+  certificates?: CertificateItem[];
+  /**
+   * Static grid of 2-3 branch/location cards. Clicking a card opens its
+   * mapUrl; each also gets a separate tel: chip when phone is set.
+   */
+  branchesTitle?: string;
+  branchesSubtitle?: string;
+  branches?: BranchItem[];
+  /**
+   * "stacked" (default): single centered mobile-style column at every
+   * screen width, unchanged regardless of viewport.
+   * "split": at desktop widths (lg breakpoint+), switches to a wide
+   * two-column layout — a sticky sidebar (avatar, bio, stats, links) next
+   * to a full-width content column (teacher/certificate strips, branches).
+   * Below the lg breakpoint it's identical to "stacked".
+   */
+  desktopLayout?: "stacked" | "split";
   theme?: SiteTheme;
   links: LinkItem[];
   /** Hides the "Сделано на LinkHub.uz" footer credit when true. */

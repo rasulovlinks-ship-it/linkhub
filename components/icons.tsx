@@ -23,6 +23,7 @@ import {
   StarIcon,
   UserGroupIcon,
   TrophyIcon,
+  BuildingOffice2Icon,
 } from "@heroicons/react/24/outline";
 import type { LinkType } from "@/lib/types";
 
@@ -123,6 +124,23 @@ function CloverIcon({ className }: IconProps) {
   );
 }
 
+function CertificateIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M4 3.5h16A1.5 1.5 0 0 1 21.5 5v9A1.5 1.5 0 0 1 20 15.5H4A1.5 1.5 0 0 1 2.5 14V5A1.5 1.5 0 0 1 4 3.5Z" />
+      <circle cx="12" cy="9.2" r="2.6" fill="#fff" />
+      <path
+        d="M10 14.5 9.2 21l2.8-1.6 2.8 1.6-.8-6.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+      />
+    </svg>
+  );
+}
+
 /** Official brand marks, path data from the simple-icons package (CC0). */
 const BRAND_PATHS: Record<string, string> = {
   telegram:
@@ -170,6 +188,7 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
   yandexpin: MapPinIcon,
   students: UserGroupIcon,
   impact: TrophyIcon,
+  branch: BuildingOffice2Icon,
 };
 
 const CUSTOM_ICONS: Partial<Record<LinkType, ComponentType<IconProps>>> = {
@@ -179,6 +198,7 @@ const CUSTOM_ICONS: Partial<Record<LinkType, ComponentType<IconProps>>> = {
   corrective: CorrectiveIcon,
   hydro: WaveIcon,
   therapies: CloverIcon,
+  certificate: CertificateIcon,
 };
 
 export function LinkIcon({ type, className }: { type: LinkType; className?: string }) {
