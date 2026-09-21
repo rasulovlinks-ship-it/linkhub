@@ -302,6 +302,79 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const branches = site.branches ?? [];
   const splitDesktop = site.desktopLayout === "split";
 
+  // Rendered once, reused by both the auto-scrolling marquee (mobile/tablet,
+  // where only a couple of cards fit at a time) and the plain wrapped grid
+  // (desktop split layout, where the wide column already shows everyone at
+  // once — duplicating cards for a seamless loop would just look repeated).
+  const teacherCards = teachers.map((teacher) => (
+    <div
+      key={teacher.id}
+      className="w-36 rounded-2xl bg-white/80 p-3 text-center shadow-sm ring-1 ring-black/5 backdrop-blur"
+    >
+      <div
+        className="mx-auto h-24 w-24 overflow-hidden rounded-full ring-2 ring-white shadow"
+        style={{ backgroundColor: teacher.badgeBg }}
+      >
+        {teacher.photoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={teacher.photoUrl}
+            alt={teacher.name}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <span
+            className="flex h-full w-full items-center justify-center"
+            style={{ color: teacher.iconColor }}
+          >
+            <LinkIcon type={teacher.type} className="size-9" />
+          </span>
+        )}
+      </div>
+      <div className="mt-2 truncate text-sm font-bold" style={{ color: textColor }}>
+        {teacher.name}
+      </div>
+      {teacher.role && <div className="truncate text-xs opacity-70">{teacher.role}</div>}
+    </div>
+  ));
+
+  const certificateCards = certificates.map((cert) => (
+    <div
+      key={cert.id}
+      className="w-48 overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
+    >
+      <div className="relative aspect-[4/3] w-full" style={{ backgroundColor: cert.badgeBg }}>
+        {cert.photoUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={cert.photoUrl}
+            alt={cert.label ?? ""}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div
+            className="flex h-full w-full items-center justify-center"
+            style={{ color: cert.iconColor }}
+          >
+            <LinkIcon type={cert.type} className="size-10" />
+          </div>
+        )}
+      </div>
+      {cert.label && (
+        <div
+          className="truncate px-3 py-2 text-center text-xs font-semibold"
+          style={{ color: textColor }}
+        >
+          {cert.label}
+        </div>
+      )}
+    </div>
+  ));
+
   const rootStyle = {
     background,
     color: textColor,
@@ -358,7 +431,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
         <div
           className={
             splitDesktop
-              ? "w-full max-w-md flex flex-col items-center lg:w-full lg:max-w-6xl lg:grid lg:grid-cols-[380px_1fr] lg:items-start lg:gap-16"
+              ? "w-full max-w-md flex flex-col items-center lg:w-full lg:max-w-6xl lg:grid lg:grid-cols-[380px_minmax(0,1fr)] lg:items-start lg:gap-16"
               : "w-full max-w-md flex flex-col items-center"
           }
         >
@@ -627,7 +700,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
           </div>
 
           <div
-            className={splitDesktop ? "contents lg:flex lg:w-full lg:flex-col" : "contents"}
+            className={splitDesktop ? "contents lg:flex lg:w-full lg:min-w-0 lg:flex-col" : "contents"}
           >
           {teachers.length > 0 && (
             <section
@@ -642,42 +715,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   <p className="text-sm opacity-70">{site.teachersSubtitle}</p>
                 )}
               </div>
-              <Marquee duration={`${teachers.length * 6}s`}>
-                {teachers.map((teacher) => (
-                  <div
-                    key={teacher.id}
-                    className="w-36 rounded-2xl bg-white/80 p-3 text-center shadow-sm ring-1 ring-black/5 backdrop-blur"
-                  >
-                    <div
-                      className="mx-auto h-24 w-24 overflow-hidden rounded-full ring-2 ring-white shadow"
-                      style={{ backgroundColor: teacher.badgeBg }}
-                    >
-                      {teacher.photoUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={teacher.photoUrl}
-                          alt={teacher.name}
-                          loading="lazy"
-                          decoding="async"
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <span
-                          className="flex h-full w-full items-center justify-center"
-                          style={{ color: teacher.iconColor }}
-                        >
-                          <LinkIcon type={teacher.type} className="size-9" />
-                        </span>
-                      )}
-                    </div>
-                    <div className="mt-2 truncate text-sm font-bold" style={{ color: textColor }}>
-                      {teacher.name}
-                    </div>
-                    {teacher.role && (
-                      <div className="truncate text-xs opacity-70">{teacher.role}</div>
-                    )}
-                  </div>
-                ))}
+              <Marquee duration={`${teachers.length * 6}s`} staticAtDesktop={splitDesktop}>
+                {teacherCards}
               </Marquee>
             </section>
           )}
@@ -695,44 +734,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                   <p className="text-sm opacity-70">{site.certificatesSubtitle}</p>
                 )}
               </div>
-              <Marquee duration={`${certificates.length * 6}s`}>
-                {certificates.map((cert) => (
-                  <div
-                    key={cert.id}
-                    className="w-48 overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
-                  >
-                    <div
-                      className="relative aspect-[4/3] w-full"
-                      style={{ backgroundColor: cert.badgeBg }}
-                    >
-                      {cert.photoUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={cert.photoUrl}
-                          alt={cert.label ?? ""}
-                          loading="lazy"
-                          decoding="async"
-                          className="h-full w-full object-cover"
-                        />
-                      ) : (
-                        <div
-                          className="flex h-full w-full items-center justify-center"
-                          style={{ color: cert.iconColor }}
-                        >
-                          <LinkIcon type={cert.type} className="size-10" />
-                        </div>
-                      )}
-                    </div>
-                    {cert.label && (
-                      <div
-                        className="truncate px-3 py-2 text-center text-xs font-semibold"
-                        style={{ color: textColor }}
-                      >
-                        {cert.label}
-                      </div>
-                    )}
-                  </div>
-                ))}
+              <Marquee duration={`${certificates.length * 6}s`} staticAtDesktop={splitDesktop}>
+                {certificateCards}
               </Marquee>
             </section>
           )}
