@@ -2,7 +2,6 @@ import type { CSSProperties, ReactNode } from "react";
 import type { PillColor, SiteConfig } from "@/lib/types";
 import { LinkIcon } from "./icons";
 import CloudReveal from "./CloudReveal";
-import Marquee from "./Marquee";
 
 const PILL_COLORS: Record<PillColor, { bg: string; text: string; badgeBg?: string }> = {
   pink: { bg: "#fbd5e3", text: "#9d174d" },
@@ -297,83 +296,6 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const serviceCards = site.serviceCards ?? [];
   const puffUrls = site.serviceCardsPuffUrls ?? [];
   const pillButtons = theme.buttonStyle === "pill";
-  const teachers = site.teachers ?? [];
-  const certificates = site.certificates ?? [];
-  const branches = site.branches ?? [];
-  const splitDesktop = site.desktopLayout === "split";
-
-  // Rendered once, reused by both the auto-scrolling marquee (mobile/tablet,
-  // where only a couple of cards fit at a time) and the plain wrapped grid
-  // (desktop split layout, where the wide column already shows everyone at
-  // once — duplicating cards for a seamless loop would just look repeated).
-  const teacherCards = teachers.map((teacher) => (
-    <div
-      key={teacher.id}
-      className="w-36 rounded-2xl bg-white/80 p-3 text-center shadow-sm ring-1 ring-black/5 backdrop-blur"
-    >
-      <div
-        className="mx-auto h-24 w-24 overflow-hidden rounded-full ring-2 ring-white shadow"
-        style={{ backgroundColor: teacher.badgeBg }}
-      >
-        {teacher.photoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={teacher.photoUrl}
-            alt={teacher.name}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <span
-            className="flex h-full w-full items-center justify-center"
-            style={{ color: teacher.iconColor }}
-          >
-            <LinkIcon type={teacher.type} className="size-9" />
-          </span>
-        )}
-      </div>
-      <div className="mt-2 truncate text-sm font-bold" style={{ color: textColor }}>
-        {teacher.name}
-      </div>
-      {teacher.role && <div className="truncate text-xs opacity-70">{teacher.role}</div>}
-    </div>
-  ));
-
-  const certificateCards = certificates.map((cert) => (
-    <div
-      key={cert.id}
-      className="w-48 overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
-    >
-      <div className="relative aspect-[4/3] w-full" style={{ backgroundColor: cert.badgeBg }}>
-        {cert.photoUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={cert.photoUrl}
-            alt={cert.label ?? ""}
-            loading="lazy"
-            decoding="async"
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <div
-            className="flex h-full w-full items-center justify-center"
-            style={{ color: cert.iconColor }}
-          >
-            <LinkIcon type={cert.type} className="size-10" />
-          </div>
-        )}
-      </div>
-      {cert.label && (
-        <div
-          className="truncate px-3 py-2 text-center text-xs font-semibold"
-          style={{ color: textColor }}
-        >
-          {cert.label}
-        </div>
-      )}
-    </div>
-  ));
 
   const rootStyle = {
     background,
@@ -428,20 +350,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
       <div
         className={`flex w-full justify-center px-4 ${hasCover ? "-mt-12 pb-14 sm:-mt-16" : "py-14"}`}
       >
-        <div
-          className={
-            splitDesktop
-              ? "w-full max-w-md flex flex-col items-center lg:w-full lg:max-w-6xl lg:grid lg:grid-cols-[380px_minmax(0,1fr)] lg:items-start lg:gap-16"
-              : "w-full max-w-md flex flex-col items-center"
-          }
-        >
-          <div
-            className={
-              splitDesktop
-                ? "contents lg:flex lg:w-full lg:flex-col lg:items-center lg:sticky lg:top-10 lg:self-start"
-                : "contents"
-            }
-          >
+        <div className="w-full max-w-md flex flex-col items-center">
           <div
             className="linkhub-enter h-24 w-24 shrink-0 overflow-hidden rounded-full outline-1 -outline-offset-1 outline-black/10 flex items-center justify-center text-3xl font-semibold"
             style={{
@@ -697,142 +606,6 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
               );
             })}
           </div>
-          </div>
-
-          <div
-            className={splitDesktop ? "contents lg:flex lg:w-full lg:min-w-0 lg:flex-col" : "contents"}
-          >
-          {teachers.length > 0 && (
-            <section
-              className="linkhub-enter mt-9 w-full"
-              style={{ animationDelay: `${linksBaseDelay + site.links.length * 45 + 60}ms` }}
-            >
-              <div className="mb-3 px-1">
-                <h2 className="text-lg font-bold" style={{ color: textColor }}>
-                  {site.teachersTitle ?? "Bizning ustozlarimiz"}
-                </h2>
-                {site.teachersSubtitle && (
-                  <p className="text-sm opacity-70">{site.teachersSubtitle}</p>
-                )}
-              </div>
-              {splitDesktop ? (
-                <>
-                  <div className="lg:hidden">
-                    <Marquee duration={`${teachers.length * 6}s`}>{teacherCards}</Marquee>
-                  </div>
-                  <div className="hidden lg:flex lg:flex-wrap lg:gap-4">{teacherCards}</div>
-                </>
-              ) : (
-                <Marquee duration={`${teachers.length * 6}s`}>{teacherCards}</Marquee>
-              )}
-            </section>
-          )}
-
-          {certificates.length > 0 && (
-            <section
-              className="linkhub-enter mt-8 w-full"
-              style={{ animationDelay: `${linksBaseDelay + site.links.length * 45 + 90}ms` }}
-            >
-              <div className="mb-3 px-1">
-                <h2 className="text-lg font-bold" style={{ color: textColor }}>
-                  {site.certificatesTitle ?? "O'quvchilarimiz natijalari"}
-                </h2>
-                {site.certificatesSubtitle && (
-                  <p className="text-sm opacity-70">{site.certificatesSubtitle}</p>
-                )}
-              </div>
-              {splitDesktop ? (
-                <>
-                  <div className="lg:hidden">
-                    <Marquee duration={`${certificates.length * 6}s`}>{certificateCards}</Marquee>
-                  </div>
-                  <div className="hidden lg:flex lg:flex-wrap lg:gap-4">{certificateCards}</div>
-                </>
-              ) : (
-                <Marquee duration={`${certificates.length * 6}s`}>{certificateCards}</Marquee>
-              )}
-            </section>
-          )}
-
-          {branches.length > 0 && (
-            <section
-              className="linkhub-enter mt-9 w-full"
-              style={{ animationDelay: `${linksBaseDelay + site.links.length * 45 + 120}ms` }}
-            >
-              <div className="mb-3 px-1 text-center">
-                <h2 className="text-lg font-bold" style={{ color: textColor }}>
-                  {site.branchesTitle ?? "Filiallarimiz"}
-                </h2>
-                {site.branchesSubtitle && (
-                  <p className="text-sm opacity-70">{site.branchesSubtitle}</p>
-                )}
-              </div>
-              <div
-                className={`flex flex-col gap-4 ${splitDesktop ? "lg:grid lg:grid-cols-3 lg:items-start lg:gap-5" : ""}`}
-              >
-                {branches.map((branch) => (
-                  <div
-                    key={branch.id}
-                    className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
-                  >
-                    <a
-                      href={branch.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block transition-opacity duration-200 hover:opacity-90"
-                    >
-                      <div
-                        className="relative aspect-[16/9] w-full"
-                        style={{ backgroundColor: branch.badgeBg }}
-                      >
-                        {branch.photoUrl ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={branch.photoUrl}
-                            alt={branch.name}
-                            loading="lazy"
-                            decoding="async"
-                            className="h-full w-full object-cover"
-                          />
-                        ) : (
-                          <div
-                            className="flex h-full w-full items-center justify-center"
-                            style={{ color: branch.iconColor }}
-                          >
-                            <LinkIcon type={branch.type} className="size-10" />
-                          </div>
-                        )}
-                        <span
-                          className="absolute bottom-0 left-4 z-10 flex size-11 translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md ring-4 ring-white transition-transform duration-200 group-hover:scale-105"
-                          style={{ color: branch.iconColor }}
-                        >
-                          <LinkIcon type={branch.type} className="size-5" />
-                        </span>
-                      </div>
-                      <div className="px-4 pt-8 pb-3">
-                        <div className="font-bold" style={{ color: textColor }}>
-                          {branch.name}
-                        </div>
-                        <div className="mt-0.5 text-sm opacity-70">{branch.address}</div>
-                      </div>
-                    </a>
-                    {branch.phone && (
-                      <div className="px-4 pb-4">
-                        <a
-                          href={`tel:${branch.phone.replace(/[^\d+]/g, "")}`}
-                          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-transform duration-200 hover:-translate-y-0.5"
-                          style={{ backgroundColor: accent, color: accentText }}
-                        >
-                          <LinkIcon type="phone" className="size-3.5" />
-                          {branch.phone}
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
 
           {serviceCards.length > 0 && (
             <div
@@ -928,22 +701,12 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             <footer
               className="linkhub-enter mt-10 text-xs text-zinc-500 opacity-70"
               style={{
-                animationDelay: `${
-                  linksBaseDelay +
-                  site.links.length * 45 +
-                  100 +
-                  serviceCards.length * 60 +
-                  (teachers.length ? 40 : 0) +
-                  (certificates.length ? 40 : 0) +
-                  branches.length * 20 +
-                  40
-                }ms`,
+                animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + serviceCards.length * 60 + 40}ms`,
               }}
             >
               Сделано на <span className="font-semibold">LinkHub.uz</span>
             </footer>
           )}
-          </div>
         </div>
       </div>
     </main>

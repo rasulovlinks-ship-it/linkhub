@@ -1,0 +1,45 @@
+{
+  "clients": [
+    {
+      "slug": "babyland",
+      "domain": "komolababyland.uz",
+      "instagram": null,
+      "category": { "uz": "Bolalar massaji va reabilitatsiya", "ru": "Детский массаж и реабилитация" },
+      "screenshot": "/showcase/babyland.jpg"
+    },
+    {
+      "slug": "thebestcakestashkent",
+      "domain": "thebestcakestashkent.uz",
+      "instagram": "https://instagram.com/thebestcakestashkent",
+      "category": { "uz": "Buyurtma tortlar", "ru": "Торты на заказ" },
+      "screenshot": "/showcase/thebestcakestashkent.jpg"
+    }
+  ],
+  "templates": [
+    {
+      "slug": "cake-template",
+      "category": { "uz": "Tort va shirinliklar", "ru": "Торты и десерты" },
+      "screenshot": "/showcase/cake-template.jpg"
+    },
+    {
+      "slug": "edu-template",
+      "category": { "uz": "Ta'lim markazi", "ru": "Учебный центр" },
+      "screenshot": "/showcase/edu-template.jpg"
+    },
+    {
+      "slug": "glow",
+      "category": { "uz": "Go'zallik bloggeri", "ru": "Бьюти-блогер" },
+      "screenshot": "/showcase/glow.jpg"
+    },
+    {
+      "slug": "staystrong",
+      "category": { "uz": "Fitnes murabbiy", "ru": "Фитнес-тренер" },
+      "screenshot": "/showcase/staystrong.jpg"
+    },
+    {
+      "slug": "wanderlist",
+      "category": { "uz": "Sayohat bloggeri", "ru": "Тревел-блогер" },
+      "screenshot": "/showcase/wanderlist.jpg"
+    }
+  ]
+}

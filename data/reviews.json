@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Komola",
+    "business": "Babyland by Komola",
+    "avatar": "/sites/babyland/avatar.webp",
+    "url": "https://komolababyland.uz",
+    "published": false,
+    "text": {
+      "uz": "TODO: mijozdan haqiqiy fikr oling va shu yerga yozing.",
+      "ru": "TODO: получите настоящий отзыв клиента и вставьте сюда."
+    }
+  },
+  {
+    "name": "The Best Cakes Tashkent",
+    "business": "Buyurtma tortlar",
+    "avatar": null,
+    "url": "https://thebestcakestashkent.uz",
+    "published": false,
+    "text": {
+      "uz": "TODO: mijozdan haqiqiy fikr oling va shu yerga yozing.",
+      "ru": "TODO: получите настоящий отзыв клиента и вставьте сюда."
+    }
+  }
+]

@@ -1,202 +1,112 @@
 {
   "slug": "edu-template",
+  "template": "edu",
   "name": "EDU Template",
-  "bio": "Ta'lim markazlari uchun havolalar sahifasi shabloni ✏️",
+  "bio": "IELTS, matematika va dasturlash kurslari. Natijaga yo'naltirilgan ta'lim.",
   "avatarUrl": "",
   "theme": {
-    "background": "linear-gradient(180deg,#eef4ff 0%,#ffffff 55%)",
-    "accent": "#2f5fdb",
-    "secondaryAccent": "#f59e0b",
-    "accentText": "#ffffff",
-    "textColor": "#1c2536",
-    "buttonStyle": "pill"
+    "background": "linear-gradient(180deg,#eef2ff 0%,#ffffff 55%)",
+    "accent": "#4F46E5",
+    "secondaryAccent": "#C2410C",
+    "textColor": "#1E1B4B"
   },
-  "desktopLayout": "split",
-  "servicesLayout": "row",
-  "services": [
-    {
-      "id": "students",
-      "type": "students",
-      "label": "500+",
-      "description": "o'quvchilar",
-      "badgeBg": "#dbeafe",
-      "iconColor": "#1d4ed8"
-    },
-    {
-      "id": "experience",
-      "type": "education",
-      "label": "12 yil",
-      "description": "ta'lim tajribasi",
-      "badgeBg": "#fef3c7",
-      "iconColor": "#92400e",
-      "large": true
-    },
-    {
-      "id": "satisfaction",
-      "type": "impact",
-      "label": "98%",
-      "description": "ota-onalar tavsiyasi",
-      "badgeBg": "#dcfce7",
-      "iconColor": "#166534"
-    }
-  ],
   "links": [
     {
       "id": "phone",
       "type": "phone",
       "label": "Qo'ng'iroq qilish",
       "description": "+998 90 123 45 67",
-      "url": "tel:+998901234567",
-      "pillColor": "blue"
-    },
-    {
-      "id": "trial",
-      "type": "contact",
-      "label": "Bepul sinov darsiga yozilish",
-      "description": "Joy sonini oldindan bron qiling",
-      "url": "https://t.me/edutemplate",
-      "pillColor": "peach"
+      "url": "tel:+998901234567"
     },
     {
       "id": "telegram",
       "type": "telegram",
       "label": "Telegram kanalimiz",
       "description": "Yangiliklar va bepul materiallar",
-      "url": "https://t.me/edutemplate",
-      "pillColor": "blue"
+      "url": "https://t.me/edutemplate"
     },
     {
       "id": "instagram",
       "type": "instagram",
       "label": "Instagram sahifamiz",
       "description": "Darslardan lavhalar",
-      "url": "https://instagram.com/edutemplate",
-      "pillColor": "rose"
+      "url": "https://instagram.com/edutemplate"
     },
     {
       "id": "location",
       "type": "location",
       "label": "Bosh filial manzili",
       "description": "Yunusobod tumani, Amir Temur ko'chasi 45",
-      "url": "https://www.google.com/maps/search/?api=1&query=Toshkent+Yunusobod+Amir+Temur+45",
-      "pillColor": "green"
+      "url": "https://www.google.com/maps/search/?api=1&query=Toshkent+Yunusobod+Amir+Temur+45"
     }
   ],
-  "teachersTitle": "Bizning ustozlarimiz",
-  "teachersSubtitle": "Sohasining tajribali mutaxassislari",
-  "teachers": [
-    {
-      "id": "t1",
-      "type": "education",
-      "name": "Dilnoza Yusupova",
-      "role": "Ingliz tili",
-      "badgeBg": "#dbeafe",
-      "iconColor": "#1d4ed8"
+  "edu": {
+    "cta": {
+      "label": "Bepul sinov darsiga yozilish",
+      "url": "https://t.me/edutemplate"
     },
-    {
-      "id": "t2",
-      "type": "education",
-      "name": "Sardor Aliyev",
-      "role": "Matematika",
-      "badgeBg": "#fef3c7",
-      "iconColor": "#92400e"
-    },
-    {
-      "id": "t3",
-      "type": "education",
-      "name": "Madina Tosheva",
-      "role": "Rus tili",
-      "badgeBg": "#fce7f3",
-      "iconColor": "#be185d"
-    },
-    {
-      "id": "t4",
-      "type": "education",
-      "name": "Jasur Nematov",
-      "role": "IT va dasturlash",
-      "badgeBg": "#dcfce7",
-      "iconColor": "#15803d"
-    },
-    {
-      "id": "t5",
-      "type": "education",
-      "name": "Kamola Rashidova",
-      "role": "Fizika",
-      "badgeBg": "#ede9fe",
-      "iconColor": "#6d28d9"
-    }
-  ],
-  "certificatesTitle": "O'quvchilarimiz natijalari",
-  "certificatesSubtitle": "Xalqaro va milliy sertifikatlar",
-  "certificates": [
-    {
-      "id": "c1",
-      "type": "certificate",
-      "label": "IELTS 7.5 — Dilnoza R.",
-      "badgeBg": "#dbeafe",
-      "iconColor": "#1d4ed8"
-    },
-    {
-      "id": "c2",
-      "type": "certificate",
-      "label": "Matematika olimpiadasi — 1-o'rin",
-      "badgeBg": "#fef3c7",
-      "iconColor": "#92400e"
-    },
-    {
-      "id": "c3",
-      "type": "certificate",
-      "label": "IELTS 8.0 — Sardor T.",
-      "badgeBg": "#dcfce7",
-      "iconColor": "#166534"
-    },
-    {
-      "id": "c4",
-      "type": "certificate",
-      "label": "IT olimpiada — Respublika bosqichi",
-      "badgeBg": "#ede9fe",
-      "iconColor": "#6d28d9"
-    },
-    {
-      "id": "c5",
-      "type": "certificate",
-      "label": "SAT 1450 — Madina Y.",
-      "badgeBg": "#fce7f3",
-      "iconColor": "#be185d"
-    }
-  ],
-  "branchesTitle": "Filiallarimiz",
-  "branchesSubtitle": "Sizga qulay filialni tanlang",
-  "branches": [
-    {
-      "id": "b1",
-      "type": "branch",
-      "name": "Chilonzor filiali",
-      "address": "Chilonzor tumani, Bunyodkor shoh ko'chasi 12",
-      "phone": "+998 90 123 45 67",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Chilonzor+Bunyodkor+12",
-      "badgeBg": "#dbeafe",
-      "iconColor": "#1d4ed8"
-    },
-    {
-      "id": "b2",
-      "type": "branch",
-      "name": "Yunusobod filiali",
-      "address": "Yunusobod tumani, Amir Temur ko'chasi 45",
-      "phone": "+998 90 234 56 78",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Yunusobod+Amir+Temur+45",
-      "badgeBg": "#fef3c7",
-      "iconColor": "#92400e"
-    },
-    {
-      "id": "b3",
-      "type": "branch",
-      "name": "Sergeli filiali",
-      "address": "Sergeli tumani, Qatortol ko'chasi 8",
-      "phone": "+998 90 345 67 89",
-      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Sergeli+Qatortol+8",
-      "badgeBg": "#dcfce7",
-      "iconColor": "#166534"
-    }
-  ]
+    "stats": [
+      { "id": "students", "value": "500+", "label": "O'quvchilar" },
+      { "id": "experience", "value": "12 yil", "label": "Tajriba" },
+      { "id": "satisfaction", "value": "98%", "label": "Mamnun ota-onalar" }
+    ],
+    "coursesTitle": "Yo'nalishlar",
+    "courses": [
+      { "id": "ielts", "title": "IELTS", "meta": "6 oy · haftada 3 dars", "tone": "indigo" },
+      { "id": "math", "title": "Matematika", "meta": "Maktab va olimpiada", "tone": "amber" },
+      { "id": "it", "title": "Dasturlash", "meta": "Python · Web", "tone": "emerald" },
+      { "id": "russian", "title": "Rus tili", "meta": "A1 dan B2 gacha", "tone": "rose" }
+    ],
+    "teachersTitle": "Ustozlarimiz",
+    "teachersSubtitle": "Sohasining tajribali mutaxassislari",
+    "teachers": [
+      { "id": "t1", "name": "Dilnoza Yusupova", "role": "Ingliz tili · IELTS", "experience": "8 yil tajriba", "tone": "indigo" },
+      { "id": "t2", "name": "Sardor Aliyev", "role": "Matematika", "experience": "10 yil tajriba", "tone": "amber" },
+      { "id": "t3", "name": "Madina Tosheva", "role": "Rus tili", "experience": "6 yil tajriba", "tone": "rose" },
+      { "id": "t4", "name": "Jasur Nematov", "role": "Dasturlash", "experience": "7 yil tajriba", "tone": "emerald" },
+      { "id": "t5", "name": "Kamola Rashidova", "role": "Fizika", "experience": "9 yil tajriba", "tone": "violet" },
+      { "id": "t6", "name": "Bekzod Karimov", "role": "Ingliz tili · SAT", "experience": "5 yil tajriba", "tone": "sky" }
+    ],
+    "resultsTitle": "O'quvchilarimiz natijalari",
+    "resultsSubtitle": "Xalqaro va milliy sertifikatlar",
+    "results": [
+      { "id": "r1", "title": "IELTS 7.5", "student": "Dilnoza R.", "tone": "indigo" },
+      { "id": "r2", "title": "1-o'rin", "student": "Matematika olimpiadasi", "tone": "amber" },
+      { "id": "r3", "title": "IELTS 8.0", "student": "Sardor T.", "tone": "sky" },
+      { "id": "r4", "title": "Finalist", "student": "IT olimpiada · Respublika", "tone": "emerald" },
+      { "id": "r5", "title": "SAT 1450", "student": "Madina Y.", "tone": "rose" },
+      { "id": "r6", "title": "CEFR C1", "student": "Rus tili · Aziz K.", "tone": "violet" }
+    ],
+    "branchesTitle": "Filiallarimiz",
+    "branchesSubtitle": "Sizga qulay filialni tanlang",
+    "branches": [
+      {
+        "id": "b1",
+        "name": "Chilonzor filiali",
+        "address": "Chilonzor tumani, Bunyodkor shoh ko'chasi 12",
+        "hours": "Du–Sha 09:00–20:00",
+        "phone": "+998 90 123 45 67",
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Chilonzor+Bunyodkor+12",
+        "tone": "indigo"
+      },
+      {
+        "id": "b2",
+        "name": "Yunusobod filiali",
+        "address": "Yunusobod tumani, Amir Temur ko'chasi 45",
+        "hours": "Du–Sha 09:00–20:00",
+        "phone": "+998 90 234 56 78",
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Yunusobod+Amir+Temur+45",
+        "tone": "amber"
+      },
+      {
+        "id": "b3",
+        "name": "Sergeli filiali",
+        "address": "Sergeli tumani, Qatortol ko'chasi 8",
+        "hours": "Du–Sha 09:00–19:00",
+        "phone": "+998 90 345 67 89",
+        "mapUrl": "https://www.google.com/maps/search/?api=1&query=Toshkent+Sergeli+Qatortol+8",
+        "tone": "emerald"
+      }
+    ]
+  }
 }

@@ -149,45 +149,192 @@ export type ServiceCard = {
   iconColor: string;
 };
 
-export type TeacherItem = {
+/** Named color pair (tinted background + readable ink) used by the EDU template. */
+export type EduTone = "indigo" | "amber" | "emerald" | "rose" | "sky" | "violet";
+
+export type EduStat = { id: string; value: string; label: string };
+
+export type EduCourse = {
   id: string;
-  /** Icon shown when photoUrl is omitted; typically "education" */
-  type: LinkType;
+  title: string;
+  /** Short detail line, e.g. "6 oy · haftada 3 dars" */
+  meta?: string;
+  tone: EduTone;
+};
+
+export type EduTeacher = {
+  id: string;
   name: string;
-  /** Subject or role, e.g. "Ingliz tili o'qituvchisi" */
-  role?: string;
+  /** Subject, e.g. "Ingliz tili" */
+  role: string;
+  /** e.g. "8 yil tajriba" */
+  experience?: string;
+  /** Portrait photo; falls back to a tinted initials tile when omitted */
   photoUrl?: string;
-  /** Fallback tint behind the icon when photoUrl is omitted */
-  badgeBg: string;
-  iconColor: string;
+  tone: EduTone;
 };
 
-export type CertificateItem = {
+export type EduResult = {
   id: string;
-  /** Icon shown when photoUrl is omitted; typically "certificate" */
-  type: LinkType;
-  /** Caption under the photo, e.g. "IELTS 8.0 — Dilnoza R." */
-  label?: string;
+  /** Headline result, e.g. "IELTS 7.5" */
+  title: string;
+  /** Student name or extra line */
+  student?: string;
+  /** Photo/scan of the certificate; falls back to a drawn certificate card when omitted */
   photoUrl?: string;
-  /** Fallback tint behind the icon when photoUrl is omitted */
-  badgeBg: string;
-  iconColor: string;
+  tone: EduTone;
 };
 
-export type BranchItem = {
+export type EduBranch = {
   id: string;
-  /** Icon shown on the photo badge and as fallback; typically "branch" */
-  type: LinkType;
   name: string;
   address: string;
-  /** Display phone number; also used (digits only) to build the tel: link */
+  /** e.g. "Du-Sha 09:00-20:00" */
+  hours?: string;
+  /** Display phone; digits are used to build the tel: link */
   phone?: string;
-  /** Opens when the branch card is clicked (map/location link) */
+  /** Opens the branch in a maps app/site */
   mapUrl: string;
   photoUrl?: string;
-  /** Fallback tint behind the icon when photoUrl is omitted */
-  badgeBg: string;
-  iconColor: string;
+  tone: EduTone;
+};
+
+/**
+ * Content for template "edu" (education center). Colors come from the
+ * site theme (accent = primary, secondaryAccent = call-to-action, textColor
+ * = ink, background = page background), so no colors live in this block.
+ */
+export type EduContent = {
+  stats?: EduStat[];
+  coursesTitle?: string;
+  courses?: EduCourse[];
+  teachersTitle?: string;
+  teachersSubtitle?: string;
+  teachers?: EduTeacher[];
+  resultsTitle?: string;
+  resultsSubtitle?: string;
+  results?: EduResult[];
+  branchesTitle?: string;
+  branchesSubtitle?: string;
+  branches?: EduBranch[];
+  /** Main call-to-action, used in the hero (desktop) and the sticky bottom bar (mobile) */
+  cta?: { label: string; url: string };
+};
+
+/** Frosting palette for the drawn cake illustrations (and matching tinted backgrounds). */
+export type CakeTone = "rose" | "cream" | "chocolate" | "pistachio" | "violet" | "lemon" | "velvet";
+
+/** How a cake is drawn when no photo is given. */
+export type CakeStyle = {
+  tone: CakeTone;
+  /** Number of tiers (default 1) */
+  tiers?: 1 | 2 | 3;
+  topper?: "berries" | "flowers" | "candles" | "heart" | "sprinkles" | "none";
+  /** Glaze dripping down the top tier, in a darker shade */
+  drip?: boolean;
+  /** Row of piped pearls around the base of each tier */
+  pearls?: boolean;
+};
+
+export type CakeCategory = { id: string; title: string; meta?: string; style: CakeStyle };
+
+export type CakeItem = {
+  id: string;
+  name: string;
+  /** Flavor / filling line */
+  description?: string;
+  /** Display price, e.g. "от 280 000 сум" */
+  price?: string;
+  /** Size / servings, e.g. "1.5 кг · 8–10 порций" */
+  size?: string;
+  /** Small ribbon, e.g. "Хит" */
+  tag?: string;
+  /** Real photo; falls back to a drawn cake when omitted */
+  photoUrl?: string;
+  style: CakeStyle;
+};
+
+export type CakeFlavor = { id: string; name: string; tone: CakeTone };
+
+export type CakeStep = { id: string; title: string; text: string };
+
+export type CakeReview = {
+  id: string;
+  name: string;
+  text: string;
+  /** 1–5 */
+  rating?: number;
+  /** e.g. "Instagram", "2GIS" */
+  source?: string;
+};
+
+export type CakeInfoCard = {
+  id: string;
+  title: string;
+  text: string;
+  icon: "delivery" | "clock" | "payment" | "location";
+};
+
+export type CakeFaq = { id: string; q: string; a: string };
+
+/** Interface strings; every one has a Russian default in the component. */
+export type CakeLabels = {
+  callAria?: string;
+  orderCake?: string;
+  callUs?: string;
+  contactsNav?: string;
+  carouselPause?: string;
+  carouselPlay?: string;
+  carouselPrev?: string;
+  carouselNext?: string;
+  createdWith?: string;
+};
+
+/**
+ * Content for template "cake" (bakery / custom cakes). Colors come from the
+ * site theme (accent = primary, secondaryAccent = gold highlight, textColor
+ * = ink, background = page background).
+ */
+export type CakeContent = {
+  /** Small trust chips under the bio, e.g. "Доставка по городу" */
+  badges?: string[];
+  stats?: EduStat[];
+  /**
+   * Main order button. When the url is a wa.me link, "Заказать" buttons on
+   * individual cakes add a ready-made message naming that cake.
+   */
+  order?: {
+    label: string;
+    url: string;
+    /** Ready-made chat message for the main button (wa.me only) */
+    message?: string;
+    /** Message for a single cake; "{cake}" is replaced with its name */
+    cakeMessage?: string;
+  };
+  /** Optional hero photo shown instead of the drawn cake on desktop */
+  heroImageUrl?: string;
+  heroCake?: CakeStyle;
+  categoriesTitle?: string;
+  categories?: CakeCategory[];
+  cakesTitle?: string;
+  cakesSubtitle?: string;
+  cakes?: CakeItem[];
+  flavorsTitle?: string;
+  flavorsSubtitle?: string;
+  flavors?: CakeFlavor[];
+  stepsTitle?: string;
+  steps?: CakeStep[];
+  reviewsTitle?: string;
+  reviewsSubtitle?: string;
+  reviews?: CakeReview[];
+  infoTitle?: string;
+  info?: CakeInfoCard[];
+  faqTitle?: string;
+  faq?: CakeFaq[];
+  /** Closing call-to-action banner */
+  closingTitle?: string;
+  closingText?: string;
+  labels?: CakeLabels;
 };
 
 export type SiteConfig = {
@@ -237,37 +384,12 @@ export type SiteConfig = {
    */
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
-  /**
-   * Slowly auto-scrolling photo strip introducing staff/instructors, shown
-   * below the links. Pauses on hover; each card falls back to a tinted
-   * icon badge when photoUrl is omitted.
-   */
-  teachersTitle?: string;
-  teachersSubtitle?: string;
-  teachers?: TeacherItem[];
-  /**
-   * Slowly auto-scrolling photo strip of student results (certificates,
-   * diplomas, exam scores), shown below the teachers strip.
-   */
-  certificatesTitle?: string;
-  certificatesSubtitle?: string;
-  certificates?: CertificateItem[];
-  /**
-   * Static grid of 2-3 branch/location cards. Clicking a card opens its
-   * mapUrl; each also gets a separate tel: chip when phone is set.
-   */
-  branchesTitle?: string;
-  branchesSubtitle?: string;
-  branches?: BranchItem[];
-  /**
-   * "stacked" (default): single centered mobile-style column at every
-   * screen width, unchanged regardless of viewport.
-   * "split": at desktop widths (lg breakpoint+), switches to a wide
-   * two-column layout — a sticky sidebar (avatar, bio, stats, links) next
-   * to a full-width content column (teacher/certificate strips, branches).
-   * Below the lg breakpoint it's identical to "stacked".
-   */
-  desktopLayout?: "stacked" | "split";
+  /** Selects a dedicated page layout instead of the default link-in-bio profile. */
+  template?: "edu" | "cake";
+  /** Content for template "edu". */
+  edu?: EduContent;
+  /** Content for template "cake". */
+  cake?: CakeContent;
   theme?: SiteTheme;
   links: LinkItem[];
   /** Hides the "Сделано на LinkHub.uz" footer credit when true. */

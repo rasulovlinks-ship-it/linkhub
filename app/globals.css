@@ -10,6 +10,20 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ownlink.uz homepage tokens (values live on .ol, see bottom of file) */
+  --color-ol-bg: var(--ol-bg);
+  --color-ol-surface: var(--ol-surface);
+  --color-ol-surface-2: var(--ol-surface-2);
+  --color-ol-ink: var(--ol-ink);
+  --color-ol-muted: var(--ol-muted);
+  --color-ol-line: var(--ol-line);
+  --color-ol-accent: var(--ol-accent);
+  --color-ol-accent-strong: var(--ol-accent-strong);
+  --color-ol-accent-soft: var(--ol-accent-soft);
+  --color-ol-accent-ink: var(--ol-accent-ink);
+  --font-display: var(--font-ol-display);
+  --font-ol: var(--font-ol-body);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -123,3 +137,493 @@ body {
   }
 }
 
+
+/* ---------------------------------------------------------------------------
+ * ownlink.uz homepage
+ * Radius system: cards 20px, inner panels 14px, interactive = full pill.
+ * One accent (cobalt), neutral cool greys, light + dark via system preference.
+ * ------------------------------------------------------------------------- */
+
+.ol {
+  --ol-bg: #f3f4f6;
+  --ol-surface: #fcfcfd;
+  --ol-surface-2: #e9ebf0;
+  --ol-ink: #12141a;
+  --ol-muted: #596070;
+  --ol-line: rgb(18 20 26 / 0.09);
+  --ol-accent: #2748e6;
+  --ol-accent-strong: #1c36b8;
+  --ol-accent-soft: #e1e6fc;
+  --ol-accent-ink: #fcfcfd;
+  --ol-accent-glow: rgb(39 72 230 / 0.2);
+  --ol-accent-mark: rgb(39 72 230 / 0.16);
+  --ol-shadow: rgb(18 24 60 / 0.3);
+  --ol-glass-bg: rgb(255 255 255 / 0.55);
+  --ol-glass-solid: rgb(247 248 252 / 0.97);
+  --ol-glass-border: rgb(255 255 255 / 0.85);
+  background: var(--ol-bg);
+  color: var(--ol-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ol {
+    --ol-bg: #0c0e12;
+    --ol-surface: #14171d;
+    --ol-surface-2: #1b1f27;
+    --ol-ink: #eceef3;
+    --ol-muted: #9aa0ae;
+    --ol-line: rgb(255 255 255 / 0.08);
+    --ol-accent: #7d93ff;
+    --ol-accent-strong: #a9b7ff;
+    --ol-accent-soft: #1a2150;
+    --ol-accent-ink: #0c0e12;
+    --ol-accent-glow: rgb(125 147 255 / 0.16);
+    --ol-accent-mark: rgb(125 147 255 / 0.26);
+    --ol-shadow: rgb(0 0 0 / 0.6);
+    --ol-glass-bg: rgb(30 34 44 / 0.55);
+    --ol-glass-solid: rgb(26 29 38 / 0.97);
+    --ol-glass-border: rgb(255 255 255 / 0.12);
+  }
+}
+
+@layer components {
+  .ol-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 3rem;
+    padding: 0 1.4rem;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition:
+      transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 200ms,
+      border-color 200ms,
+      opacity 200ms;
+  }
+  .ol-btn:active {
+    transform: translateY(1px) scale(0.98);
+  }
+  .ol-btn:focus-visible {
+    outline: 2px solid var(--ol-accent);
+    outline-offset: 3px;
+  }
+  .ol-btn-primary {
+    background: var(--ol-accent);
+    color: var(--ol-accent-ink);
+    box-shadow: 0 10px 24px -14px var(--ol-accent);
+  }
+  .ol-btn-primary:hover {
+    background: var(--ol-accent-strong);
+  }
+  .ol-btn-ghost {
+    border: 1px solid var(--ol-line);
+    background: var(--ol-surface);
+    color: var(--ol-ink);
+  }
+  .ol-btn-ghost:hover {
+    border-color: color-mix(in srgb, var(--ol-accent) 45%, transparent);
+  }
+}
+
+/* Reveal on scroll: hidden start state only when JS is present. */
+.ol [data-reveal] {
+  transition:
+    opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+.ol-js .ol [data-reveal]:not([data-shown]) {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+/* --- Hero: glass meter -------------------------------------------------- */
+
+.ol-glass {
+  background: var(--ol-glass-bg);
+  border: 1px solid var(--ol-glass-border);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.5),
+    0 30px 60px -24px var(--ol-shadow);
+}
+/* Web frosted-glass approximation; solid fill when transparency is reduced. */
+@media (prefers-reduced-transparency: reduce) {
+  .ol-glass {
+    background: var(--ol-glass-solid);
+    backdrop-filter: none;
+  }
+}
+.ol-glass.is-frozen {
+  background: var(--ol-glass-solid);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+@keyframes ol-bar-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+.ol-bar {
+  transform-origin: bottom;
+  animation: ol-bar-grow 380ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.ol-glass.is-frozen .ol-bar {
+  animation: none;
+}
+
+@keyframes ol-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+.ol-hero-cardbox {
+  animation: ol-card-in 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ol-shard {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+
+.ol-crack path {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.95);
+  /* viewBox units (card is 100x100); no non-scaling-stroke, it would
+     break pathLength-based dash drawing */
+  stroke-width: 0.38;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 1px rgb(10 14 40 / 0.45));
+}
+.ol-crack circle {
+  fill: #fff;
+  opacity: 0;
+}
+@keyframes ol-crack-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.ol-hero[data-phase="crack"] .ol-crack path {
+  animation: ol-crack-draw 380ms cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+.ol-hero[data-phase="crack"] .ol-crack circle {
+  opacity: 1;
+}
+
+.ol-hero-intro,
+.ol-hero-main,
+.ol-hero-phone,
+.ol-hero-skip {
+  transition:
+    opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 600ms;
+}
+.ol-hero-main {
+  opacity: 0;
+  transform: translateY(16px);
+  visibility: hidden;
+  transition-delay: 150ms;
+}
+.ol-hero-phone {
+  opacity: 0;
+  transform: translateY(10px) scale(0.94);
+  transition-delay: 80ms;
+}
+
+/* Animated strike-through (domain line, crossed-out subtext phrases).
+   Native line-through is removed so the drawn line is the only one. */
+.ol-strike {
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.ol-strike::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 55%;
+  height: 1.5px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 450ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 650ms);
+}
+.ol-domain-to {
+  opacity: 0;
+  transform: translateX(-6px);
+  transition:
+    opacity 500ms ease 1000ms,
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1) 1000ms;
+}
+
+/* Final state: after the shatter, or immediately for returning visitors and
+   reduced-motion users (data-ol-skip is set before first paint). */
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-hero-intro,
+:root[data-ol-skip] .ol-hero-intro {
+  opacity: 0;
+  transform: translateY(-12px);
+  visibility: hidden;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-hero-main,
+:root[data-ol-skip] .ol-hero-main {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-hero-phone,
+:root[data-ol-skip] .ol-hero-phone {
+  opacity: 1;
+  transform: none;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-strike::after,
+:root[data-ol-skip] .ol-strike::after {
+  transform: scaleX(1);
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-domain-to,
+:root[data-ol-skip] .ol-domain-to {
+  opacity: 1;
+  transform: none;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-hero-skip,
+:root[data-ol-skip] .ol-hero-skip,
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-crack,
+:root[data-ol-skip] .ol-crack {
+  opacity: 0;
+  visibility: hidden;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-hero-cardbox > .ol-glass,
+:root[data-ol-skip] .ol-hero-cardbox > .ol-glass {
+  visibility: hidden;
+}
+.ol-hero[data-phase="done"] .ol-hero-cardbox,
+:root[data-ol-skip] .ol-hero-cardbox {
+  pointer-events: none;
+}
+
+/* --- Calculator range -------------------------------------------------- */
+
+.ol-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--ol-accent) var(--fill, 50%),
+    var(--ol-surface-2) var(--fill, 50%)
+  );
+  cursor: pointer;
+}
+.ol-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--ol-surface);
+  border: 2px solid var(--ol-accent);
+  box-shadow: 0 4px 12px -4px var(--ol-shadow);
+  transition: transform 150ms;
+}
+.ol-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--ol-surface);
+  border: 2px solid var(--ol-accent);
+  box-shadow: 0 4px 12px -4px var(--ol-shadow);
+}
+.ol-range:active::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+.ol-range:focus-visible {
+  outline: 2px solid var(--ol-accent);
+  outline-offset: 6px;
+}
+
+/* --- FAQ: animated open where supported (progressive enhancement) ------- */
+
+.ol-faq {
+  interpolate-size: allow-keywords;
+}
+.ol-faq::details-content {
+  height: 0;
+  overflow: clip;
+  transition:
+    height 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    content-visibility 300ms allow-discrete;
+}
+.ol-faq[open]::details-content {
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ol [data-reveal],
+  .ol-hero-intro,
+  .ol-hero-main,
+  .ol-hero-phone,
+  .ol-strike::after,
+  .ol-domain-to,
+  .ol-faq::details-content {
+    transition: none;
+  }
+  .ol-js .ol [data-reveal]:not([data-shown]) {
+    opacity: 1;
+    transform: none;
+  }
+  .ol-hero-cardbox,
+  .ol-bar {
+    animation: none;
+  }
+}
+
+/* --- Background details ------------------------------------------------ */
+
+/* Hero domain chips: outer span fades in after the shatter, inner drifts. */
+.ol-domain-chip {
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+  transition:
+    opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(400ms + var(--i, 0) * 90ms);
+}
+.ol-domain-chip[data-depth="far"] {
+  filter: blur(1.2px);
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-domain-chip,
+:root[data-ol-skip] .ol-domain-chip {
+  opacity: 0.75;
+  transform: none;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-domain-chip[data-depth="far"],
+:root[data-ol-skip] .ol-domain-chip[data-depth="far"] {
+  opacity: 0.45;
+}
+@keyframes ol-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(3px, -7px);
+  }
+}
+.ol-domain-chip-inner {
+  animation: ol-drift calc(11s + var(--i, 0) * 1.3s) ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * -1.7s);
+}
+
+/* Film grain: one fixed, non-interactive layer, never on scrolling boxes. */
+.ol::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  .ol::after {
+    opacity: 0.06;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ol-domain-chip {
+    transition: none;
+  }
+  .ol-domain-chip-inner {
+    animation: none;
+  }
+}
+
+/* Hero headline accent: highlighter stroke sweeps in after the shatter.
+   Background on the inline span (not a pseudo) so it follows line wraps. */
+.ol-title-accent {
+  background-image: linear-gradient(var(--ol-accent-mark), var(--ol-accent-mark));
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 0% 0.3em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 750ms cubic-bezier(0.65, 0, 0.35, 1) 750ms;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-title-accent,
+:root[data-ol-skip] .ol-title-accent {
+  background-size: 100% 0.3em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ol-title-accent {
+    transition: none;
+  }
+}
+
+/* Hero "no more" pills: a thick accent line cuts each label, then the
+   label dims. Delay per pill comes from --d on the <li>. */
+.ol-strike-bold::after {
+  left: -5px;
+  right: -5px;
+  top: 50%;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 2px;
+  background: var(--ol-accent);
+}
+.ol-crossed s {
+  transition: color 400ms ease calc(var(--d, 650ms) + 250ms);
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-crossed s,
+:root[data-ol-skip] .ol-crossed s {
+  color: var(--ol-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ol-crossed s {
+    transition: none;
+  }
+}
+
+/* Hero "umrbod / навсегда": accent underline drawn after the line-1 highlight. */
+.ol-underline path {
+  fill: none;
+  stroke: var(--ol-accent);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 650ms cubic-bezier(0.65, 0, 0.35, 1) 1500ms;
+}
+.ol-hero:is([data-phase="shatter"], [data-phase="done"]) .ol-underline path,
+:root[data-ol-skip] .ol-underline path {
+  stroke-dashoffset: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ol-underline path {
+    transition: none;
+  }
+}
+
+.edu-scroller {
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.edu-scroller::-webkit-scrollbar {
+  display: none;
+}
