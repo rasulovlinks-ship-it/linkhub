@@ -394,4 +394,22 @@ export type SiteConfig = {
   links: LinkItem[];
   /** Hides the "Сделано на LinkHub.uz" footer credit when true. */
   hideBranding?: boolean;
+  /** Language of the texts above (default "ru"); picks the footer credit wording. */
+  lang?: SiteLang;
+  /**
+   * Second language. When set, a toggle at the top of the page switches
+   * name, bio and link texts to these overrides (anything omitted keeps
+   * the primary text). Only the default link-in-bio profile uses it.
+   */
+  translation?: SiteTranslation;
+};
+
+export type SiteLang = "uz" | "ru";
+
+export type SiteTranslation = {
+  lang: SiteLang;
+  name?: string;
+  bio?: string;
+  /** Overrides keyed by LinkItem.id */
+  links?: Record<string, { label?: string; description?: string }>;
 };

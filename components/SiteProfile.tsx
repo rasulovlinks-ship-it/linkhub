@@ -1,7 +1,26 @@
 import type { CSSProperties, ReactNode } from "react";
-import type { PillColor, SiteConfig } from "@/lib/types";
+import type { PillColor, SiteConfig, SiteLang } from "@/lib/types";
 import { LinkIcon } from "./icons";
 import CloudReveal from "./CloudReveal";
+import LangToggle from "./LangToggle";
+import { langInitScript } from "@/lib/siteLang";
+
+const BRAND = <span className="font-semibold">LinkHub.uz</span>;
+const CREATED_WITH: Record<SiteLang, ReactNode> = {
+  ru: <>Сделано на {BRAND}</>,
+  uz: <>{BRAND} orqali yaratilgan</>,
+};
+
+/** Primary text, plus the translated text when it differs; globals.css shows the active one. */
+function Tr({ text, alt }: { text: ReactNode; alt?: ReactNode }) {
+  if (alt === undefined || alt === text) return <>{text}</>;
+  return (
+    <>
+      <span data-l="primary">{text}</span>
+      <span data-l="alt">{alt}</span>
+    </>
+  );
+}
 
 const PILL_COLORS: Record<PillColor, { bg: string; text: string; badgeBg?: string }> = {
   pink: { bg: "#fbd5e3", text: "#9d174d" },
@@ -296,6 +315,9 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const serviceCards = site.serviceCards ?? [];
   const puffUrls = site.serviceCardsPuffUrls ?? [];
   const pillButtons = theme.buttonStyle === "pill";
+  const lang = site.lang ?? "ru";
+  const tr = site.translation;
+  const trLinks = tr?.links ?? {};
 
   const rootStyle = {
     background,
@@ -320,6 +342,21 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
 
   return (
     <main className="isolate relative min-h-dvh w-full overflow-hidden" style={rootStyle}>
+      {tr && (
+        <>
+          <script dangerouslySetInnerHTML={{ __html: langInitScript(site.slug, tr.lang) }} />
+          <div className="linkhub-enter absolute top-4 right-4 z-10">
+            <LangToggle
+              slug={site.slug}
+              primary={lang}
+              alt={tr.lang}
+              accent={accent}
+              accentText={accentText}
+            />
+          </div>
+        </>
+      )}
+
       {backgroundImageUrl ? (
         <PageBackgroundPhoto
           src={backgroundImageUrl}
@@ -381,7 +418,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             className="linkhub-enter mt-4 text-center text-xl font-semibold"
             style={{ animationDelay: `${nameDelay}ms` }}
           >
-            {site.name}
+            <Tr text={site.name} alt={tr?.name} />
           </h1>
 
           {site.bio && (
@@ -389,7 +426,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
               className="linkhub-enter mt-1 text-center text-sm text-balance opacity-70"
               style={{ animationDelay: `${bioDelay}ms` }}
             >
-              {site.bio}
+              <Tr text={site.bio} alt={tr?.bio} />
             </p>
           )}
 
@@ -528,7 +565,9 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                         className="size-5 shrink-0 text-[var(--accent)] transition-transform duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                       />
                     )}
-                    <span className="font-medium">{link.label}</span>
+                    <span className="font-medium">
+                      <Tr text={link.label} alt={trLinks[link.id]?.label} />
+                    </span>
                   </a>
                 );
               }
@@ -594,10 +633,12 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                     )}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block font-bold leading-tight">{link.label}</span>
+                    <span className="block font-bold leading-tight">
+                      <Tr text={link.label} alt={trLinks[link.id]?.label} />
+                    </span>
                     {link.description && (
                       <span className="block truncate text-sm leading-tight opacity-75">
-                        {link.description}
+                        <Tr text={link.description} alt={trLinks[link.id]?.description} />
                       </span>
                     )}
                   </span>
@@ -704,7 +745,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                 animationDelay: `${linksBaseDelay + site.links.length * 45 + 100 + serviceCards.length * 60 + 40}ms`,
               }}
             >
-              Сделано на <span className="font-semibold">LinkHub.uz</span>
+              <Tr text={CREATED_WITH[lang]} alt={tr && CREATED_WITH[tr.lang]} />
             </footer>
           )}
         </div>

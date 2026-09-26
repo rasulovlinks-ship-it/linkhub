@@ -62,6 +62,12 @@ body {
   }
 }
 
+/* Two-language site pages: LangToggle sets data-lang-alt on <html> */
+html:not([data-lang-alt]) [data-l="alt"],
+html[data-lang-alt] [data-l="primary"] {
+  display: none;
+}
+
 @keyframes linkhub-blob-float {
   0%,
   100% {

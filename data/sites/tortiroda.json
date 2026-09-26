@@ -1,0 +1,70 @@
+{
+  "slug": "tortiroda",
+  "lang": "uz",
+  "name": "Tort maniya Iroda",
+  "bio": "Shirinliklar to'plami · to'y va fotiha uchun premium tortlar · Toshkent",
+  "avatarUrl": "/sites/tortiroda/avatar.webp",
+  "theme": {
+    "background": "#e9ecef",
+    "accent": "#211c16",
+    "secondaryAccent": "#c9a24a",
+    "accentText": "#f5c451",
+    "textColor": "#343a40",
+    "backgroundImageUrl": "/sites/tortiroda/background.webp",
+    "buttonStyle": "pill"
+  },
+  "links": [
+    {
+      "id": "order",
+      "type": "order",
+      "label": "Tort buyurtma qilish",
+      "description": "Telegram orqali yozing",
+      "url": "https://t.me/Torti_Iroda",
+      "pillColor": "charcoal"
+    },
+    {
+      "id": "instagram",
+      "type": "instagram",
+      "label": "Instagram",
+      "description": "Mening ishlarim",
+      "url": "https://www.instagram.com/tort_iroda",
+      "pillColor": "charcoal"
+    },
+    {
+      "id": "channel",
+      "type": "telegram",
+      "label": "Telegram-kanal",
+      "description": "Yangiliklar va tayyor tortlar",
+      "url": "https://t.me/torti_irodaa",
+      "pillColor": "charcoal"
+    },
+    {
+      "id": "youtube",
+      "type": "youtube",
+      "label": "YouTube",
+      "description": "Ishlarim videoda",
+      "url": "https://youtube.com/@tort_iroda_maniya",
+      "pillColor": "charcoal"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Qo'ng'iroq qilish",
+      "description": "+998 77 766 60 70",
+      "url": "tel:+998777666070",
+      "pillColor": "charcoal"
+    }
+  ],
+  "translation": {
+    "lang": "ru",
+    "name": "Торт мания Ирода",
+    "bio": "Коллекция сладостей · премиум торты на туй и фотиха · Ташкент",
+    "links": {
+      "order": { "label": "Заказать торт", "description": "Написать в Telegram" },
+      "instagram": { "description": "Мои работы" },
+      "channel": { "label": "Telegram-канал", "description": "Новинки и готовые торты" },
+      "youtube": { "description": "Видео моих работ" },
+      "phone": { "label": "Позвонить" }
+    }
+  }
+}
