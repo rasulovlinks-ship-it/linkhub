@@ -29,12 +29,25 @@ import type { LinkType } from "@/lib/types";
 
 type IconProps = { className?: string };
 
-function CakeSliceIcon({ className }: IconProps) {
+/** Two-tier cake with a candle, drawn to match the heroicons outline set. */
+function CakeIcon({ className }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-      <path d="M12 3 L20 18 H4 Z" />
-      <rect x="7" y="13.4" width="10" height="1.6" rx="0.8" />
-      <circle cx="12" cy="1.6" r="1.3" />
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M12 1.9c.8.9 1.2 1.6 1.2 2.2a1.2 1.2 0 0 1-2.4 0c0-.6.4-1.3 1.2-2.2Z" fill="currentColor" />
+      <path d="M12 6.4v2.6" />
+      <rect x="7" y="9" width="10" height="4.5" rx="1.2" />
+      <rect x="4" y="13.5" width="16" height="6" rx="1.5" />
+      <path d="M4 16c1.33 0 1.33 1.2 2.67 1.2S8 16 9.33 16s1.34 1.2 2.67 1.2S13.33 16 14.67 16s1.33 1.2 2.66 1.2S18.67 16 20 16" />
+      <path d="M2.5 21.5h19" />
     </svg>
   );
 }
@@ -192,7 +205,7 @@ const HERO_ICONS: Partial<Record<LinkType, ComponentType<SVGProps<SVGSVGElement>
 };
 
 const CUSTOM_ICONS: Partial<Record<LinkType, ComponentType<IconProps>>> = {
-  order: CakeSliceIcon,
+  order: CakeIcon,
   babymassage: BabyFaceIcon,
   therapeutic: LeafIcon,
   corrective: CorrectiveIcon,

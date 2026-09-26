@@ -342,12 +342,22 @@ export type SiteConfig = {
   slug: string;
   /** Display name shown on the page */
   name: string;
+  /** Small uppercase line above the name, e.g. "Konditer · Iroda Mahmudovna" */
+  eyebrow?: string;
   bio?: string;
+  /** Colored icon chips under the bio (specialties, city, follower count) */
+  badges?: SiteBadge[];
   avatarUrl?: string;
   /** Wide banner photo shown above the avatar */
   coverImageUrl?: string;
   /** Small photo strip (product shots, portfolio pieces, etc.) shown below the bio */
   gallery?: string[];
+  /**
+   * Captioned portfolio photos ("what I make"), shown below the bio as a
+   * horizontally swipeable strip, one card per kind of work.
+   */
+  worksTitle?: string;
+  works?: WorkItem[];
   /**
    * Plain informational rows (icon + title + subtitle, no pill background
    * or link chevron) shown above the clickable links. For listing service
@@ -404,12 +414,28 @@ export type SiteConfig = {
   translation?: SiteTranslation;
 };
 
+export type WorkItem = { id: string; photoUrl: string; label: string };
+
+export type SiteBadge = {
+  id: string;
+  label: string;
+  icon?: LinkType;
+  /** Chip color from the pill palette; auto-cycled if omitted */
+  color?: PillColor;
+};
+
 export type SiteLang = "uz" | "ru";
 
 export type SiteTranslation = {
   lang: SiteLang;
   name?: string;
+  eyebrow?: string;
   bio?: string;
+  /** Badge labels keyed by SiteBadge.id */
+  badges?: Record<string, string>;
   /** Overrides keyed by LinkItem.id */
   links?: Record<string, { label?: string; description?: string }>;
+  worksTitle?: string;
+  /** Work labels keyed by WorkItem.id */
+  works?: Record<string, string>;
 };

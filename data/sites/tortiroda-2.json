@@ -1,5 +1,5 @@
 {
-  "slug": "tortiroda",
+  "slug": "tortiroda-2",
   "lang": "uz",
   "eyebrow": "Konditer · Iroda Mahmudovna",
   "name": "Tort maniya Iroda",
@@ -9,19 +9,19 @@
       "id": "toy",
       "label": "To'y va fotiha tortlari",
       "icon": "order",
-      "color": "charcoal"
+      "color": "pink"
     },
     {
       "id": "city",
       "label": "Toshkent",
       "icon": "location",
-      "color": "charcoal"
+      "color": "peach"
     },
     {
       "id": "followers",
       "label": "47.9K obunachi",
       "icon": "instagram",
-      "color": "charcoal"
+      "color": "purple"
     }
   ],
   "avatarUrl": "/sites/tortiroda/avatar.webp",
@@ -59,12 +59,12 @@
     }
   ],
   "theme": {
-    "background": "#e9ecef",
-    "accent": "#211c16",
-    "secondaryAccent": "#c9a24a",
-    "accentText": "#f5c451",
-    "textColor": "#343a40",
-    "backgroundImageUrl": "/sites/tortiroda/background.webp",
+    "background": "linear-gradient(180deg,#fff0f6 0%,#fff6ec 55%,#fffbe8 100%)",
+    "accent": "#e11d74",
+    "secondaryAccent": "#f59e0b",
+    "accentText": "#ffffff",
+    "textColor": "#4a1631",
+    "backgroundStyle": "confetti",
     "buttonStyle": "pill"
   },
   "links": [
@@ -74,7 +74,7 @@
       "label": "Tort buyurtma qilish",
       "description": "Telegram orqali yozing",
       "url": "https://t.me/Torti_Iroda",
-      "pillColor": "charcoal"
+      "pillColor": "pink"
     },
     {
       "id": "instagram",
@@ -82,7 +82,7 @@
       "label": "Instagram",
       "description": "Mening ishlarim",
       "url": "https://www.instagram.com/tort_iroda",
-      "pillColor": "charcoal"
+      "pillColor": "peach"
     },
     {
       "id": "channel",
@@ -90,7 +90,7 @@
       "label": "Telegram-kanal",
       "description": "Yangiliklar va tayyor tortlar",
       "url": "https://t.me/torti_irodaa",
-      "pillColor": "charcoal"
+      "pillColor": "blue"
     },
     {
       "id": "youtube",
@@ -98,7 +98,7 @@
       "label": "YouTube",
       "description": "Ishlarim videoda",
       "url": "https://youtube.com/@tort_iroda_maniya",
-      "pillColor": "charcoal"
+      "pillColor": "purple"
     },
     {
       "id": "phone",
@@ -106,7 +106,7 @@
       "label": "Qo'ng'iroq qilish",
       "description": "+998 77 766 60 70",
       "url": "tel:+998777666070",
-      "pillColor": "charcoal"
+      "pillColor": "green"
     }
   ],
   "translation": {

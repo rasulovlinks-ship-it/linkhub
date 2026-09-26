@@ -2,6 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 import type { PillColor, SiteConfig, SiteLang } from "@/lib/types";
 import { LinkIcon } from "./icons";
 import CloudReveal from "./CloudReveal";
+import Marquee from "./Marquee";
 import LangToggle from "./LangToggle";
 import { langInitScript } from "@/lib/siteLang";
 
@@ -309,6 +310,8 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const backgroundImageUrl = theme.backgroundImageUrl;
   const avatarNeedsRing = hasCover || Boolean(backgroundImageUrl);
   const gallery = site.gallery ?? [];
+  const works = site.works ?? [];
+  const badges = site.badges ?? [];
   const services = site.services ?? [];
   const servicesHaveImages = services.some((s) => s.imageUrl);
   const servicesRow = site.servicesLayout === "row";
@@ -336,6 +339,7 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
   const nameDelay = nextDelay(70);
   const bioDelay = nextDelay(60);
   const galleryDelay = gallery.length ? nextDelay(70) : delay;
+  const worksDelay = works.length ? nextDelay(70) : delay;
   const servicesBaseDelay = delay;
   if (services.length) nextDelay(services.length * 40 + 40);
   const linksBaseDelay = delay;
@@ -414,8 +418,21 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             )}
           </div>
 
+          {site.eyebrow && (
+            <p
+              className="linkhub-enter mt-5 text-center text-[0.7rem] font-bold tracking-[0.18em] uppercase"
+              style={{ animationDelay: `${nameDelay}ms`, color: accent }}
+            >
+              <Tr text={site.eyebrow} alt={tr?.eyebrow} />
+            </p>
+          )}
+
           <h1
-            className="linkhub-enter mt-4 text-center text-xl font-semibold"
+            className={`linkhub-enter text-center ${
+              site.eyebrow
+                ? "mt-1 text-[1.75rem] leading-tight font-extrabold tracking-tight"
+                : "mt-4 text-xl font-semibold"
+            }`}
             style={{ animationDelay: `${nameDelay}ms` }}
           >
             <Tr text={site.name} alt={tr?.name} />
@@ -428,6 +445,28 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
             >
               <Tr text={site.bio} alt={tr?.bio} />
             </p>
+          )}
+
+          {badges.length > 0 && (
+            <ul
+              className="linkhub-enter mt-4 flex flex-wrap justify-center gap-2"
+              style={{ animationDelay: `${bioDelay + 40}ms` }}
+            >
+              {badges.map((badge, index) => {
+                const chip =
+                  PILL_COLORS[badge.color ?? PILL_COLOR_ORDER[(index + 1) % PILL_COLOR_ORDER.length]];
+                return (
+                  <li
+                    key={badge.id}
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold shadow-sm ring-1 ring-black/5"
+                    style={{ backgroundColor: chip.bg, color: chip.text }}
+                  >
+                    {badge.icon && <LinkIcon type={badge.icon} className="size-4 shrink-0" />}
+                    <Tr text={badge.label} alt={tr?.badges?.[badge.id]} />
+                  </li>
+                );
+              })}
+            </ul>
           )}
 
           {gallery.length > 0 && (
@@ -448,6 +487,41 @@ export default function SiteProfile({ site }: { site: SiteConfig }) {
                 />
               ))}
             </div>
+          )}
+
+          {works.length > 0 && (
+            <section
+              className="linkhub-enter mt-8 w-full"
+              style={{ animationDelay: `${worksDelay}ms` }}
+            >
+              {site.worksTitle && (
+                <h2 className="text-center text-base font-bold">
+                  <Tr text={site.worksTitle} alt={tr?.worksTitle} />
+                </h2>
+              )}
+              <div className="-mx-4 mt-3 pb-2">
+                <Marquee duration={`${works.length * 5}s`} gap="0.75rem">
+                  {works.map((work) => (
+                    <div
+                      key={work.id}
+                      className="relative aspect-[3/4] w-40 overflow-hidden rounded-3xl bg-black/5 shadow-md shadow-black/10 ring-1 ring-black/5"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={work.photoUrl}
+                        alt={work.label}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover"
+                      />
+                      <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/35 to-transparent px-3 pt-8 pb-3 text-sm leading-tight font-bold text-balance text-white">
+                        <Tr text={work.label} alt={tr?.works?.[work.id]} />
+                      </span>
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
+            </section>
           )}
 
           {services.length > 0 && servicesRow && (
