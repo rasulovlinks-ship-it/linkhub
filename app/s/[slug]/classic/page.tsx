@@ -19,6 +19,7 @@ export async function generateMetadata({
     title: site.name,
     description: site.bio,
     ...(site.avatarUrl ? { icons: { icon: site.avatarUrl } } : {}),
+    robots: { index: false, follow: true },
   };
 }
 

@@ -24,12 +24,15 @@ export default function LangToggle({
   alt,
   accent,
   accentText,
+  variant = "light",
 }: {
   slug: string;
   primary: SiteLang;
   alt: SiteLang;
   accent: string;
   accentText: string;
+  /** "dark": translucent dark pill with a hairline border, for dark pages */
+  variant?: "light" | "dark";
 }) {
   const showAlt = useSyncExternalStore(
     subscribe,
@@ -52,7 +55,11 @@ export default function LangToggle({
     <div
       role="group"
       aria-label="Til / Язык"
-      className="flex rounded-full bg-white/75 p-1 shadow-sm ring-1 ring-black/10 backdrop-blur"
+      className={
+        variant === "dark"
+          ? "flex rounded-full bg-black/35 p-1 ring-1 ring-white/15 backdrop-blur"
+          : "flex rounded-full bg-white/75 p-1 shadow-sm ring-1 ring-black/10 backdrop-blur"
+      }
     >
       {[primary, alt].map((lang) => {
         const active = (lang === alt) === showAlt;

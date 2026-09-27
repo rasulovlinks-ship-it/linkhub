@@ -6,7 +6,7 @@ import Marquee from "./Marquee";
 import LangToggle from "./LangToggle";
 import { langInitScript } from "@/lib/siteLang";
 
-const BRAND = <span className="font-semibold">LinkHub.uz</span>;
+const BRAND = <span className="font-semibold">ownlink.uz</span>;
 const CREATED_WITH: Record<SiteLang, ReactNode> = {
   ru: <>Сделано на {BRAND}</>,
   uz: <>{BRAND} orqali yaratilgan</>,

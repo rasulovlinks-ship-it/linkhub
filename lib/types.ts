@@ -337,6 +337,77 @@ export type CakeContent = {
   labels?: CakeLabels;
 };
 
+/**
+ * Text in both languages of a two-language page; the key is the language.
+ * The luxe template shows site.lang first and translation.lang on toggle.
+ */
+export type BiText = Partial<Record<SiteLang, string>>;
+
+export type LuxeStat = { id: string; value: BiText; label: BiText };
+
+export type LuxePiece = {
+  id: string;
+  photoUrl: string;
+  title: BiText;
+  /** One descriptive line under the title, e.g. "Multi-tier, sculpted sugar folds" */
+  detail?: BiText;
+};
+
+export type LuxeOccasion = { id: string; title: BiText; text?: BiText };
+
+export type LuxeStep = { id: string; title: BiText; text: BiText };
+
+export type LuxeChannel = {
+  id: string;
+  type: LinkType;
+  label: BiText;
+  /** Shown under the label, e.g. "@tort_iroda" */
+  handle: string;
+  url: string;
+};
+
+/**
+ * Content for template "luxe": a dark, editorial boutique page for one maker
+ * (hero photo in an arch, numbered collection with a full-screen viewer,
+ * occasions, quote, ordering steps, channels). Colors come from the site
+ * theme: background = page, accent = gold, textColor = ivory ink.
+ */
+export type LuxeContent = {
+  kicker: BiText;
+  /** Small italic line above the display name */
+  nameLead?: BiText;
+  /** Large display name (defaults to site.name) */
+  displayName?: BiText;
+  tagline: BiText;
+  heroImageUrl: string;
+  stats?: LuxeStat[];
+  order: { url: string; label: BiText; note?: BiText };
+  phone?: { url: string; display: string; label: BiText };
+  collectionTitle: BiText;
+  collectionSubtitle?: BiText;
+  collection: LuxePiece[];
+  occasionsTitle?: BiText;
+  occasions?: LuxeOccasion[];
+  quote?: BiText;
+  quoteAuthor?: BiText;
+  stepsTitle?: BiText;
+  steps?: LuxeStep[];
+  /** "What to write when ordering" checklist */
+  briefTitle?: BiText;
+  brief?: BiText[];
+  channelsTitle?: BiText;
+  channels?: LuxeChannel[];
+  closingTitle?: BiText;
+  closingText?: BiText;
+  /** Interface strings (viewer buttons, section numbers) */
+  labels?: {
+    close?: BiText;
+    prev?: BiText;
+    next?: BiText;
+    open?: BiText;
+  };
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -395,14 +466,16 @@ export type SiteConfig = {
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
   /** Selects a dedicated page layout instead of the default link-in-bio profile. */
-  template?: "edu" | "cake";
+  template?: "edu" | "cake" | "luxe";
   /** Content for template "edu". */
   edu?: EduContent;
   /** Content for template "cake". */
   cake?: CakeContent;
+  /** Content for template "luxe". */
+  luxe?: LuxeContent;
   theme?: SiteTheme;
   links: LinkItem[];
-  /** Hides the "Сделано на LinkHub.uz" footer credit when true. */
+  /** Hides the "Сделано на ownlink.uz" footer credit when true. */
   hideBranding?: boolean;
   /** Language of the texts above (default "ru"); picks the footer credit wording. */
   lang?: SiteLang;

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { CONTACT_LINKS } from "@/lib/brand";
 import { LinkIcon } from "@/components/icons";
+import Logo from "./Logo";
 
 export default function Header({ dict, showReviews }: { dict: Dict; showReviews: boolean }) {
   const t = dict.nav;
@@ -26,8 +27,8 @@ export default function Header({ dict, showReviews }: { dict: Dict; showReviews:
         className="fixed inset-x-0 top-0 z-40 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300 data-scrolled:border-ol-line data-scrolled:bg-ol-bg/80 data-scrolled:backdrop-blur-xl"
       >
         <nav className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6">
-          <a href="#top" className="font-display text-[17px] font-semibold tracking-tight text-ol-ink">
-            ownlink<span className="text-ol-accent">.uz</span>
+          <a href="#top" className="shrink-0" aria-label="ownlink.uz">
+            <Logo className="h-7 sm:h-8" />
           </a>
           <div className="ml-auto hidden items-center gap-7 text-sm text-ol-muted md:flex">
             <a href="#why" className="transition-colors hover:text-ol-ink">{t.why}</a>

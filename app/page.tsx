@@ -1,13 +1,7 @@
-import type { Metadata } from "next";
 import HomePage from "@/components/home/HomePage";
-import { uz } from "@/lib/i18n/uz";
+import { homeMetadata } from "@/lib/home-metadata";
 
-export const metadata: Metadata = {
-  title: uz.meta.title,
-  description: uz.meta.description,
-  alternates: { canonical: "/", languages: { uz: "/", ru: "/ru" } },
-  openGraph: { title: uz.meta.title, description: uz.meta.description, locale: "uz_UZ", type: "website" },
-};
+export const metadata = homeMetadata("uz");
 
 export default function Home() {
   return <HomePage lang="uz" />;

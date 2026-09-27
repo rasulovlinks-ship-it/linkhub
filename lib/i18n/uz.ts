@@ -41,8 +41,15 @@ export const uz = {
     text: "Mijoz bioda ko'radigan birinchi narsa - manzil. U sizning biznesingiz haqida gapiradi.",
     theirs: "Obuna servislari",
     ours: "ownlink.uz",
-    theirsUrl: "taplink.cc/thebestcakestashkent",
-    oursUrl: "thebestcakestashkent.uz",
+    theirsUrl: "taplink.cc/tort_iroda",
+    oursUrl: "tortiroda.uz",
+    /** Before/after of a client (Tort Iroda) above the comparison table */
+    before: "Oldin",
+    after: "Keyin",
+    beforeAlt: "Tort maniya Iroda sahifasi Taplink'da",
+    afterAlt: "Tort maniya Iroda sayti tortiroda.uz'da",
+    /** Address length label; ru needs plural forms, so keyed by Intl.PluralRules category */
+    chars: { other: "belgi" } as Partial<Record<Intl.LDMLPluralRule, string>> & { other: string },
     rows: [
       { label: "To'lov", theirs: "Har oy", ours: "Bir marta" },
       { label: "Manzil", theirs: "servis.cc/nomingiz", ours: "nomingiz.uz" },
@@ -153,6 +160,8 @@ export const uz = {
     text: "Biznesingiz haqida yozing, qolganini biz qilamiz.",
     telegram: "Telegram",
     whatsapp: "WhatsApp",
+    /** Pre-filled WhatsApp text, so the visitor only taps send (and we see the lead came from the site) */
+    whatsappMessage: "Assalomu alaykum! ownlink.uz saytidan yozyapman. Sayt buyurtma qilmoqchiman.",
     instagram: "Instagram",
     phone: "Qo'ng'iroq",
   },

@@ -3,16 +3,16 @@
     {
       "slug": "babyland",
       "domain": "komolababyland.uz",
-      "instagram": null,
+      "instagram": "https://www.instagram.com/komola_babymassaj",
       "category": { "uz": "Bolalar massaji va reabilitatsiya", "ru": "Детский массаж и реабилитация" },
       "screenshot": "/showcase/babyland.jpg"
     },
     {
-      "slug": "thebestcakestashkent",
-      "domain": "thebestcakestashkent.uz",
-      "instagram": "https://instagram.com/thebestcakestashkent",
+      "slug": "tortiroda",
+      "domain": "tortiroda.uz",
+      "instagram": "https://www.instagram.com/tort_iroda",
       "category": { "uz": "Buyurtma tortlar", "ru": "Торты на заказ" },
-      "screenshot": "/showcase/thebestcakestashkent.jpg"
+      "screenshot": "/showcase/tortiroda.jpg"
     }
   ],
   "templates": [

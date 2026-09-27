@@ -1,24 +1,27 @@
 /**
  * ownlink.uz contact channels and pricing constants, in one place so the
  * header, hero, CTA and footer never drift apart.
- *
- * TODO(owner): replace the placeholder handles / number with the real ones.
  */
 export const CONTACTS = {
-  telegram: "ownlink_uz",
+  telegram: "ownlinkuz",
   instagram: "ownlink.uz",
-  /** Display format */
-  phone: "+998 90 000 00 00",
+  /** Display format; also the WhatsApp number (wa.me needs digits, not a username) */
+  phone: "+998 90 994 08 42",
 } as const;
 
 const phoneDigits = CONTACTS.phone.replace(/\D/g, "");
 
 export const CONTACT_LINKS = {
   telegram: `https://t.me/${CONTACTS.telegram}`,
-  instagram: `https://instagram.com/${CONTACTS.instagram}`,
+  instagram: `https://www.instagram.com/${CONTACTS.instagram}/`,
   whatsapp: `https://wa.me/${phoneDigits}`,
   phone: `tel:+${phoneDigits}`,
 } as const;
+
+/** WhatsApp chat link with a ready-to-send message */
+export function whatsappLink(text: string): string {
+  return `${CONTACT_LINKS.whatsapp}?text=${encodeURIComponent(text)}`;
+}
 
 /**
  * Approximate monthly price of a paid link-in-bio subscription

@@ -12,7 +12,7 @@ export default function Faq({ dict }: { dict: Dict }) {
             {t.title}
           </h2>
           <p className="mt-4 text-lg text-ol-muted">
-            <a href={CONTACT_LINKS.telegram} target="_blank" rel="noopener" className="underline decoration-ol-line underline-offset-4 hover:text-ol-accent hover:decoration-ol-accent">
+            <a href={CONTACT_LINKS.telegram} target="_blank" rel="noopener" className="underline decoration-ol-line underline-offset-4 hover:text-ol-accent-strong hover:decoration-ol-accent">
               {t.text}
             </a>
           </p>

@@ -73,7 +73,7 @@ export default function Benefits({ dict }: { dict: Dict }) {
           <div
             data-reveal
             style={{ ["--i" as string]: 1 }}
-            className="relative flex flex-col overflow-hidden rounded-[20px] bg-ol-accent p-6 text-ol-accent-ink sm:p-8 md:col-span-2"
+            className="relative flex flex-col overflow-hidden rounded-[20px] bg-[image:var(--ol-accent-gradient)] p-6 text-ol-accent-ink sm:p-8 md:col-span-2"
           >
             <span className="pointer-events-none absolute -top-6 right-2 font-display text-[9rem] leading-none font-semibold opacity-15 select-none" aria-hidden>
               1×

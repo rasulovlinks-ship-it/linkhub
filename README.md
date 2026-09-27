@@ -1,4 +1,4 @@
-# LinkHub.uz
+# ownlink.uz
 
 A Taplink alternative for Uzbekistan: instead of `taplink.cc/username`, each
 client gets their own cheap `.uz` domain (e.g. `thebestcakestashkent.uz`)
@@ -28,6 +28,10 @@ a small JSON file. This keeps the product dead simple and cheap to run.
    ```json
    { "clientdomain.uz": "new-slug" }
    ```
+   To show several versions on one domain, use a list:
+   `"clientdomain.uz": ["slug", "slug-2", "slug-3"]` serves them at `/`,
+   `/2` and `/3`. A client domain shows only its own pages; any other path
+   redirects to its root.
 3. Commit + redeploy (or just push — Vercel redeploys on push automatically).
 4. Preview it immediately at `https://<your-deployment>/s/new-slug` even
    before the domain is connected.

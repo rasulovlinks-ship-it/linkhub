@@ -55,7 +55,7 @@ export default function SiteProfileClassic({ site }: { site: SiteConfig }) {
         </div>
 
         <footer className="mt-10 text-xs opacity-50">
-          Сделано на <span className="font-semibold">LinkHub.uz</span>
+          Сделано на <span className="font-semibold">ownlink.uz</span>
         </footer>
       </div>
     </main>

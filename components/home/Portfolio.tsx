@@ -36,7 +36,7 @@ export default function Portfolio({ dict, lang }: { dict: Dict; lang: Lang }) {
               <div className="min-w-0">
                 <p className="text-sm text-ol-muted">{c.category[lang]}</p>
                 <h3 className="mt-1 text-xl font-semibold tracking-tight text-ol-ink sm:text-2xl">{c.name}</h3>
-                <p className="mt-3 truncate font-mono text-sm text-ol-accent">{c.domain}</p>
+                <p className="mt-3 truncate font-mono text-sm text-ol-accent-strong">{c.domain}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   <a
                     href={`https://${c.domain}`}
@@ -67,7 +67,7 @@ export default function Portfolio({ dict, lang }: { dict: Dict; lang: Lang }) {
         <h3 data-reveal className="mt-16 text-lg font-semibold tracking-tight text-ol-ink">
           {t.templates}
         </h3>
-        <div className="-mx-4 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-4 sm:overflow-visible sm:px-0 sm:pb-0">
+        <div className="-mx-4 mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:overflow-visible sm:px-0 sm:pb-0">
           {templates.map((c, i) => (
             <a
               key={c.slug}

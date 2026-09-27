@@ -21,17 +21,34 @@ export function getSiteBySlug(slug: string): SiteConfig | null {
   return JSON.parse(raw) as SiteConfig;
 }
 
-/** domain (e.g. "thebestcakestashkent.uz") -> slug (e.g. "thebestcakestashkent") */
-export function getDomainMap(): Record<string, string> {
+/**
+ * domain (e.g. "thebestcakestashkent.uz") -> slug (e.g. "thebestcakestashkent"),
+ * or a list of slugs when one domain shows several versions (first one at "/")
+ */
+export function getDomainMap(): Record<string, string | string[]> {
   if (!fs.existsSync(DOMAINS_FILE)) return {};
   const raw = fs.readFileSync(DOMAINS_FILE, "utf-8");
-  return JSON.parse(raw) as Record<string, string>;
+  return JSON.parse(raw) as Record<string, string | string[]>;
+}
+
+/**
+ * Public address of a site on its own domain ("https://tortiroda.uz/",
+ * "https://tortiroda.uz/2" for a later version), or null when the slug has no
+ * domain (templates, demos).
+ */
+export function getLiveUrl(slug: string): string | null {
+  for (const [domain, entry] of Object.entries(getDomainMap())) {
+    const i = [entry].flat().indexOf(slug);
+    if (i === 0) return `https://${domain}/`;
+    if (i > 0) return `https://${domain}/${i + 1}`;
+  }
+  return null;
 }
 
 export function getSiteByDomain(hostname: string): SiteConfig | null {
   const host = hostname.toLowerCase().replace(/^www\./, "").split(":")[0];
   const map = getDomainMap();
-  const slug = map[host];
+  const slug = [map[host] ?? []].flat()[0];
   if (!slug) return null;
   return getSiteBySlug(slug);
 }

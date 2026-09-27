@@ -1,151 +1,293 @@
 {
   "slug": "tortiroda",
   "lang": "uz",
-  "eyebrow": "Konditer · Iroda Mahmudovna",
+  "template": "luxe",
   "name": "Tort maniya Iroda",
-  "bio": "Har bir tortga mehr bilan yondashuv",
-  "badges": [
-    {
-      "id": "toy",
-      "label": "To'y va fotiha tortlari",
-      "icon": "order",
-      "color": "charcoal"
-    },
-    {
-      "id": "city",
-      "label": "Toshkent",
-      "icon": "location",
-      "color": "charcoal"
-    },
-    {
-      "id": "followers",
-      "label": "47.9K obunachi",
-      "icon": "instagram",
-      "color": "charcoal"
-    }
-  ],
+  "bio": "To'y, fotiha va har qanday bayram uchun premium tortlar · Toshkent",
   "avatarUrl": "/sites/tortiroda/avatar.webp",
-  "worksTitle": "Nimalar tayyorlayman",
-  "works": [
-    {
-      "id": "wedding",
-      "photoUrl": "/sites/tortiroda/works/wedding.webp",
-      "label": "To'y tortlari"
-    },
-    {
-      "id": "birthday",
-      "photoUrl": "/sites/tortiroda/works/birthday.webp",
-      "label": "Tug'ilgan kun tortlari"
-    },
-    {
-      "id": "kids",
-      "photoUrl": "/sites/tortiroda/works/kids.webp",
-      "label": "Bolalar tortlari"
-    },
-    {
-      "id": "plov",
-      "photoUrl": "/sites/tortiroda/works/plov.webp",
-      "label": "Osh ko'rinishidagi tort"
-    },
-    {
-      "id": "strawberries",
-      "photoUrl": "/sites/tortiroda/works/strawberries.webp",
-      "label": "Shokoladli qulupnay"
-    },
-    {
-      "id": "crepes",
-      "photoUrl": "/sites/tortiroda/works/crepes.webp",
-      "label": "Shirin blinchiklar"
-    }
-  ],
   "theme": {
-    "background": "#e9ecef",
-    "accent": "#211c16",
-    "secondaryAccent": "#c9a24a",
-    "accentText": "#f5c451",
-    "textColor": "#343a40",
-    "backgroundImageUrl": "/sites/tortiroda/background.webp",
-    "buttonStyle": "pill"
+    "background": "#120d09",
+    "accent": "#d8b97f",
+    "accentText": "#1c140b",
+    "textColor": "#f3ebdd"
   },
-  "links": [
-    {
-      "id": "order",
-      "type": "order",
-      "label": "Tort buyurtma qilish",
-      "description": "Telegram orqali yozing",
-      "url": "https://t.me/Torti_Iroda",
-      "pillColor": "charcoal"
-    },
-    {
-      "id": "instagram",
-      "type": "instagram",
-      "label": "Instagram",
-      "description": "Mening ishlarim",
-      "url": "https://www.instagram.com/tort_iroda",
-      "pillColor": "charcoal"
-    },
-    {
-      "id": "channel",
-      "type": "telegram",
-      "label": "Telegram-kanal",
-      "description": "Yangiliklar va tayyor tortlar",
-      "url": "https://t.me/torti_irodaa",
-      "pillColor": "charcoal"
-    },
-    {
-      "id": "youtube",
-      "type": "youtube",
-      "label": "YouTube",
-      "description": "Ishlarim videoda",
-      "url": "https://youtube.com/@tort_iroda_maniya",
-      "pillColor": "charcoal"
-    },
-    {
-      "id": "phone",
-      "type": "phone",
-      "label": "Qo'ng'iroq qilish",
-      "description": "+998 77 766 60 70",
-      "url": "tel:+998777666070",
-      "pillColor": "charcoal"
-    }
-  ],
+  "links": [],
   "translation": {
     "lang": "ru",
-    "eyebrow": "Кондитер · Ирода Махмудовна",
     "name": "Торт мания Ирода",
-    "bio": "К каждому торту — с любовью",
-    "badges": {
-      "toy": "Торты на туй и фотиха",
-      "city": "Ташкент",
-      "followers": "47.9K подписчиков"
+    "bio": "Премиальные торты на туй, фотиха и любой праздник · Ташкент"
+  },
+  "luxe": {
+    "kicker": { "uz": "Mualliflik tortlari · Toshkent", "ru": "Авторские торты · Ташкент" },
+    "nameLead": { "uz": "Tort maniya", "ru": "Торт мания" },
+    "displayName": { "uz": "Iroda", "ru": "Ирода" },
+    "tagline": {
+      "uz": "To'y, fotiha va har qanday bayram uchun premium tortlar",
+      "ru": "Премиальные торты на туй, фотиха и любой праздник"
     },
-    "links": {
-      "order": {
-        "label": "Заказать торт",
-        "description": "Написать в Telegram"
+    "heroImageUrl": "/sites/tortiroda/works/cascade.webp",
+    "stats": [
+      {
+        "id": "customers",
+        "value": { "uz": "1000+", "ru": "1000+" },
+        "label": { "uz": "mamnun mijoz", "ru": "довольных клиентов" }
       },
-      "instagram": {
-        "description": "Мои работы"
+      {
+        "id": "creative",
+        "value": { "uz": "Barcha", "ru": "Любые" },
+        "label": { "uz": "turdagi kreativ tortlar", "ru": "креативные торты" }
       },
-      "channel": {
-        "label": "Telegram-канал",
-        "description": "Новинки и готовые торты"
-      },
-      "youtube": {
-        "description": "Видео моих работ"
-      },
-      "phone": {
-        "label": "Позвонить"
+      {
+        "id": "city",
+        "value": { "uz": "Toshkent", "ru": "Ташкент" },
+        "label": { "uz": "shahri", "ru": "город" }
       }
+    ],
+    "order": {
+      "url": "https://t.me/Torti_Iroda",
+      "label": { "uz": "Tort buyurtma qilish", "ru": "Заказать торт" },
+      "note": { "uz": "Telegram orqali yozing", "ru": "Написать в Telegram" }
     },
-    "worksTitle": "Что я готовлю",
-    "works": {
-      "wedding": "Свадебные торты",
-      "birthday": "Торты на день рождения",
-      "kids": "Детские торты",
-      "plov": "Торт в виде плова",
-      "strawberries": "Клубника в шоколаде",
-      "crepes": "Сладкие блинчики"
+    "phone": {
+      "url": "tel:+998777666070",
+      "display": "+998 77 766 60 70",
+      "label": { "uz": "Qo'ng'iroq", "ru": "Позвонить" }
+    },
+    "collectionTitle": { "uz": "Kolleksiya", "ru": "Коллекция" },
+    "collectionSubtitle": {
+      "uz": "Har bir tort buyurtma asosida, aynan sizning bayramingiz uchun tayyorlanadi",
+      "ru": "Каждый торт создаётся на заказ — специально для вашего праздника"
+    },
+    "collection": [
+      {
+        "id": "cascade",
+        "photoUrl": "/sites/tortiroda/works/cascade.webp",
+        "title": { "uz": "Besh qavatli to'y torti", "ru": "Пятиярусный свадебный торт" },
+        "detail": {
+          "uz": "Oq gullar kaskadi va kelin-kuyov ismlari",
+          "ru": "Каскад белых цветов и имена молодожёнов"
+        }
+      },
+      {
+        "id": "swans",
+        "photoUrl": "/sites/tortiroda/works/swans.webp",
+        "title": { "uz": "Oqqushlar", "ru": "Лебеди" },
+        "detail": {
+          "uz": "Nafis gullar va oltin monogrammali to'y torti",
+          "ru": "Свадебный торт с нежными цветами и золотой монограммой"
+        }
+      },
+      {
+        "id": "peony",
+        "photoUrl": "/sites/tortiroda/works/peony.webp",
+        "title": { "uz": "Pionli to'y torti", "ru": "Свадебный торт с пионами" },
+        "detail": {
+          "uz": "Uch qavat, oq pionlar va oltin monogramma",
+          "ru": "Три яруса, белые пионы и золотая монограмма"
+        }
+      },
+      {
+        "id": "orchids",
+        "photoUrl": "/sites/tortiroda/works/orchids.webp",
+        "title": { "uz": "Orxideyali tort", "ru": "Торт с орхидеями" },
+        "detail": {
+          "uz": "Pushti orxideyalar, to'r naqsh va monogramma",
+          "ru": "Розовые орхидеи, кружево и монограмма"
+        }
+      },
+      {
+        "id": "wreath",
+        "photoUrl": "/sites/tortiroda/works/wreath.webp",
+        "title": { "uz": "Gulchambar", "ru": "Цветочный венок" },
+        "detail": {
+          "uz": "Pushti gullar va shifon lenta",
+          "ru": "Розовые цветы и шифоновая лента"
+        }
+      },
+      {
+        "id": "fotiha",
+        "photoUrl": "/sites/tortiroda/works/fotiha.webp",
+        "title": { "uz": "Fotiha torti", "ru": "Торт на фотиха" },
+        "detail": {
+          "uz": "Kaptarchalar, uzuklar va atirgullar",
+          "ru": "Голубки, кольца и розы"
+        }
+      },
+      {
+        "id": "bunny",
+        "photoUrl": "/sites/tortiroda/works/bunny.webp",
+        "title": { "uz": "Quyoncha va bulutlar", "ru": "Зайчик и облака" },
+        "detail": {
+          "uz": "Ikki qavat, ism va oltin yulduzchalar",
+          "ru": "Два яруса, имя и золотые звёзды"
+        }
+      },
+      {
+        "id": "car",
+        "photoUrl": "/sites/tortiroda/works/car.webp",
+        "title": { "uz": "Poyga mashinasi", "ru": "Гоночная машинка" },
+        "detail": {
+          "uz": "3D shakldagi bolalar torti",
+          "ru": "Объёмный детский торт"
+        }
+      },
+      {
+        "id": "birthday",
+        "photoUrl": "/sites/tortiroda/works/birthday.webp",
+        "title": { "uz": "Tug'ilgan kun tortlari", "ru": "Торты на день рождения" },
+        "detail": {
+          "uz": "Toj, bantiklar va shaxsiy yozuv bilan",
+          "ru": "С короной, бантами и надписью"
+        }
+      },
+      {
+        "id": "kids",
+        "photoUrl": "/sites/tortiroda/works/kids.webp",
+        "title": { "uz": "Bolalar tortlari", "ru": "Детские торты" },
+        "detail": {
+          "uz": "Sevimli qahramon va farzandingiz ismi bilan",
+          "ru": "С любимым героем и именем ребёнка"
+        }
+      },
+      {
+        "id": "plov",
+        "photoUrl": "/sites/tortiroda/works/plov.webp",
+        "title": { "uz": "Osh ko'rinishidagi tort", "ru": "Торт в виде плова" },
+        "detail": {
+          "uz": "Mehmonlarni hayratga soladigan syurpriz",
+          "ru": "Сюрприз, который удивит гостей"
+        }
+      },
+      {
+        "id": "strawberries",
+        "photoUrl": "/sites/tortiroda/works/strawberries.webp",
+        "title": { "uz": "Shokoladli qulupnay", "ru": "Клубника в шоколаде" },
+        "detail": {
+          "uz": "Sovg'a qutisida, turli bezaklar bilan",
+          "ru": "В подарочной коробке, с разным декором"
+        }
+      }
+    ],
+    "occasionsTitle": { "uz": "Qaysi bayram uchun", "ru": "Для какого праздника" },
+    "occasions": [
+      {
+        "id": "toy",
+        "title": { "uz": "To'y", "ru": "Туй" },
+        "text": { "uz": "Ko'p qavatli nafis tortlar", "ru": "Изящные многоярусные торты" }
+      },
+      {
+        "id": "fotiha",
+        "title": { "uz": "Fotiha", "ru": "Фотиха" },
+        "text": { "uz": "Oilaviy marosim uchun", "ru": "Для семейной церемонии" }
+      },
+      {
+        "id": "birthday",
+        "title": { "uz": "Tug'ilgan kun", "ru": "День рождения" },
+        "text": { "uz": "Yozuv va bezaklar bilan", "ru": "С надписью и декором" }
+      },
+      {
+        "id": "kids",
+        "title": { "uz": "Bolalar bayrami", "ru": "Детский праздник" },
+        "text": { "uz": "Sevimli multfilm qahramonlari", "ru": "Любимые герои мультфильмов" }
+      },
+      {
+        "id": "gift",
+        "title": { "uz": "Sovg'a", "ru": "Подарок" },
+        "text": { "uz": "Shirinliklar to'plami va qulupnay", "ru": "Сладкие наборы и клубника" }
+      },
+      {
+        "id": "guests",
+        "title": { "uz": "Mehmondorchilik", "ru": "Для гостей" },
+        "text": { "uz": "Osh-tort kabi syurprizlar", "ru": "Сюрпризы вроде торта-плова" }
+      }
+    ],
+    "quote": {
+      "uz": "Har bir tortga mehr bilan yondashuv",
+      "ru": "К каждому торту — с любовью"
+    },
+    "quoteAuthor": { "uz": "Iroda Mahmudovna", "ru": "Ирода Махмудовна" },
+    "stepsTitle": { "uz": "Buyurtma qanday beriladi", "ru": "Как заказать" },
+    "steps": [
+      {
+        "id": "write",
+        "title": { "uz": "Telegram'da yozing", "ru": "Напишите в Telegram" },
+        "text": {
+          "uz": "Bayram sanasi va turini ayting",
+          "ru": "Укажите дату и повод праздника"
+        }
+      },
+      {
+        "id": "design",
+        "title": { "uz": "Dizaynni tanlaymiz", "ru": "Выбираем дизайн" },
+        "text": {
+          "uz": "Namuna rasm yuboring yoki g'oyani birga o'ylab topamiz",
+          "ru": "Пришлите фото-пример или придумаем идею вместе"
+        }
+      },
+      {
+        "id": "details",
+        "title": { "uz": "Tafsilotlarni kelishamiz", "ru": "Согласуем детали" },
+        "text": {
+          "uz": "Hajmi, ta'mi va bezagini aniqlaymiz",
+          "ru": "Размер, вкус и декор"
+        }
+      },
+      {
+        "id": "ready",
+        "title": { "uz": "Tortingiz tayyor", "ru": "Ваш торт готов" },
+        "text": {
+          "uz": "Kelishilgan kunda — aynan bayramingizga",
+          "ru": "К назначенному дню — точно к празднику"
+        }
+      }
+    ],
+    "briefTitle": { "uz": "Xabaringizda yozing", "ru": "Что написать в сообщении" },
+    "brief": [
+      { "uz": "Bayram sanasi", "ru": "Дату праздника" },
+      { "uz": "Mehmonlar soni", "ru": "Количество гостей" },
+      {
+        "uz": "Bayram turi: to'y, fotiha, tug'ilgan kun…",
+        "ru": "Повод: туй, фотиха, день рождения…"
+      },
+      {
+        "uz": "Yoqqan dizayn rasmi (agar bo'lsa)",
+        "ru": "Фото понравившегося дизайна (если есть)"
+      }
+    ],
+    "channelsTitle": { "uz": "Kuzatib boring", "ru": "Подписывайтесь" },
+    "channels": [
+      {
+        "id": "instagram",
+        "type": "instagram",
+        "label": { "uz": "Instagram", "ru": "Instagram" },
+        "handle": "@tort_iroda",
+        "url": "https://www.instagram.com/tort_iroda"
+      },
+      {
+        "id": "channel",
+        "type": "telegram",
+        "label": { "uz": "Telegram-kanal", "ru": "Telegram-канал" },
+        "handle": "@torti_irodaa",
+        "url": "https://t.me/torti_irodaa"
+      },
+      {
+        "id": "direct",
+        "type": "telegram",
+        "label": { "uz": "Shaxsiy Telegram", "ru": "Личный Telegram" },
+        "handle": "@Torti_Iroda",
+        "url": "https://t.me/Torti_Iroda"
+      }
+    ],
+    "closingTitle": { "uz": "Bayramingizni birga bezaymiz", "ru": "Украсим ваш праздник вместе" },
+    "closingText": {
+      "uz": "Sanani oldindan band qilishni maslahat beramiz",
+      "ru": "Советуем бронировать дату заранее"
+    },
+    "labels": {
+      "close": { "uz": "Yopish", "ru": "Закрыть" },
+      "prev": { "uz": "Oldingi", "ru": "Предыдущий" },
+      "next": { "uz": "Keyingi", "ru": "Следующий" },
+      "open": { "uz": "Kattalashtirish", "ru": "Увеличить" }
     }
   }
 }

@@ -1,12 +1,12 @@
 import { PhoneIcon } from "@heroicons/react/20/solid";
 import type { Dict } from "@/lib/i18n";
-import { CONTACTS, CONTACT_LINKS } from "@/lib/brand";
+import { CONTACTS, CONTACT_LINKS, whatsappLink } from "@/lib/brand";
 import { LinkIcon } from "@/components/icons";
 
 export default function ContactCta({ dict }: { dict: Dict }) {
   const t = dict.cta;
   const channels = [
-    { href: CONTACT_LINKS.whatsapp, label: t.whatsapp, icon: <LinkIcon type="whatsapp" className="size-4" /> },
+    { href: whatsappLink(t.whatsappMessage), label: t.whatsapp, icon: <LinkIcon type="whatsapp" className="size-4" /> },
     { href: CONTACT_LINKS.instagram, label: t.instagram, icon: <LinkIcon type="instagram" className="size-4" /> },
     { href: CONTACT_LINKS.phone, label: CONTACTS.phone, icon: <PhoneIcon className="size-4" aria-hidden /> },
   ];
@@ -15,7 +15,7 @@ export default function ContactCta({ dict }: { dict: Dict }) {
     <section id="contact" className="px-4 pt-10 pb-20 sm:px-6 md:pb-28">
       <div
         data-reveal
-        className="relative mx-auto max-w-6xl overflow-hidden rounded-[20px] bg-ol-accent px-6 py-14 text-ol-accent-ink sm:px-12 md:py-20"
+        className="relative mx-auto max-w-6xl overflow-hidden rounded-[20px] bg-[image:var(--ol-accent-gradient)] px-6 py-14 text-ol-accent-ink sm:px-12 md:py-20"
       >
         <span
           aria-hidden

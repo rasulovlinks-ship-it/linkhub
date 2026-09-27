@@ -150,22 +150,27 @@ html[data-lang-alt] [data-l="primary"] {
  * One accent (cobalt), neutral cool greys, light + dark via system preference.
  * ------------------------------------------------------------------------- */
 
+/* Brand kit (materials/brand-kit/guide/colors.json): primary #FF8A00,
+   accent #FF5700, ink #0F172A, background #F6F7F9. White on this orange is
+   below AA at button sizes, so orange fills carry navy text (--ol-accent-ink)
+   and small orange text uses the deeper --ol-accent-strong. */
 .ol {
-  --ol-bg: #f3f4f6;
-  --ol-surface: #fcfcfd;
-  --ol-surface-2: #e9ebf0;
-  --ol-ink: #12141a;
-  --ol-muted: #596070;
-  --ol-line: rgb(18 20 26 / 0.09);
-  --ol-accent: #2748e6;
-  --ol-accent-strong: #1c36b8;
-  --ol-accent-soft: #e1e6fc;
-  --ol-accent-ink: #fcfcfd;
-  --ol-accent-glow: rgb(39 72 230 / 0.2);
-  --ol-accent-mark: rgb(39 72 230 / 0.16);
-  --ol-shadow: rgb(18 24 60 / 0.3);
+  --ol-bg: #f6f7f9;
+  --ol-surface: #ffffff;
+  --ol-surface-2: #eceef2;
+  --ol-ink: #0f172a;
+  --ol-muted: #526077;
+  --ol-line: rgb(15 23 42 / 0.09);
+  --ol-accent: #ff6a00;
+  --ol-accent-strong: #c2410c;
+  --ol-accent-soft: #ffeedd;
+  --ol-accent-ink: #0f172a;
+  --ol-accent-glow: rgb(255 122 0 / 0.2);
+  --ol-accent-mark: rgb(255 122 0 / 0.2);
+  --ol-accent-gradient: linear-gradient(135deg, #ffa200, #ff8000 55%, #ff5f00);
+  --ol-shadow: rgb(15 23 42 / 0.28);
   --ol-glass-bg: rgb(255 255 255 / 0.55);
-  --ol-glass-solid: rgb(247 248 252 / 0.97);
+  --ol-glass-solid: rgb(248 249 251 / 0.97);
   --ol-glass-border: rgb(255 255 255 / 0.85);
   background: var(--ol-bg);
   color: var(--ol-ink);
@@ -174,21 +179,21 @@ html[data-lang-alt] [data-l="primary"] {
 
 @media (prefers-color-scheme: dark) {
   .ol {
-    --ol-bg: #0c0e12;
-    --ol-surface: #14171d;
-    --ol-surface-2: #1b1f27;
-    --ol-ink: #eceef3;
-    --ol-muted: #9aa0ae;
+    --ol-bg: #0a0f1c;
+    --ol-surface: #111827;
+    --ol-surface-2: #182135;
+    --ol-ink: #eef1f6;
+    --ol-muted: #98a2b5;
     --ol-line: rgb(255 255 255 / 0.08);
-    --ol-accent: #7d93ff;
-    --ol-accent-strong: #a9b7ff;
-    --ol-accent-soft: #1a2150;
-    --ol-accent-ink: #0c0e12;
-    --ol-accent-glow: rgb(125 147 255 / 0.16);
-    --ol-accent-mark: rgb(125 147 255 / 0.26);
+    --ol-accent: #ff8a00;
+    --ol-accent-strong: #ffad55;
+    --ol-accent-soft: #2b1a0a;
+    --ol-accent-ink: #0f172a;
+    --ol-accent-glow: rgb(255 138 0 / 0.14);
+    --ol-accent-mark: rgb(255 138 0 / 0.28);
     --ol-shadow: rgb(0 0 0 / 0.6);
-    --ol-glass-bg: rgb(30 34 44 / 0.55);
-    --ol-glass-solid: rgb(26 29 38 / 0.97);
+    --ol-glass-bg: rgb(24 33 53 / 0.55);
+    --ol-glass-solid: rgb(22 30 48 / 0.97);
     --ol-glass-border: rgb(255 255 255 / 0.12);
   }
 }
@@ -219,12 +224,13 @@ html[data-lang-alt] [data-l="primary"] {
     outline-offset: 3px;
   }
   .ol-btn-primary {
-    background: var(--ol-accent);
+    background: var(--ol-accent-gradient);
     color: var(--ol-accent-ink);
     box-shadow: 0 10px 24px -14px var(--ol-accent);
   }
   .ol-btn-primary:hover {
-    background: var(--ol-accent-strong);
+    /* lighten, never darken: navy text must keep contrast */
+    filter: brightness(1.08) saturate(1.05);
   }
   .ol-btn-ghost {
     border: 1px solid var(--ol-line);

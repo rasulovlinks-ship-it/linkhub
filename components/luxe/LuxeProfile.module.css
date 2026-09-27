@@ -1,0 +1,205 @@
+/* Template "luxe": dark espresso page, champagne-gold accents, serif display type. */
+
+.page {
+  --lx-gold-grad: linear-gradient(
+    120deg,
+    #f7e9c6 0%,
+    #dcbb7e 24%,
+    #a97d43 50%,
+    #ebd29b 74%,
+    #b98f50 100%
+  );
+  font-family: var(--lx-sans), system-ui, sans-serif;
+  color: var(--lx-ink);
+  background:
+    radial-gradient(130% 55% at 50% -12%, rgb(220 187 126 / 0.2), transparent 62%),
+    radial-gradient(90% 40% at 110% 55%, rgb(220 187 126 / 0.07), transparent 70%),
+    radial-gradient(90% 40% at -10% 85%, rgb(220 187 126 / 0.06), transparent 70%),
+    var(--lx-bg);
+  min-height: 100dvh;
+}
+
+.serif {
+  font-family: var(--lx-serif), "Times New Roman", serif;
+}
+
+.goldText {
+  background: var(--lx-gold-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.goldFill {
+  background: var(--lx-gold-grad);
+  color: #1c140b;
+}
+
+/* 1px gradient-gold frame around a dark panel */
+.goldFrame {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--lx-panel), var(--lx-panel)) padding-box,
+    var(--lx-gold-grad) border-box;
+}
+
+/* Light sweep across the gold order buttons */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / 0.6) 50%, transparent 70%);
+  transform: translateX(-130%);
+  animation: lx-sheen 4.2s ease-in-out 1.4s infinite;
+}
+
+@keyframes lx-sheen {
+  0% {
+    transform: translateX(-130%);
+  }
+  40%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+.kenburns {
+  animation: lx-zoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes lx-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+
+.fadeIn {
+  animation: lx-fade 380ms ease-out both;
+}
+
+@keyframes lx-fade {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes lx-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.enter {
+  animation: lx-rise 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/*
+ * Scroll reveal: LuxeReveal sets data-shown as each element enters the
+ * viewport. Hidden only after the inline script marks the page (data-rv),
+ * so nothing stays invisible without JS.
+ */
+.page[data-rv] .rv {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(4px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 900ms ease-out;
+}
+
+.page[data-rv] .rv[data-shown] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Floating order bar: appears once the hero buttons have scrolled away */
+@keyframes lx-dock {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  .dock {
+    animation: lx-dock linear both;
+    animation-timeline: scroll(root);
+    animation-range: 520px 640px;
+  }
+}
+
+.viewer::backdrop {
+  background: rgb(10 7 4 / 0.94);
+  backdrop-filter: blur(8px);
+}
+
+.viewer[open] {
+  animation: lx-fade 260ms ease-out both;
+}
+
+:global(html:has(dialog[open])) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer::after,
+  .kenburns,
+  .enter,
+  .fadeIn,
+  .viewer[open] {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page[data-rv] .rv {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+/* Reduced motion: the order bar still waits for scroll, but only fades */
+@keyframes lx-dock-fade {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @supports (animation-timeline: scroll()) {
+    .dock {
+      animation-name: lx-dock-fade;
+    }
+  }
+}

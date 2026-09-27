@@ -1,4 +1,5 @@
 import { Onest, Unbounded } from "next/font/google";
+import Script from "next/script";
 import type { Lang } from "@/lib/i18n";
 import { getDict } from "@/lib/i18n";
 import Header from "./Header";
@@ -32,6 +33,9 @@ const body = Onest({
  */
 const bootScript = `(function(){var d=document.documentElement;d.classList.add('ol-js');try{if(sessionStorage.getItem('ol-hero')||matchMedia('(prefers-reduced-motion: reduce)').matches)d.setAttribute('data-ol-skip','')}catch(e){d.setAttribute('data-ol-skip','')}})();`;
 
+/** Cloudflare Web Analytics site "ownlink.uz" (public token, no cookies) */
+const CF_ANALYTICS_TOKEN = "3a80d69058ae4f158b0f374877344e46";
+
 export default function HomePage({ lang }: { lang: Lang }) {
   const dict = getDict(lang);
   return (
@@ -40,7 +44,7 @@ export default function HomePage({ lang }: { lang: Lang }) {
       <Header dict={dict} showReviews={getVisibleReviews().length > 0} />
       <main>
         <Hero dict={dict} />
-        <DomainCompare dict={dict} />
+        <DomainCompare dict={dict} lang={lang} />
         <Benefits dict={dict} />
         <SavingsCalculator dict={dict} />
         <Portfolio dict={dict} lang={lang} />
@@ -51,6 +55,11 @@ export default function HomePage({ lang }: { lang: Lang }) {
       </main>
       <Footer dict={dict} />
       <RevealObserver />
+      <Script
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token: CF_ANALYTICS_TOKEN })}
+        strategy="afterInteractive"
+      />
     </div>
   );
 }

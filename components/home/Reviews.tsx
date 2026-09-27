@@ -40,7 +40,7 @@ export default function Reviews({ dict, lang }: { dict: Dict; lang: Lang }) {
         )}
         <span className="min-w-0">
           <span className="block truncate text-sm font-semibold text-ol-ink">{r.name}</span>
-          <a href={r.url} target="_blank" rel="noopener" className="block truncate text-sm text-ol-muted hover:text-ol-accent">
+          <a href={r.url} target="_blank" rel="noopener" className="block truncate text-sm text-ol-muted hover:text-ol-accent-strong">
             {r.business}
           </a>
         </span>
