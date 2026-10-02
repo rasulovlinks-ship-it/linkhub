@@ -19,6 +19,8 @@ import { langInitScript } from "@/lib/siteLang";
 import Bi, { biString, type Langs } from "@/components/luxe/Bi";
 import ScentMotion from "./ScentMotion";
 import ScentShelf from "./ScentShelf";
+import ScentThemeToggle from "./ScentThemeToggle";
+import { themeInitScript } from "@/lib/siteTheme";
 import { fetchStarred } from "@/lib/scentShop";
 import styles from "./ScentProfile.module.css";
 
@@ -151,6 +153,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
           }}
         />
       )}
+      <script dangerouslySetInnerHTML={{ __html: themeInitScript(site.slug) }} />
 
       <main className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
         {/* Top bar */}
@@ -176,15 +179,20 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
               </span>
             </span>
           </a>
-          {langs.alt && (
-            <LangToggle
-              slug={site.slug}
-              primary={langs.primary}
-              alt={langs.alt}
-              accent={accent}
-              accentText={theme.accentText ?? "#ffffff"}
-            />
-          )}
+          <div className="flex items-center gap-2">
+            <ScentThemeToggle slug={site.slug} langs={langs} />
+            {langs.alt && (
+              <div className={styles.langDark}>
+                <LangToggle
+                  slug={site.slug}
+                  primary={langs.primary}
+                  alt={langs.alt}
+                  accent={accent}
+                  accentText={theme.accentText ?? "#ffffff"}
+                />
+              </div>
+            )}
+          </div>
         </header>
 
         {/* Hero */}
@@ -332,12 +340,12 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
             )}
             <div className="absolute top-4 left-4 flex flex-col items-start gap-2 sm:top-5 sm:left-5">
               {scent.heroBadges?.[0] && (
-                <span className="rounded-full bg-white/90 px-3.5 py-2 text-[13px] font-semibold shadow-[0_10px_24px_-12px_rgb(20_20_22/0.35)] backdrop-blur">
+                <span className="rounded-full bg-white/90 px-3.5 py-2 text-[13px] font-semibold text-[#141416] shadow-[0_10px_24px_-12px_rgb(20_20_22/0.35)] backdrop-blur">
                   <Bi t={scent.heroBadges[0]} langs={langs} />
                 </span>
               )}
               {scent.heroBadges?.[1] && (
-                <span className="flex items-center gap-1.5 rounded-full bg-(--sc-ink) px-3.5 py-2 text-[13px] font-semibold text-white">
+                <span className="flex items-center gap-1.5 rounded-full bg-[#141416] px-3.5 py-2 text-[13px] font-semibold text-white">
                   <span
                     className="size-1.5 rounded-full bg-(--sc-accent)"
                     aria-hidden
@@ -370,7 +378,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
                   rel="noopener noreferrer"
                   className={`group relative flex h-full flex-col items-start gap-3 rounded-2xl bg-(--sc-surface) p-4 ring-1 ring-(--sc-line) transition-[box-shadow,transform] duration-200 hover:shadow-[0_14px_30px_-18px_rgb(20_20_22/0.35)] active:scale-[0.98] sm:flex-row sm:items-center ${FOCUS}`}
                 >
-                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-(--sc-tint) text-(--sc-accent-ink) sm:size-11">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-(--sc-soft) text-(--sc-accent-ink) sm:size-11">
                     <LinkIcon type={l.type} className="size-5" />
                   </span>
                   <span className="w-full min-w-0 flex-1">
@@ -460,7 +468,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
 
       {/* In the store: a dark band with an endless photo strip */}
       {scent.storePhotos && (
-        <section className="overflow-hidden bg-(--sc-ink) py-16 text-white sm:py-24">
+        <section className="overflow-hidden bg-(--sc-band) py-16 text-white sm:py-24">
           <div className="mx-auto grid max-w-6xl gap-6 px-5 sm:px-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className={styles.rv}>
               <h2 className="text-[1.85rem] leading-[1.08] font-semibold tracking-[-0.03em] text-balance sm:text-[2.6rem]">
@@ -477,7 +485,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
                 href={scent.storeLink.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${styles.rv} inline-flex min-h-12 items-center gap-2.5 self-start rounded-full bg-white px-6 text-[15px] font-semibold text-(--sc-ink) transition-transform duration-200 active:scale-[0.98] lg:self-end ${FOCUS}`}
+                className={`${styles.rv} inline-flex min-h-12 items-center gap-2.5 self-start rounded-full bg-white px-6 text-[15px] font-semibold text-[#141416] transition-transform duration-200 active:scale-[0.98] lg:self-end ${FOCUS}`}
               >
                 <LinkIcon type="instagram" className="size-5" />
                 <Bi t={scent.storeLink.label} langs={langs} />
@@ -528,7 +536,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
             </div>
             {scent.payments && (
               <div
-                className={`${styles.rv} self-end rounded-[28px] bg-(--sc-tint) p-6 sm:p-8`}
+                className={`${styles.rv} self-end rounded-[28px] bg-(--sc-soft) p-6 sm:p-8`}
               >
                 <h3 className="text-xl font-semibold tracking-[-0.02em]">
                   <Bi t={scent.payTitle} langs={langs} />
@@ -537,7 +545,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
                   {scent.payments.map((p, i) => (
                     <li
                       key={i}
-                      className="rounded-full bg-white px-4 py-2.5 text-[14px] font-medium ring-1 ring-(--sc-line)"
+                      className="rounded-full bg-(--sc-surface) px-4 py-2.5 text-[14px] font-medium ring-1 ring-(--sc-line)"
                     >
                       <Bi t={p} langs={langs} />
                     </li>
@@ -590,7 +598,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
                     href={visit.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-(--sc-ink) px-5 text-[15px] font-semibold text-white transition-transform duration-200 active:scale-[0.98] ${FOCUS}`}
+                    className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-(--sc-ink) px-5 text-[15px] font-semibold text-(--sc-bg) transition-transform duration-200 active:scale-[0.98] ${FOCUS}`}
                   >
                     <MapPinIcon className="size-5" aria-hidden />
                     <Bi t={visit.mapLabel} langs={langs} />
@@ -633,7 +641,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
       <div
         className={`${styles.dock} fixed inset-x-0 bottom-0 z-40 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden`}
       >
-        <div className="mx-auto flex max-w-md items-center gap-2 rounded-full bg-white/85 p-1.5 shadow-[0_18px_40px_-14px_rgb(20_20_22/0.45)] ring-1 ring-(--sc-line) backdrop-blur-md">
+        <div className="mx-auto flex max-w-md items-center gap-2 rounded-full bg-(--sc-surface)/85 p-1.5 shadow-[0_18px_40px_-14px_rgb(20_20_22/0.45)] ring-1 ring-(--sc-line) backdrop-blur-md">
           <ShopButton
             scent={scent}
             langs={langs}
@@ -643,7 +651,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
             href={scent.order.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`grid size-12 shrink-0 place-items-center rounded-full bg-(--sc-tint) ${FOCUS}`}
+            className={`grid size-12 shrink-0 place-items-center rounded-full bg-(--sc-soft) ${FOCUS}`}
           >
             <LinkIcon type="telegram" className="size-5 text-[#229ed9]" />
             <span className="sr-only">
@@ -653,7 +661,7 @@ export default async function ScentProfile({ site }: { site: SiteConfig }) {
           {visit && (
             <a
               href={visit.phone.url}
-              className={`grid size-12 shrink-0 place-items-center rounded-full bg-(--sc-tint) text-(--sc-accent-ink) ${FOCUS}`}
+              className={`grid size-12 shrink-0 place-items-center rounded-full bg-(--sc-soft) text-(--sc-accent-ink) ${FOCUS}`}
             >
               <PhoneIcon className="size-5" aria-hidden />
               <span className="sr-only">

@@ -11,11 +11,36 @@
   --sc-tint-2: color-mix(in oklab, var(--sc-accent), white 78%);
   /* accent dark enough for small text on the light page */
   --sc-accent-ink: color-mix(in oklab, var(--sc-accent), black 22%);
+  /* soft accent panels (icon circles, payment card); the hero stage keeps --sc-tint in both looks */
+  --sc-soft: var(--sc-tint);
+  /* product cards stay white in both looks: the packshots are on white */
+  --sc-tile: #ffffff;
+  --sc-band: #141416;
   font-family: var(--sc-sans), system-ui, sans-serif;
   color: var(--sc-ink);
   background: var(--sc-bg);
   min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
+}
+
+/* The dark look (ScentThemeToggle): plum black, the page's first design */
+:global(html[data-sc-theme="dark"]) .page {
+  --sc-bg: #140d11;
+  --sc-surface: #1d1419;
+  --sc-ink: #fbeef3;
+  --sc-muted: #b497a4;
+  --sc-line: rgb(251 238 243 / 0.1);
+  --sc-accent-ink: color-mix(in oklab, var(--sc-accent), white 30%);
+  --sc-soft: color-mix(in oklab, var(--sc-accent), #140d11 82%);
+  --sc-band: #0b0609;
+  color-scheme: dark;
+}
+
+/* the language switch is drawn for light pages; on the dark look it gets a dark pill */
+:global(html[data-sc-theme="dark"]) .langDark > div {
+  background: rgb(0 0 0 / 0.35);
+  box-shadow: none;
+  outline: 1px solid rgb(255 255 255 / 0.15);
 }
 
 /* White packshot backgrounds disappear into the tinted card behind them */

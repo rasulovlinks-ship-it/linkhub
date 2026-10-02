@@ -11,7 +11,7 @@ const FOCUS = "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visi
 function ProductCard({ p, langs }: { p: ScentProduct; langs: Langs }) {
   return (
     <a href={p.url} className={`group block snap-start ${FOCUS} rounded-3xl`}>
-      <div className="relative aspect-square overflow-hidden rounded-3xl bg-(--sc-surface) ring-1 ring-(--sc-line)">
+      <div className="relative aspect-square overflow-hidden rounded-3xl bg-(--sc-tile) ring-1 ring-(--sc-line)">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={p.photoUrl}
