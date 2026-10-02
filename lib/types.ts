@@ -380,8 +380,14 @@ export type LuxeContent = {
   displayName?: BiText;
   tagline: BiText;
   heroImageUrl: string;
+  /**
+   * Colour of the metallic gradient (buttons, numbers, frames): "gold" (default,
+   * champagne gold) or "accent", the same shine made from theme.accent.
+   */
+  metal?: "gold" | "accent";
   stats?: LuxeStat[];
-  order: { url: string; label: BiText; note?: BiText };
+  /** icon defaults to "order" (a cake); a shop link can use "shop" */
+  order: { url: string; label: BiText; note?: BiText; icon?: LinkType };
   phone?: { url: string; display: string; label: BiText };
   collectionTitle: BiText;
   collectionSubtitle?: BiText;
@@ -405,6 +411,78 @@ export type LuxeContent = {
     prev?: BiText;
     next?: BiText;
     open?: BiText;
+  };
+};
+
+/** A product shown on a "scent" page, linking to the shop */
+export type ScentProduct = {
+  id: string;
+  /** Packshot on white (blended into the tinted card) */
+  photoUrl: string;
+  brand: string;
+  name: BiText;
+  /** e.g. "10 ml · 480 000 so'm" */
+  price?: BiText;
+  url: string;
+};
+
+export type ScentTile = { id: string; photoUrl: string; title: BiText; url: string };
+
+export type ScentLink = {
+  id: string;
+  type: LinkType;
+  label: BiText;
+  /** Second line, e.g. "@s_perfume_uz" */
+  handle?: string;
+  url: string;
+};
+
+/**
+ * Content for template "scent": a light, product-first landing page for a
+ * perfume and cosmetics shop (packshot hero, decant shelf, categories,
+ * in-store photos, ordering, visit). theme.accent is the brand colour.
+ */
+export type ScentContent = {
+  kicker: BiText;
+  /** Headline; the part wrapped in *asterisks* is drawn in the accent colour */
+  title: BiText;
+  tagline: BiText;
+  /** Three packshots arranged in the hero, the middle one in front */
+  heroProducts: ScentProduct[];
+  /** Small floating notes on the hero picture */
+  heroBadges?: BiText[];
+  shop: { url: string; label: BiText };
+  order: { url: string; label: BiText };
+  facts?: LuxeStat[];
+  linksTitle?: BiText;
+  links: ScentLink[];
+  shelfTitle: BiText;
+  shelfText?: BiText;
+  shelfMore?: { url: string; label: BiText };
+  /** Shown when there's no shelfSource, or the shop can't be reached */
+  shelf: ScentProduct[];
+  /**
+   * Fill the shelf from an ownlink shop: api is its product list URL (e.g. the
+   * starred products, "/api/products?top=1&facets=0"), shop its address.
+   */
+  shelfSource?: { api: string; shop: string };
+  categoriesTitle?: BiText;
+  categories?: ScentTile[];
+  storeTitle?: BiText;
+  storeText?: BiText;
+  storePhotos?: string[];
+  storeLink?: { url: string; label: BiText };
+  stepsTitle?: BiText;
+  steps?: LuxeStep[];
+  payTitle?: BiText;
+  payments?: BiText[];
+  visit?: {
+    title: BiText;
+    address: BiText;
+    hours: BiText;
+    mapUrl: string;
+    mapLabel: BiText;
+    phone: { url: string; display: string; label: BiText };
   };
 };
 
@@ -466,13 +544,15 @@ export type SiteConfig = {
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
   /** Selects a dedicated page layout instead of the default link-in-bio profile. */
-  template?: "edu" | "cake" | "luxe";
+  template?: "edu" | "cake" | "luxe" | "scent";
   /** Content for template "edu". */
   edu?: EduContent;
   /** Content for template "cake". */
   cake?: CakeContent;
   /** Content for template "luxe". */
   luxe?: LuxeContent;
+  /** Content for template "scent". */
+  scent?: ScentContent;
   theme?: SiteTheme;
   links: LinkItem[];
   /** Hides the "Сделано на ownlink.uz" footer credit when true. */

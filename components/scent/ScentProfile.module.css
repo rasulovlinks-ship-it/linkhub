@@ -1,0 +1,120 @@
+/* Template "scent": light, product-first page for a perfume and cosmetics shop.
+   One accent (theme.accent), cool neutrals, packshots blended into tinted cards. */
+
+.page {
+  --sc-bg: #f5f5f6;
+  --sc-surface: #ffffff;
+  --sc-ink: #141416;
+  --sc-muted: #6a6a72;
+  --sc-line: rgb(20 20 22 / 0.09);
+  --sc-tint: color-mix(in oklab, var(--sc-accent), white 88%);
+  --sc-tint-2: color-mix(in oklab, var(--sc-accent), white 78%);
+  /* accent dark enough for small text on the light page */
+  --sc-accent-ink: color-mix(in oklab, var(--sc-accent), black 22%);
+  font-family: var(--sc-sans), system-ui, sans-serif;
+  color: var(--sc-ink);
+  background: var(--sc-bg);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* White packshot backgrounds disappear into the tinted card behind them */
+.blend {
+  mix-blend-mode: multiply;
+}
+
+/* Hero bottles drift gently, each on its own beat */
+.float {
+  animation: sc-float 6s ease-in-out infinite alternate;
+}
+
+@keyframes sc-float {
+  from {
+    transform: translateY(0) rotate(var(--sc-rot, 0deg));
+  }
+  to {
+    transform: translateY(-10px) rotate(var(--sc-rot, 0deg));
+  }
+}
+
+/* First paint: hero parts rise in one after another */
+.enter {
+  animation: sc-enter 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes sc-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* Scroll reveal, armed by the inline script so the page stays visible without JS */
+[data-rv] .rv {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+[data-rv] .rv[data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Endless strip of in-store photos */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: sc-marquee 40s linear infinite;
+}
+
+.marqueeWrap:hover .marquee {
+  animation-play-state: paused;
+}
+
+@keyframes sc-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Swipe shelf without a visible scrollbar */
+.shelf {
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+}
+
+.shelf::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bottom bar on phones, shown once the hero buttons scroll away */
+.dock {
+  transform: translateY(140%);
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.dock[data-on] {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float,
+  .enter,
+  .marquee {
+    animation: none;
+  }
+
+  [data-rv] .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .dock {
+    transition: none;
+  }
+}

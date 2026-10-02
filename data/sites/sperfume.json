@@ -1,0 +1,523 @@
+{
+  "slug": "sperfume",
+  "lang": "uz",
+  "template": "scent",
+  "name": "S Perfume",
+  "bio": "Atirlar va kosmetika do'koni · Toshkent · Atirlar 10 ml dan · Uzum Nasiya 3-6-12 oy",
+  "avatarUrl": "/sites/sperfume/logo.webp",
+  "theme": {
+    "background": "#f5f5f6",
+    "accent": "#d92a7f",
+    "accentText": "#ffffff",
+    "textColor": "#141416"
+  },
+  "links": [],
+  "translation": {
+    "lang": "ru",
+    "name": "S Perfume",
+    "bio": "Магазин парфюмерии и косметики · Ташкент · Парфюм от 10 мл · Uzum Nasiya 3-6-12 мес."
+  },
+  "scent": {
+    "kicker": {
+      "uz": "Atirlar va kosmetika · Toshkent",
+      "ru": "Парфюмерия и косметика · Ташкент"
+    },
+    "title": {
+      "uz": "Mashhur atirlar *10 ml* dan va original kosmetika",
+      "ru": "Известные ароматы *от 10 мл* и оригинальная косметика"
+    },
+    "tagline": {
+      "uz": "Sevimli atiringizni butun flakon emas, 10 ml qilib oling. Makiyaj, yuz, soch va badan parvarishi ham shu yerda.",
+      "ru": "Любимый аромат можно взять не флаконом, а разливом по 10 мл. Макияж и уход за лицом, волосами и телом здесь же."
+    },
+    "heroProducts": [
+      {
+        "id": "missdior",
+        "photoUrl": "/sites/sperfume/p/missdior.webp",
+        "brand": "Dior",
+        "name": {
+          "uz": "Miss Dior Blooming Bouquet",
+          "ru": "Miss Dior Blooming Bouquet"
+        },
+        "price": {
+          "uz": "10 ml · 250 000 so'm",
+          "ru": "10 мл · 250 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/10"
+      },
+      {
+        "id": "sauvage",
+        "photoUrl": "/sites/sperfume/p/sauvage.webp",
+        "brand": "Dior",
+        "name": {
+          "uz": "Sauvage",
+          "ru": "Sauvage"
+        },
+        "price": {
+          "uz": "10 ml · 250 000 so'm",
+          "ru": "10 мл · 250 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/8"
+      },
+      {
+        "id": "imagination",
+        "photoUrl": "/sites/sperfume/p/imagination.webp",
+        "brand": "Louis Vuitton",
+        "name": {
+          "uz": "Imagination",
+          "ru": "Imagination"
+        },
+        "price": {
+          "uz": "10 ml · 480 000 so'm",
+          "ru": "10 мл · 480 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/1"
+      }
+    ],
+    "heroBadges": [
+      {
+        "uz": "10 ml dan · 80 000 so'm",
+        "ru": "От 10 мл · 80 000 сум"
+      },
+      {
+        "uz": "Butun flakon ham bor",
+        "ru": "И целые флаконы"
+      }
+    ],
+    "shop": {
+      "url": "https://sperfume.ownlink.uz",
+      "label": {
+        "uz": "Onlayn do'kon",
+        "ru": "Онлайн-магазин"
+      }
+    },
+    "order": {
+      "url": "https://t.me/sperfume_admin",
+      "label": {
+        "uz": "Telegram'da yozish",
+        "ru": "Написать в Telegram"
+      }
+    },
+    "facts": [
+      {
+        "id": "followers",
+        "value": {
+          "uz": "162K",
+          "ru": "162K"
+        },
+        "label": {
+          "uz": "Instagram'da obunachi",
+          "ru": "подписчиков в Instagram"
+        }
+      },
+      {
+        "id": "hours",
+        "value": {
+          "uz": "10:00–22:00",
+          "ru": "10:00–22:00"
+        },
+        "label": {
+          "uz": "har kuni ochiq",
+          "ru": "открыты ежедневно"
+        }
+      },
+      {
+        "id": "nasiya",
+        "value": {
+          "uz": "3·6·12 oy",
+          "ru": "3·6·12 мес."
+        },
+        "label": {
+          "uz": "Uzum Nasiya",
+          "ru": "Uzum Nasiya"
+        }
+      }
+    ],
+    "linksTitle": {
+      "uz": "Biz bilan bog'laning",
+      "ru": "Связаться с нами"
+    },
+    "links": [
+      {
+        "id": "instagram",
+        "type": "instagram",
+        "label": {
+          "uz": "Instagram",
+          "ru": "Instagram"
+        },
+        "handle": "@s_perfume_uz",
+        "url": "https://www.instagram.com/s_perfume_uz"
+      },
+      {
+        "id": "admin",
+        "type": "telegram",
+        "label": {
+          "uz": "Buyurtma berish",
+          "ru": "Заказать"
+        },
+        "handle": "@sperfume_admin",
+        "url": "https://t.me/sperfume_admin"
+      },
+      {
+        "id": "channel",
+        "type": "telegram",
+        "label": {
+          "uz": "Telegram-kanal",
+          "ru": "Telegram-канал"
+        },
+        "handle": "@s_perfume_uz",
+        "url": "https://t.me/s_perfume_uz"
+      },
+      {
+        "id": "youtube",
+        "type": "youtube",
+        "label": {
+          "uz": "YouTube",
+          "ru": "YouTube"
+        },
+        "handle": "@s_perfume_uz",
+        "url": "https://www.youtube.com/@s_perfume_uz"
+      },
+      {
+        "id": "phone",
+        "type": "phone",
+        "label": {
+          "uz": "Qo'ng'iroq",
+          "ru": "Позвонить"
+        },
+        "handle": "+998 33 477 70 47",
+        "url": "tel:+998334777047"
+      },
+      {
+        "id": "location",
+        "type": "location",
+        "label": {
+          "uz": "Do'kon manzili",
+          "ru": "Адрес магазина"
+        },
+        "handle": "Bunyodkor ko'chasi, 8D",
+        "url": "https://yandex.uz/maps/org/s_perfume/123690260116/"
+      }
+    ],
+    "shelfTitle": {
+      "uz": "Eng *mashhur* mahsulotlar",
+      "ru": "Самое *популярное*"
+    },
+    "shelfText": {
+      "uz": "Do'konimizda eng ko'p so'raladiganlari. Atirlarni 10 ml qilib ham quyib beramiz: qimmat flakon olishdan oldin hidni sinab ko'ring.",
+      "ru": "То, что у нас спрашивают чаще всего. Ароматы разливаем и по 10 мл: попробуйте аромат до покупки флакона."
+    },
+    "shelfMore": {
+      "url": "https://sperfume.ownlink.uz/catalog",
+      "label": {
+        "uz": "Barcha mahsulotlar",
+        "ru": "Все товары"
+      }
+    },
+    "shelfSource": {
+      "api": "https://sperfume.ownlink.uz/api/products?top=1&facets=0&limit=24",
+      "shop": "https://sperfume.ownlink.uz"
+    },
+    "shelf": [
+      {
+        "id": "imagination",
+        "photoUrl": "/sites/sperfume/p/imagination.webp",
+        "brand": "Louis Vuitton",
+        "name": {
+          "uz": "Imagination",
+          "ru": "Imagination"
+        },
+        "price": {
+          "uz": "10 ml · 480 000 so'm",
+          "ru": "10 мл · 480 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/1"
+      },
+      {
+        "id": "sauvage",
+        "photoUrl": "/sites/sperfume/p/sauvage.webp",
+        "brand": "Dior",
+        "name": {
+          "uz": "Sauvage",
+          "ru": "Sauvage"
+        },
+        "price": {
+          "uz": "10 ml · 250 000 so'm",
+          "ru": "10 мл · 250 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/8"
+      },
+      {
+        "id": "mojave",
+        "photoUrl": "/sites/sperfume/p/mojave.webp",
+        "brand": "Byredo",
+        "name": {
+          "uz": "Mojave Ghost",
+          "ru": "Mojave Ghost"
+        },
+        "price": {
+          "uz": "10 ml · 350 000 so'm",
+          "ru": "10 мл · 350 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/5"
+      },
+      {
+        "id": "missdior",
+        "photoUrl": "/sites/sperfume/p/missdior.webp",
+        "brand": "Dior",
+        "name": {
+          "uz": "Miss Dior Blooming Bouquet",
+          "ru": "Miss Dior Blooming Bouquet"
+        },
+        "price": {
+          "uz": "10 ml · 250 000 so'm",
+          "ru": "10 мл · 250 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/10"
+      },
+      {
+        "id": "chance",
+        "photoUrl": "/sites/sperfume/p/chance.webp",
+        "brand": "Chanel",
+        "name": {
+          "uz": "Chance Eau Fraîche",
+          "ru": "Chance Eau Fraîche"
+        },
+        "price": {
+          "uz": "10 ml · 300 000 so'm",
+          "ru": "10 мл · 300 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/11"
+      },
+      {
+        "id": "vip",
+        "photoUrl": "/sites/sperfume/p/vip.webp",
+        "brand": "Carolina Herrera",
+        "name": {
+          "uz": "212 VIP Black",
+          "ru": "212 VIP Black"
+        },
+        "price": {
+          "uz": "10 ml · 180 000 so'm",
+          "ru": "10 мл · 180 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/16"
+      },
+      {
+        "id": "crystal",
+        "photoUrl": "/sites/sperfume/p/crystal.webp",
+        "brand": "Versace",
+        "name": {
+          "uz": "Bright Crystal",
+          "ru": "Bright Crystal"
+        },
+        "price": {
+          "uz": "10 ml · 130 000 so'm",
+          "ru": "10 мл · 130 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/13"
+      },
+      {
+        "id": "coolwater",
+        "photoUrl": "/sites/sperfume/p/coolwater.webp",
+        "brand": "Davidoff",
+        "name": {
+          "uz": "Cool Water",
+          "ru": "Cool Water"
+        },
+        "price": {
+          "uz": "10 ml · 80 000 so'm",
+          "ru": "10 мл · 80 000 сум"
+        },
+        "url": "https://sperfume.ownlink.uz/p/17"
+      }
+    ],
+    "categoriesTitle": {
+      "uz": "Do'konda nimalar *bor*",
+      "ru": "Что есть *в магазине*"
+    },
+    "categories": [
+      {
+        "id": "atirlar",
+        "photoUrl": "/sites/sperfume/cat/atirlar.webp",
+        "title": {
+          "uz": "Atirlar",
+          "ru": "Парфюмерия"
+        },
+        "url": "https://sperfume.ownlink.uz/c/atirlar"
+      },
+      {
+        "id": "makiyaj",
+        "photoUrl": "/sites/sperfume/cat/makiyaj.webp",
+        "title": {
+          "uz": "Makiyaj",
+          "ru": "Макияж"
+        },
+        "url": "https://sperfume.ownlink.uz/c/makiyaj"
+      },
+      {
+        "id": "yuz",
+        "photoUrl": "/sites/sperfume/cat/yuz.webp",
+        "title": {
+          "uz": "Yuz parvarishi",
+          "ru": "Уход за лицом"
+        },
+        "url": "https://sperfume.ownlink.uz/c/yuz"
+      },
+      {
+        "id": "soch",
+        "photoUrl": "/sites/sperfume/cat/soch.webp",
+        "title": {
+          "uz": "Soch parvarishi",
+          "ru": "Уход за волосами"
+        },
+        "url": "https://sperfume.ownlink.uz/c/soch"
+      },
+      {
+        "id": "badan",
+        "photoUrl": "/sites/sperfume/cat/badan.webp",
+        "title": {
+          "uz": "Badan parvarishi",
+          "ru": "Уход за телом"
+        },
+        "url": "https://sperfume.ownlink.uz/c/badan"
+      },
+      {
+        "id": "erkaklar",
+        "photoUrl": "/sites/sperfume/cat/erkaklar.webp",
+        "title": {
+          "uz": "Erkaklar uchun",
+          "ru": "Для мужчин"
+        },
+        "url": "https://sperfume.ownlink.uz/c/erkaklar"
+      },
+      {
+        "id": "naborlar",
+        "photoUrl": "/sites/sperfume/cat/naborlar.webp",
+        "title": {
+          "uz": "Sovg'a naborlari",
+          "ru": "Подарочные наборы"
+        },
+        "url": "https://sperfume.ownlink.uz/c/naborlar"
+      },
+      {
+        "id": "uy",
+        "photoUrl": "/sites/sperfume/cat/uy.webp",
+        "title": {
+          "uz": "Uy uchun",
+          "ru": "Для дома"
+        },
+        "url": "https://sperfume.ownlink.uz/c/uy"
+      }
+    ],
+    "storeTitle": {
+      "uz": "Videolarimizdagi hamma narsa *do'konda bor*",
+      "ru": "Всё из наших видео *есть в магазине*"
+    },
+    "storeText": {
+      "uz": "Givenchy va Dior paletkalari, Chanel pudrasi, Rare Beauty, Victoria's Secret naborlari. Yangi kelganlarni Instagram'da ko'rsatamiz.",
+      "ru": "Палетки Givenchy и Dior, пудра Chanel, Rare Beauty, наборы Victoria's Secret. Новинки показываем в Instagram."
+    },
+    "storePhotos": [
+      "/sites/sperfume/shop/givenchy.webp",
+      "/sites/sperfume/shop/rarebeauty.webp",
+      "/sites/sperfume/shop/dior.webp",
+      "/sites/sperfume/shop/vsnabor.webp",
+      "/sites/sperfume/shop/chanel.webp",
+      "/sites/sperfume/shop/hourglass.webp",
+      "/sites/sperfume/shop/vsmist.webp",
+      "/sites/sperfume/shop/brushes.webp"
+    ],
+    "storeLink": {
+      "url": "https://www.instagram.com/s_perfume_uz",
+      "label": {
+        "uz": "Instagram'da ko'rish",
+        "ru": "Смотреть в Instagram"
+      }
+    },
+    "stepsTitle": {
+      "uz": "Qanday buyurtma beriladi",
+      "ru": "Как заказать"
+    },
+    "steps": [
+      {
+        "id": "pick",
+        "title": {
+          "uz": "Tanlang",
+          "ru": "Выберите"
+        },
+        "text": {
+          "uz": "Onlayn do'konda savatga qo'shing yoki Telegram'da rasmini yuboring",
+          "ru": "Добавьте в корзину в онлайн-магазине или пришлите фото в Telegram"
+        }
+      },
+      {
+        "id": "confirm",
+        "title": {
+          "uz": "Operator qo'ng'iroq qiladi",
+          "ru": "Оператор перезвонит"
+        },
+        "text": {
+          "uz": "Hajm, narx va yetkazish vaqtini kelishib olamiz",
+          "ru": "Согласуем объём, цену и время доставки"
+        }
+      },
+      {
+        "id": "deliver",
+        "title": {
+          "uz": "Yetkazib beramiz",
+          "ru": "Доставим"
+        },
+        "text": {
+          "uz": "O'zbekiston bo'ylab yoki do'kondan o'zingiz olib ketasiz",
+          "ru": "По всему Узбекистану или самовывоз из магазина"
+        }
+      }
+    ],
+    "payTitle": {
+      "uz": "To'lov usullari",
+      "ru": "Способы оплаты"
+    },
+    "payments": [
+      {
+        "uz": "Naqd",
+        "ru": "Наличные"
+      },
+      {
+        "uz": "Karta",
+        "ru": "Карта"
+      },
+      {
+        "uz": "Uzum Nasiya · 3, 6, 12 oy",
+        "ru": "Uzum Nasiya · 3, 6, 12 мес."
+      }
+    ],
+    "visit": {
+      "title": {
+        "uz": "Do'konimizga *keling*",
+        "ru": "Ждём вас *в магазине*"
+      },
+      "address": {
+        "uz": "Toshkent, Shayxontohur tumani, Bunyodkor shoh ko'chasi, 8D, 1‑qavat",
+        "ru": "Ташкент, Шайхантахурский район, проспект Бунёдкор, 8Д, 1 этаж"
+      },
+      "hours": {
+        "uz": "Har kuni 10:00 dan 22:00 gacha, dam olishsiz",
+        "ru": "Ежедневно с 10:00 до 22:00, без выходных"
+      },
+      "mapUrl": "https://yandex.uz/maps/org/s_perfume/123690260116/",
+      "mapLabel": {
+        "uz": "Xaritada",
+        "ru": "На карте"
+      },
+      "phone": {
+        "url": "tel:+998334777047",
+        "display": "+998 33 477 70 47",
+        "label": {
+          "uz": "Qo'ng'iroq",
+          "ru": "Позвонить"
+        }
+      }
+    }
+  }
+}

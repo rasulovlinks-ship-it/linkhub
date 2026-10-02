@@ -5,6 +5,7 @@ import SiteProfile from "@/components/SiteProfile";
 import EduProfile from "@/components/EduProfile";
 import CakeProfile from "@/components/CakeProfile";
 import LuxeProfile from "@/components/luxe/LuxeProfile";
+import ScentProfile from "@/components/scent/ScentProfile";
 
 export function generateStaticParams() {
   return getAllSiteSlugs().map((slug) => ({ slug }));
@@ -41,5 +42,6 @@ export default async function SitePage({
   if (site.template === "edu") return <EduProfile site={site} />;
   if (site.template === "cake") return <CakeProfile site={site} />;
   if (site.template === "luxe" && site.luxe) return <LuxeProfile site={site} />;
+  if (site.template === "scent" && site.scent) return <ScentProfile site={site} />;
   return <SiteProfile site={site} />;
 }

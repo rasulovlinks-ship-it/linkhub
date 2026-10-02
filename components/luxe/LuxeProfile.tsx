@@ -81,9 +81,9 @@ function OrderButton({ luxe, langs, className = "" }: { luxe: LuxeContent; langs
       href={luxe.order.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`${styles.goldFill} ${styles.shimmer} flex min-h-14 items-center justify-center gap-2.5 rounded-full px-6 text-[15px] font-bold tracking-wide shadow-[0_18px_40px_-18px_rgb(220_187_126/0.8)] transition-[transform,filter] duration-200 hover:brightness-105 active:scale-[0.98] ${FOCUS} ${className}`}
+      className={`${styles.goldFill} ${styles.shimmer} flex min-h-14 items-center justify-center gap-2.5 rounded-full px-6 text-[15px] font-bold tracking-wide shadow-[0_18px_40px_-18px_var(--lx-glow)] transition-[transform,filter] duration-200 hover:brightness-105 active:scale-[0.98] ${FOCUS} ${className}`}
     >
-      <LinkIcon type="order" className="size-6 shrink-0" />
+      <LinkIcon type={luxe.order.icon ?? "order"} className="size-6 shrink-0" />
       <Bi t={luxe.order.label} langs={langs} />
     </a>
   );
@@ -105,6 +105,12 @@ export default function LuxeProfile({ site }: { site: SiteConfig }) {
     "--lx-ink": theme.textColor ?? "#f3ebdd",
     "--lx-gold": gold,
     "--lx-panel": "color-mix(in oklab, var(--lx-bg), white 4%)",
+    "--lx-glow": "rgb(220 187 126 / 0.8)",
+    // the gold shine redrawn in the site's accent colour
+    ...(luxe.metal === "accent" && {
+      "--lx-gold-grad": `linear-gradient(120deg, color-mix(in oklab, ${gold}, white 55%) 0%, ${gold} 24%, color-mix(in oklab, ${gold}, black 25%) 50%, color-mix(in oklab, ${gold}, white 35%) 74%, color-mix(in oklab, ${gold}, black 10%) 100%)`,
+      "--lx-glow": `color-mix(in oklab, ${gold} 75%, transparent)`,
+    }),
   } as CSSProperties;
 
   let sectionIndex = 0;
