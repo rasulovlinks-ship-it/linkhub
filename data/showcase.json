@@ -22,6 +22,16 @@
       "screenshot": "/showcase/cake-template.jpg"
     },
     {
+      "slug": "pop-template",
+      "category": { "uz": "Bento va tug'ilgan kun tortlari", "ru": "Бенто и торты на праздник" },
+      "screenshot": "/showcase/pop-template.jpg"
+    },
+    {
+      "slug": "menu-template",
+      "category": { "uz": "Konditerlik menyusi", "ru": "Кондитерское меню" },
+      "screenshot": "/showcase/menu-template.jpg"
+    },
+    {
       "slug": "edu-template",
       "category": { "uz": "Ta'lim markazi", "ru": "Учебный центр" },
       "screenshot": "/showcase/edu-template.jpg"
