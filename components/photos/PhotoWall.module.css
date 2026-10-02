@@ -1,0 +1,107 @@
+/* Full-screen photo viewer shared by the plain photo templates. */
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgb(10 10 12 / 0.94);
+  color: #fff;
+  overflow: hidden;
+}
+.dialog:not([open]) {
+  display: none;
+}
+.dialog[open] {
+  display: grid;
+  place-items: center;
+  animation: fade 0.25s ease-out;
+}
+.dialog::backdrop {
+  background: transparent;
+}
+
+.frame {
+  display: flex;
+  max-width: min(92vw, 560px);
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.pic {
+  width: min(92vw, 560px);
+  height: min(72dvh, 700px);
+  overflow: hidden;
+  border-radius: 14px;
+  background: #1a1a1e;
+  animation: pop 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.caption {
+  max-width: 36ch;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.counter {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+
+.btn {
+  position: absolute;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.14);
+  color: #fff;
+  transition: background-color 0.2s;
+}
+.btn:hover {
+  background: rgb(255 255 255 / 0.26);
+}
+.btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.close {
+  top: 14px;
+  right: 14px;
+}
+.prev {
+  left: 10px;
+  top: 50%;
+  margin-top: -24px;
+}
+.next {
+  right: 10px;
+  top: 50%;
+  margin-top: -24px;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .pic {
+    animation: none;
+  }
+}

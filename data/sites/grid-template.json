@@ -1,0 +1,170 @@
+{
+  "slug": "grid-template",
+  "lang": "uz",
+  "template": "grid",
+  "name": "Dilnoza Cakes",
+  "bio": "Buyurtma tortlar · Toshkent",
+  "theme": {
+    "background": "#ffffff",
+    "accent": "#ef5b3b",
+    "accentText": "#ffffff",
+    "secondaryAccent": "#f4f4f6",
+    "textColor": "#1f1f23"
+  },
+  "links": [],
+  "translation": {
+    "lang": "ru",
+    "name": "Dilnoza Cakes",
+    "bio": "Торты на заказ · Ташкент"
+  },
+  "grid": {
+    "tagline": {
+      "uz": "Tug'ilgan kun, to'y va har qanday bayram uchun tortlar. Qo'lda, yangi mahsulotlardan.",
+      "ru": "Торты на день рождения, свадьбу и любой праздник. Вручную, из свежих продуктов."
+    },
+    "hours": {
+      "uz": "Har kuni 09:00 – 20:00",
+      "ru": "Ежедневно 09:00 – 20:00"
+    },
+    "stats": [
+      {
+        "id": "a",
+        "value": {
+          "uz": "5 000+",
+          "ru": "5 000+"
+        },
+        "label": {
+          "uz": "tort",
+          "ru": "тортов"
+        }
+      },
+      {
+        "id": "b",
+        "value": {
+          "uz": "4.9",
+          "ru": "4.9"
+        },
+        "label": {
+          "uz": "baho",
+          "ru": "оценка"
+        }
+      },
+      {
+        "id": "c",
+        "value": {
+          "uz": "6 yil",
+          "ru": "6 лет"
+        },
+        "label": {
+          "uz": "tajriba",
+          "ru": "опыта"
+        }
+      }
+    ],
+    "order": {
+      "url": "https://t.me/dilnozacakes_demo",
+      "label": {
+        "uz": "Tort buyurtma qilish",
+        "ru": "Заказать торт"
+      }
+    },
+    "channels": [
+      {
+        "id": "tg",
+        "type": "telegram",
+        "label": {
+          "uz": "Telegram",
+          "ru": "Telegram"
+        },
+        "handle": "@dilnozacakes_demo",
+        "url": "https://t.me/dilnozacakes_demo"
+      },
+      {
+        "id": "ig",
+        "type": "instagram",
+        "label": {
+          "uz": "Instagram",
+          "ru": "Instagram"
+        },
+        "handle": "@dilnoza.cakes",
+        "url": "https://instagram.com/"
+      },
+      {
+        "id": "ph",
+        "type": "phone",
+        "label": {
+          "uz": "Qo'ng'iroq qiling",
+          "ru": "Позвонить"
+        },
+        "handle": "+998 90 000 00 00",
+        "url": "tel:+998900000000"
+      }
+    ],
+    "location": {
+      "label": {
+        "uz": "Manzil",
+        "ru": "Адрес"
+      },
+      "address": {
+        "uz": "Toshkent, Yunusobod, 12-kvartal",
+        "ru": "Ташкент, Юнусабад, 12 квартал"
+      },
+      "mapUrl": "https://maps.google.com/"
+    },
+    "galleryTitle": {
+      "uz": "Bizning ishlar",
+      "ru": "Наши работы"
+    },
+    "photos": [
+      {
+        "id": "p1",
+        "photoUrl": "/sites/cake-demo/c01.webp",
+        "caption": {
+          "uz": "Pushti tort",
+          "ru": "Розовый торт"
+        }
+      },
+      {
+        "id": "p2",
+        "photoUrl": "/sites/cake-demo/c02.webp",
+        "caption": {
+          "uz": "To'y torti",
+          "ru": "Свадебный торт"
+        }
+      },
+      {
+        "id": "p4",
+        "photoUrl": "/sites/cake-demo/c04.webp"
+      },
+      {
+        "id": "p5",
+        "photoUrl": "/sites/cake-demo/c05.webp"
+      },
+      {
+        "id": "p6",
+        "photoUrl": "/sites/cake-demo/c06.webp"
+      },
+      {
+        "id": "p7",
+        "photoUrl": "/sites/cake-demo/c07.webp"
+      },
+      {
+        "id": "p8",
+        "photoUrl": "/sites/cake-demo/c08.webp"
+      },
+      {
+        "id": "p9",
+        "photoUrl": "/sites/cake-demo/c09.webp"
+      },
+      {
+        "id": "p10",
+        "photoUrl": "/sites/cake-demo/c10.webp"
+      }
+    ],
+    "closing": {
+      "uz": "Buyurtma bering — qolganini bizga qoldiring.",
+      "ru": "Оформите заказ — остальное мы берём на себя."
+    }
+  },
+  "avatarUrl": "/sites/cake-demo/c06.webp"
+}

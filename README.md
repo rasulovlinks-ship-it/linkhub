@@ -75,3 +75,21 @@ Visit `http://localhost:3000/s/demo` to see the example page, or
 The easiest option is [Vercel](https://vercel.com) (free tier is enough to
 start): connect this repo, deploy, then add each client domain under
 Project → Settings → Domains as described above.
+
+## Photo templates: attaching the owner's own cakes
+
+The plain templates `grid`, `slider` and `intro` (demos: `/s/grid-template`,
+`/s/slider-template`, `/s/intro-template`) are built around the owner's real
+photos. To use a client's photos:
+
+1. Put the files in `public/sites/<slug>/` (WebP or JPG, about 900 px on the
+   long side, under 150 KB each).
+2. In `data/sites/<slug>.json` point each photo slot at its file:
+   `{ "id": "p1", "photoUrl": "/sites/<slug>/cake1.webp", "caption": { "uz": "...", "ru": "..." } }`.
+   The caption is optional. A slot with no `photoUrl` shows a drawn cake
+   (`"sketch": { "kind": "round", "color": "#ff8fb8" }`) or an empty tint.
+3. `avatarUrl` is the round logo or photo on `grid`; `intro.portraitUrl` is the
+   owner's portrait on `intro` (a drawn baker is shown until it is set).
+4. Counters on `intro` are plain numbers (`"value": 10000, "suffix": "+"`).
+
+The demo photos in `public/sites/cake-demo/` are CC0 (see `SOURCES.txt`).

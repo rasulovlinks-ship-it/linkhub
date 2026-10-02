@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import type { Sketch as SketchSpec } from "@/lib/types";
 
 /**
@@ -146,6 +146,7 @@ export default function Sketch({
   ink,
   paper = "#ffffff",
   className,
+  style,
   label,
 }: {
   spec: SketchSpec;
@@ -153,6 +154,7 @@ export default function Sketch({
   ink: string;
   paper?: string;
   className?: string;
+  style?: CSSProperties;
   /** Accessible name; omit for purely decorative drawings */
   label?: string;
 }) {
@@ -252,7 +254,7 @@ export default function Sketch({
   }
 
   return (
-    <svg viewBox="0 0 200 200" className={className} role={label ? "img" : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
+    <svg viewBox="0 0 200 200" className={className} style={style} role={label ? "img" : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
       {variant === "sticker" && <ellipse cx="100" cy="186" rx="64" ry="7" fill={ink} opacity="0.18" />}
       {body}
       <Topper kind={topper} x={topX} y={topY} look={look} color={color} />

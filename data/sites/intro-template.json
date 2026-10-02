@@ -1,0 +1,159 @@
+{
+  "slug": "intro-template",
+  "lang": "uz",
+  "template": "intro",
+  "name": "Madina",
+  "bio": "Men Madina, tortlar pishiraman",
+  "theme": {
+    "background": "#fffaf0",
+    "accent": "#ffcf33",
+    "accentText": "#1f1b16",
+    "secondaryAccent": "#f4ecda",
+    "textColor": "#1f1b16"
+  },
+  "links": [],
+  "translation": {
+    "lang": "ru",
+    "name": "Madina",
+    "bio": "Я Мадина, пеку торты"
+  },
+  "intro": {
+    "greeting": {
+      "uz": "Salom, mening ismim",
+      "ru": "Привет, меня зовут"
+    },
+    "pitch": {
+      "uz": "Men *10 000 dan ortiq tort* pishirganman va *1 000 dan ortiq* mijozlarim xursand.",
+      "ru": "Я испекла *больше 10 000 тортов*, и у меня *более 1 000* счастливых клиентов."
+    },
+    "counters": [
+      {
+        "id": "cakes",
+        "value": 10000,
+        "suffix": "+",
+        "label": {
+          "uz": "tort pishirildi",
+          "ru": "тортов испечено"
+        }
+      },
+      {
+        "id": "clients",
+        "value": 1000,
+        "suffix": "+",
+        "label": {
+          "uz": "xursand mijoz",
+          "ru": "счастливых клиентов"
+        }
+      },
+      {
+        "id": "years",
+        "value": 7,
+        "suffix": "",
+        "label": {
+          "uz": "yillik tajriba",
+          "ru": "лет опыта"
+        }
+      }
+    ],
+    "story": {
+      "uz": "Hammasi uyda, oilam uchun bitta tortdan boshlandi. Bugun har hafta o'nlab oilalarning bayramida ishtirok etaman. Har bir tortni o'zim pishiraman va o'zim bezayman.",
+      "ru": "Всё началось дома, с одного торта для семьи. Сегодня я участвую в праздниках десятков семей каждую неделю. Каждый торт пеку и украшаю сама."
+    },
+    "worksTitle": {
+      "uz": "Mening ishlarim",
+      "ru": "Мои работы"
+    },
+    "works": [
+      {
+        "id": "p1",
+        "photoUrl": "/sites/cake-demo/c01.webp"
+      },
+      {
+        "id": "p2",
+        "photoUrl": "/sites/cake-demo/c02.webp"
+      },
+      {
+        "id": "p4",
+        "photoUrl": "/sites/cake-demo/c04.webp"
+      },
+      {
+        "id": "p5",
+        "photoUrl": "/sites/cake-demo/c05.webp"
+      },
+      {
+        "id": "p6",
+        "photoUrl": "/sites/cake-demo/c06.webp"
+      },
+      {
+        "id": "p7",
+        "photoUrl": "/sites/cake-demo/c07.webp"
+      },
+      {
+        "id": "p8",
+        "photoUrl": "/sites/cake-demo/c08.webp"
+      },
+      {
+        "id": "p9",
+        "photoUrl": "/sites/cake-demo/c09.webp"
+      }
+    ],
+    "order": {
+      "url": "https://t.me/madina_cakes_demo",
+      "label": {
+        "uz": "Menga yozing",
+        "ru": "Написать мне"
+      }
+    },
+    "channels": [
+      {
+        "id": "tg",
+        "type": "telegram",
+        "label": {
+          "uz": "Telegram",
+          "ru": "Telegram"
+        },
+        "handle": "@madina_cakes_demo",
+        "url": "https://t.me/madina_cakes_demo"
+      },
+      {
+        "id": "ig",
+        "type": "instagram",
+        "label": {
+          "uz": "Instagram",
+          "ru": "Instagram"
+        },
+        "handle": "@madina.cakes",
+        "url": "https://instagram.com/"
+      },
+      {
+        "id": "ph",
+        "type": "phone",
+        "label": {
+          "uz": "Qo'ng'iroq qiling",
+          "ru": "Позвонить"
+        },
+        "handle": "+998 90 000 00 00",
+        "url": "tel:+998900000000"
+      }
+    ],
+    "location": {
+      "label": {
+        "uz": "Manzil",
+        "ru": "Адрес"
+      },
+      "address": {
+        "uz": "Toshkent, Mirzo Ulug'bek",
+        "ru": "Ташкент, Мирзо-Улугбек"
+      },
+      "mapUrl": "https://maps.google.com/"
+    },
+    "hours": {
+      "uz": "Har kuni 09:00 – 20:00",
+      "ru": "Ежедневно 09:00 – 20:00"
+    },
+    "closing": {
+      "uz": "Rahmat, bayramingiz shirin bo'lsin!",
+      "ru": "Спасибо, пусть ваш праздник будет сладким!"
+    }
+  }
+}

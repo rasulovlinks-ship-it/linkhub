@@ -42,6 +42,21 @@
       "screenshot": "/showcase/ticket-template.jpg"
     },
     {
+      "slug": "grid-template",
+      "category": { "uz": "Tort suratlari galereyasi", "ru": "Галерея тортов" },
+      "screenshot": "/showcase/grid-template.jpg"
+    },
+    {
+      "slug": "slider-template",
+      "category": { "uz": "Tort suratlari slayderi", "ru": "Слайдер с тортами" },
+      "screenshot": "/showcase/slider-template.jpg"
+    },
+    {
+      "slug": "intro-template",
+      "category": { "uz": "Konditer haqida (tanishuv)", "ru": "Знакомство с кондитером" },
+      "screenshot": "/showcase/intro-template.jpg"
+    },
+    {
       "slug": "edu-template",
       "category": { "uz": "Ta'lim markazi", "ru": "Учебный центр" },
       "screenshot": "/showcase/edu-template.jpg"

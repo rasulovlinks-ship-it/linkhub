@@ -1,0 +1,233 @@
+/* "grid" template: plain, Instagram-like. White page, one accent, a grid of real cake photos. */
+
+.page {
+  min-height: 100dvh;
+  background: var(--gr-bg);
+  color: var(--gr-ink);
+  font-family: var(--gr-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.col {
+  max-width: 440px;
+  margin-inline: auto;
+  padding: 14px 18px 48px;
+}
+.top {
+  display: flex;
+  min-height: 40px;
+  justify-content: flex-end;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+  text-align: center;
+}
+.avatar {
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--gr-soft);
+  box-shadow:
+    0 0 0 3px var(--gr-bg),
+    0 0 0 5px var(--gr-accent);
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--gr-accent);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.head h1 {
+  margin-top: 16px;
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.tagline {
+  margin-top: 8px;
+  max-width: 32ch;
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: color-mix(in oklab, var(--gr-ink) 72%, var(--gr-bg));
+  text-wrap: pretty;
+}
+.hours {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 5px 12px 5px 9px;
+  border-radius: 999px;
+  background: var(--gr-soft);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
+  padding: 12px 0;
+  border-block: 1px solid color-mix(in oklab, var(--gr-ink) 12%, transparent);
+  text-align: center;
+}
+.stats li + li {
+  border-left: 1px solid color-mix(in oklab, var(--gr-ink) 12%, transparent);
+}
+.stats b {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.stats li > span {
+  font-size: 12px;
+  color: color-mix(in oklab, var(--gr-ink) 62%, var(--gr-bg));
+}
+
+.order {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  border-radius: 14px;
+  background: var(--gr-accent);
+  color: var(--gr-accent-ink);
+  font-size: 16px;
+  font-weight: 600;
+  transition:
+    transform 0.15s ease-out,
+    filter 0.2s;
+}
+.order:hover {
+  filter: brightness(1.05);
+}
+.order:active {
+  transform: scale(0.98);
+}
+
+.links {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+.links a {
+  display: flex;
+  min-height: 62px;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px 8px 10px;
+  border-radius: 14px;
+  background: var(--gr-soft);
+  transition:
+    transform 0.15s ease-out,
+    background-color 0.2s;
+}
+.links a:active {
+  transform: scale(0.985);
+}
+.icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--gr-bg);
+  color: var(--gr-accent);
+}
+.label {
+  min-width: 0;
+  flex: 1;
+}
+.label b {
+  display: block;
+  font-size: 15.5px;
+  font-weight: 500;
+}
+.label small {
+  display: block;
+  font-size: 13px;
+  color: color-mix(in oklab, var(--gr-ink) 62%, var(--gr-bg));
+  overflow-wrap: anywhere;
+}
+
+.gallery {
+  margin-top: 34px;
+}
+.gallery h2 {
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--gr-ink) 62%, var(--gr-bg));
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.grid li:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.tile {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--gr-soft);
+  transition: opacity 0.2s;
+}
+.tile:hover {
+  opacity: 0.88;
+}
+.tile img {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tile:hover img {
+  transform: scale(1.04);
+}
+
+.closing {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+.credit {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.order:focus-visible,
+.links a:focus-visible,
+.tile:focus-visible {
+  outline: 2px solid var(--gr-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile img,
+  .order,
+  .links a {
+    transition: none;
+  }
+}

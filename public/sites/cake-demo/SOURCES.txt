@@ -1,0 +1,12 @@
+Demo cake photos for the template previews. All CC0 / public domain, from Wikimedia Commons (commons.wikimedia.org). Replace with the client's own photos.
+
+c01.webp  <-  File:Light pink sparkly birthday cake.jpg
+c02.webp  <-  File:Fondant Cake decorated with flowers.jpg
+c03.webp  <-  File:Birthday cake..red.jpg
+c04.webp  <-  File:20241222 딸기 케이크.jpg
+c05.webp  <-  File:Strawberry layer cake.jpg
+c06.webp  <-  File:Pink Cupcakes.jpg
+c07.webp  <-  File:Colorful Cake (Unsplash).jpg
+c08.webp  <-  File:Strawberry and mango cake.jpg
+c09.webp  <-  File:Princess Cake 2025-Oct-02.jpg
+c10.webp  <-  File:Chocolate Cake 28.jpg

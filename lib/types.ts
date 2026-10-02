@@ -683,6 +683,80 @@ export type TicketContent = {
   stamp: BiText;
 };
 
+/**
+ * A photo slot on the plain photo templates ("grid", "slider", "intro").
+ * The owner attaches a real photo with photoUrl; until then the slot shows
+ * the drawing in sketch (or a neutral tile).
+ */
+export type PhotoItem = {
+  id: string;
+  photoUrl?: string;
+  sketch?: Sketch;
+  caption?: BiText;
+};
+
+/** A number that counts up when seen, e.g. 10000 + "+" + "cakes baked" */
+export type CountStat = { id: string; value: number; suffix?: string; label: BiText };
+
+/**
+ * Content for template "grid": a clean, Instagram-like page. Round avatar,
+ * short bio, stacked contact buttons and a grid of the owner's cakes that
+ * opens full-screen. Colours: accent = main button, textColor = ink,
+ * background = page.
+ */
+export type GridContent = {
+  tagline: BiText;
+  hours?: BiText;
+  stats?: LuxeStat[];
+  order: { url: string; label: BiText };
+  channels: LuxeChannel[];
+  location?: PlaceInfo;
+  galleryTitle: BiText;
+  photos: PhotoItem[];
+  closing?: BiText;
+};
+
+/**
+ * Content for template "slider": big swipeable photos of the owner's cakes
+ * at the top with the name over them, then round quick-contact buttons, a
+ * short "about" and the location.
+ */
+export type SliderContent = {
+  tagline: BiText;
+  slides: PhotoItem[];
+  order: { url: string; label: BiText };
+  /** Round icon buttons under the photos (Telegram, Instagram, phone ...) */
+  quick: LuxeChannel[];
+  aboutTitle: BiText;
+  about: BiText;
+  facts?: LuxeStat[];
+  location?: PlaceInfo;
+  hours?: BiText;
+};
+
+/**
+ * Content for template "intro": starts with the owner ("Hi, my name is ...")
+ * and their portrait, then big counters ("10 000+ cakes baked"), a strip of
+ * works, and the contacts.
+ */
+export type IntroContent = {
+  /** "Salom, men" / "Привет, меня зовут" - the name follows from site.name */
+  greeting: BiText;
+  /** One sentence; *starred* words are highlighted, e.g. "I have baked *more than 10 000 cakes*" */
+  pitch: BiText;
+  /** The owner's photo; a drawn baker is shown until it is set */
+  portraitUrl?: string;
+  counters: CountStat[];
+  story?: BiText;
+  worksTitle: BiText;
+  works: PhotoItem[];
+  order: { url: string; label: BiText };
+  channels: LuxeChannel[];
+  location?: PlaceInfo;
+  hours?: BiText;
+  closing?: BiText;
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -741,7 +815,7 @@ export type SiteConfig = {
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
   /** Selects a dedicated page layout instead of the default link-in-bio profile. */
-  template?: "edu" | "cake" | "luxe" | "scent" | "pop" | "menu" | "box" | "ticket";
+  template?: "edu" | "cake" | "luxe" | "scent" | "pop" | "menu" | "box" | "ticket" | "grid" | "slider" | "intro";
   /** Content for template "edu". */
   edu?: EduContent;
   /** Content for template "cake". */
@@ -758,6 +832,12 @@ export type SiteConfig = {
   box?: BoxContent;
   /** Content for template "ticket". */
   ticket?: TicketContent;
+  /** Content for template "grid". */
+  grid?: GridContent;
+  /** Content for template "slider". */
+  slider?: SliderContent;
+  /** Content for template "intro". */
+  intro?: IntroContent;
   theme?: SiteTheme;
   links: LinkItem[];
   /** Hides the "Сделано на ownlink.uz" footer credit when true. */

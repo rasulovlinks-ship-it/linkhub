@@ -1,0 +1,145 @@
+{
+  "slug": "slider-template",
+  "lang": "uz",
+  "template": "slider",
+  "name": "Shirin Uy",
+  "bio": "Uy tortlari · Toshkent",
+  "theme": {
+    "background": "#f6f7f4",
+    "accent": "#0d6b63",
+    "accentText": "#ffffff",
+    "secondaryAccent": "#ffffff",
+    "textColor": "#14211f"
+  },
+  "links": [],
+  "translation": {
+    "lang": "ru",
+    "name": "Shirin Uy",
+    "bio": "Домашние торты · Ташкент"
+  },
+  "slider": {
+    "tagline": {
+      "uz": "Uyda pishirilgan tortlar — oilangiz bayrami uchun",
+      "ru": "Домашние торты для праздника вашей семьи"
+    },
+    "slides": [
+      {
+        "id": "p5",
+        "photoUrl": "/sites/cake-demo/c05.webp"
+      },
+      {
+        "id": "p2",
+        "photoUrl": "/sites/cake-demo/c02.webp"
+      },
+      {
+        "id": "p7",
+        "photoUrl": "/sites/cake-demo/c07.webp"
+      },
+      {
+        "id": "p1",
+        "photoUrl": "/sites/cake-demo/c01.webp"
+      },
+      {
+        "id": "p10",
+        "photoUrl": "/sites/cake-demo/c10.webp"
+      }
+    ],
+    "order": {
+      "url": "https://t.me/shirinuy_demo",
+      "label": {
+        "uz": "Buyurtma berish",
+        "ru": "Сделать заказ"
+      }
+    },
+    "quick": [
+      {
+        "id": "tg",
+        "type": "telegram",
+        "label": {
+          "uz": "Telegram",
+          "ru": "Telegram"
+        },
+        "handle": "@shirinuy_demo",
+        "url": "https://t.me/shirinuy_demo"
+      },
+      {
+        "id": "ig",
+        "type": "instagram",
+        "label": {
+          "uz": "Instagram",
+          "ru": "Instagram"
+        },
+        "handle": "@shirin.uy",
+        "url": "https://instagram.com/"
+      },
+      {
+        "id": "ph",
+        "type": "phone",
+        "label": {
+          "uz": "Qo'ng'iroq",
+          "ru": "Звонок"
+        },
+        "handle": "+998 90 000 00 00",
+        "url": "tel:+998900000000"
+      }
+    ],
+    "aboutTitle": {
+      "uz": "Biz haqimizda",
+      "ru": "О нас"
+    },
+    "about": {
+      "uz": "Har bir tortni o'zimiz pishiramiz: tabiiy qaymoq, yangi mevalar, shirinlik me'yorida. Bayramingiz qanday bo'lishini ayting — qolganini biz hal qilamiz.",
+      "ru": "Каждый торт печём сами: натуральные сливки, свежие ягоды, сладость в меру. Расскажите, какой у вас праздник, — остальное мы возьмём на себя."
+    },
+    "facts": [
+      {
+        "id": "a",
+        "value": {
+          "uz": "3 000+",
+          "ru": "3 000+"
+        },
+        "label": {
+          "uz": "tort pishirildi",
+          "ru": "тортов испечено"
+        }
+      },
+      {
+        "id": "b",
+        "value": {
+          "uz": "1 kun",
+          "ru": "1 день"
+        },
+        "label": {
+          "uz": "minimal muddat",
+          "ru": "минимальный срок"
+        }
+      },
+      {
+        "id": "c",
+        "value": {
+          "uz": "100%",
+          "ru": "100%"
+        },
+        "label": {
+          "uz": "tabiiy qaymoq",
+          "ru": "натуральные сливки"
+        }
+      }
+    ],
+    "location": {
+      "label": {
+        "uz": "Xarita",
+        "ru": "Карта"
+      },
+      "address": {
+        "uz": "Toshkent, Chilonzor, 7-kvartal",
+        "ru": "Ташкент, Чиланзар, 7 квартал"
+      },
+      "mapUrl": "https://maps.google.com/"
+    },
+    "hours": {
+      "uz": "Har kuni 09:00 – 20:00",
+      "ru": "Ежедневно 09:00 – 20:00"
+    }
+  }
+}

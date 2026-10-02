@@ -10,6 +10,9 @@ import PopProfile from "@/components/pop/PopProfile";
 import MenuProfile from "@/components/menu/MenuProfile";
 import BoxProfile from "@/components/box/BoxProfile";
 import TicketProfile from "@/components/ticket/TicketProfile";
+import GridProfile from "@/components/grid/GridProfile";
+import SliderProfile from "@/components/slider/SliderProfile";
+import IntroProfile from "@/components/intro/IntroProfile";
 
 export function generateStaticParams() {
   return getAllSiteSlugs().map((slug) => ({ slug }));
@@ -51,5 +54,8 @@ export default async function SitePage({
   if (site.template === "menu" && site.menu) return <MenuProfile site={site} />;
   if (site.template === "box" && site.box) return <BoxProfile site={site} />;
   if (site.template === "ticket" && site.ticket) return <TicketProfile site={site} />;
+  if (site.template === "grid" && site.grid) return <GridProfile site={site} />;
+  if (site.template === "slider" && site.slider) return <SliderProfile site={site} />;
+  if (site.template === "intro" && site.intro) return <IntroProfile site={site} />;
   return <SiteProfile site={site} />;
 }
