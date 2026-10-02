@@ -629,6 +629,60 @@ export type MenuContent = {
   closingText?: BiText;
 };
 
+/** A place on a "box" or "ticket" page: name of the button, street address, map link */
+export type PlaceInfo = { label: BiText; address: BiText; mapUrl: string };
+
+/**
+ * Content for template "box": the page opens like a gift box. Gift wrap
+ * covers the screen, then splits open to show a short link page (name, order
+ * button, a row of drawn or photographed cakes, contacts, location). No
+ * prices, no menu. Colours: accent = wrap, secondaryAccent = ribbon,
+ * background = page, textColor = ink.
+ */
+export type BoxContent = {
+  /** Written on the gift tag hanging from the bow */
+  giftTag: BiText;
+  /** Small prompt under the bow, e.g. "Ochish uchun bosing" */
+  openHint: BiText;
+  tagline: BiText;
+  hours?: BiText;
+  heroSketch: Sketch;
+  order: { url: string; label: BiText };
+  bakesTitle?: BiText;
+  /** A few round tiles, each a drawing or a photo with a caption */
+  bakes?: { id: string; label: BiText; sketch: Sketch; photoUrl?: string }[];
+  channels: LuxeChannel[];
+  location?: PlaceInfo;
+  closing?: BiText;
+};
+
+/**
+ * Content for template "ticket": the page is a printed order slip that
+ * slides out of a slot (typewriter type, dashed rules, a stamp, a barcode).
+ * No prices. Colours: background = the desk, accent = stamp, textColor = ink
+ * on the paper, secondaryAccent = paper.
+ */
+export type TicketContent = {
+  /** Small line at the top of the slip, e.g. "Buyurtma cheki" */
+  kicker: BiText;
+  tagline: BiText;
+  heroSketch: Sketch;
+  address: BiText;
+  hours: BiText;
+  order: { url: string; label: BiText };
+  /** Printed list of what is baked, one line each (a tick instead of a price) */
+  bakesTitle: BiText;
+  bakes: BiText[];
+  channelsTitle: BiText;
+  channels: LuxeChannel[];
+  location: PlaceInfo;
+  /** Labels in the slip header */
+  numberLabel: BiText;
+  dateLabel: BiText;
+  thanks: BiText;
+  stamp: BiText;
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -687,7 +741,7 @@ export type SiteConfig = {
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
   /** Selects a dedicated page layout instead of the default link-in-bio profile. */
-  template?: "edu" | "cake" | "luxe" | "scent" | "pop" | "menu";
+  template?: "edu" | "cake" | "luxe" | "scent" | "pop" | "menu" | "box" | "ticket";
   /** Content for template "edu". */
   edu?: EduContent;
   /** Content for template "cake". */
@@ -700,6 +754,10 @@ export type SiteConfig = {
   pop?: PopContent;
   /** Content for template "menu". */
   menu?: MenuContent;
+  /** Content for template "box". */
+  box?: BoxContent;
+  /** Content for template "ticket". */
+  ticket?: TicketContent;
   theme?: SiteTheme;
   links: LinkItem[];
   /** Hides the "Сделано на ownlink.uz" footer credit when true. */

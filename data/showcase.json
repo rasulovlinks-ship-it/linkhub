@@ -32,6 +32,16 @@
       "screenshot": "/showcase/menu-template.jpg"
     },
     {
+      "slug": "box-template",
+      "category": { "uz": "Sovg'a tortlar", "ru": "Подарочные торты" },
+      "screenshot": "/showcase/box-template.jpg"
+    },
+    {
+      "slug": "ticket-template",
+      "category": { "uz": "Buyurtma tortlar", "ru": "Торты на заказ" },
+      "screenshot": "/showcase/ticket-template.jpg"
+    },
+    {
       "slug": "edu-template",
       "category": { "uz": "Ta'lim markazi", "ru": "Учебный центр" },
       "screenshot": "/showcase/edu-template.jpg"

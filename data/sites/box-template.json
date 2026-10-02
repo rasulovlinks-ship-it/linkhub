@@ -1,0 +1,45 @@
+{
+  "slug": "box-template",
+  "lang": "uz",
+  "template": "box",
+  "name": "Shirin Quti",
+  "bio": "Sovg'a tortlar · Toshkent",
+  "theme": {
+    "background": "#d8ccff",
+    "accent": "#6c4bff",
+    "accentText": "#ffffff",
+    "secondaryAccent": "#ffd84d",
+    "textColor": "#231a4a"
+  },
+  "links": [],
+  "translation": { "lang": "ru", "name": "Shirin Quti", "bio": "Подарочные торты · Ташкент" },
+  "box": {
+    "giftTag": { "uz": "Sizga sovg'a", "ru": "Вам подарок" },
+    "openHint": { "uz": "Ochish uchun bosing", "ru": "Нажмите, чтобы открыть" },
+    "tagline": {
+      "uz": "Har bir tort — kichik bayram. Qo'lda yasaymiz, chiroyli o'raymiz.",
+      "ru": "Каждый торт — маленький праздник. Делаем вручную, красиво упаковываем."
+    },
+    "hours": { "uz": "Har kuni 09:00 – 20:00", "ru": "Ежедневно 09:00 – 20:00" },
+    "heroSketch": { "kind": "round", "color": "#c9b6ff", "topper": "heart" },
+    "order": { "url": "https://t.me/shirinquti_demo", "label": { "uz": "Tort buyurtma qilish", "ru": "Заказать торт" } },
+    "bakesTitle": { "uz": "Nima pishiramiz", "ru": "Что печём" },
+    "bakes": [
+      { "id": "bento", "label": { "uz": "Bento", "ru": "Бенто" }, "sketch": { "kind": "bento", "color": "#ff8fb8", "topper": "heart" } },
+      { "id": "bd", "label": { "uz": "Tug'ilgan kun", "ru": "День рождения" }, "sketch": { "kind": "round", "color": "#ffd84d", "topper": "candle" } },
+      { "id": "wed", "label": { "uz": "To'y", "ru": "Свадьба" }, "sketch": { "kind": "tiers", "color": "#ffffff", "topper": "flower" } },
+      { "id": "cup", "label": { "uz": "Kapkeyk", "ru": "Капкейки" }, "sketch": { "kind": "cupcake", "color": "#b79cff", "topper": "cherry" } }
+    ],
+    "channels": [
+      { "id": "tg", "type": "telegram", "label": { "uz": "Telegram", "ru": "Telegram" }, "handle": "@shirinquti_demo", "url": "https://t.me/shirinquti_demo" },
+      { "id": "ig", "type": "instagram", "label": { "uz": "Instagram", "ru": "Instagram" }, "handle": "@shirin.quti", "url": "https://instagram.com/" },
+      { "id": "ph", "type": "phone", "label": { "uz": "Qo'ng'iroq qiling", "ru": "Позвонить" }, "handle": "+998 90 000 00 00", "url": "tel:+998900000000" }
+    ],
+    "location": {
+      "label": { "uz": "Bizning manzil", "ru": "Наш адрес" },
+      "address": { "uz": "Toshkent, Chilonzor, 7-kvartal", "ru": "Ташкент, Чиланзар, 7 квартал" },
+      "mapUrl": "https://maps.google.com/"
+    },
+    "closing": { "uz": "Shirinlik — eng yaxshi sovg'a.", "ru": "Сладкое — лучший подарок." }
+  }
+}

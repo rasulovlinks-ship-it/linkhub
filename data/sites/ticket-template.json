@@ -1,0 +1,49 @@
+{
+  "slug": "ticket-template",
+  "lang": "uz",
+  "template": "ticket",
+  "name": "Non va Tort",
+  "bio": "Buyurtma tortlar · Toshkent",
+  "theme": {
+    "background": "#1d2556",
+    "accent": "#ff5a2c",
+    "accentText": "#ffffff",
+    "secondaryAccent": "#fff8e8",
+    "textColor": "#1b1b1f"
+  },
+  "links": [],
+  "translation": { "lang": "ru", "name": "Non va Tort", "bio": "Торты на заказ · Ташкент" },
+  "ticket": {
+    "kicker": { "uz": "Buyurtma cheki", "ru": "Заказ-чек" },
+    "tagline": {
+      "uz": "Yangi pishirilgan tortlar. Buyurtma bering — qolganini o'zimiz hal qilamiz.",
+      "ru": "Свежеиспечённые торты. Оформите заказ — остальное мы берём на себя."
+    },
+    "heroSketch": { "kind": "round", "color": "#ffffff", "topper": "cherry" },
+    "address": { "uz": "Toshkent, Mirobod, Amir Temur 15", "ru": "Ташкент, Мирабад, Амира Темура 15" },
+    "hours": { "uz": "Har kuni 09:00 – 20:00", "ru": "Ежедневно 09:00 – 20:00" },
+    "order": { "url": "https://t.me/nonvatort_demo", "label": { "uz": "Buyurtma berish", "ru": "Оформить заказ" } },
+    "numberLabel": { "uz": "Chek №", "ru": "Чек №" },
+    "dateLabel": { "uz": "Sana", "ru": "Дата" },
+    "bakesTitle": { "uz": "Nima pishiramiz", "ru": "Что печём" },
+    "bakes": [
+      { "uz": "To'y va fotiha tortlari", "ru": "Свадебные торты" },
+      { "uz": "Tug'ilgan kun tortlari", "ru": "Торты на день рождения" },
+      { "uz": "Bento va mini tortlar", "ru": "Бенто и мини-торты" },
+      { "uz": "Kapkeyk va desertlar", "ru": "Капкейки и десерты" }
+    ],
+    "channelsTitle": { "uz": "Aloqa", "ru": "Связь" },
+    "channels": [
+      { "id": "tg", "type": "telegram", "label": { "uz": "Telegram", "ru": "Telegram" }, "handle": "@nonvatort_demo", "url": "https://t.me/nonvatort_demo" },
+      { "id": "ig", "type": "instagram", "label": { "uz": "Instagram", "ru": "Instagram" }, "handle": "@nonvatort", "url": "https://instagram.com/" },
+      { "id": "ph", "type": "phone", "label": { "uz": "Telefon", "ru": "Телефон" }, "handle": "+998 90 000 00 00", "url": "tel:+998900000000" }
+    ],
+    "location": {
+      "label": { "uz": "Manzil", "ru": "Адрес" },
+      "address": { "uz": "Toshkent, Mirobod, Amir Temur 15 — xaritada ochish", "ru": "Ташкент, Мирабад, Амира Темура 15 — открыть на карте" },
+      "mapUrl": "https://maps.google.com/"
+    },
+    "thanks": { "uz": "Rahmat! Yana keling", "ru": "Спасибо! Приходите ещё" },
+    "stamp": { "uz": "Yangi pishgan", "ru": "Свежее" }
+  }
+}

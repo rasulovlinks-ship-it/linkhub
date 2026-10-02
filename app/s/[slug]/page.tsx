@@ -8,6 +8,8 @@ import LuxeProfile from "@/components/luxe/LuxeProfile";
 import ScentProfile from "@/components/scent/ScentProfile";
 import PopProfile from "@/components/pop/PopProfile";
 import MenuProfile from "@/components/menu/MenuProfile";
+import BoxProfile from "@/components/box/BoxProfile";
+import TicketProfile from "@/components/ticket/TicketProfile";
 
 export function generateStaticParams() {
   return getAllSiteSlugs().map((slug) => ({ slug }));
@@ -47,5 +49,7 @@ export default async function SitePage({
   if (site.template === "scent" && site.scent) return <ScentProfile site={site} />;
   if (site.template === "pop" && site.pop) return <PopProfile site={site} />;
   if (site.template === "menu" && site.menu) return <MenuProfile site={site} />;
+  if (site.template === "box" && site.box) return <BoxProfile site={site} />;
+  if (site.template === "ticket" && site.ticket) return <TicketProfile site={site} />;
   return <SiteProfile site={site} />;
 }
