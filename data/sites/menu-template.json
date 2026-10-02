@@ -1,0 +1,173 @@
+{
+  "slug": "menu-template",
+  "lang": "uz",
+  "template": "menu",
+  "name": "Pista Atelier",
+  "bio": "Qo'lda yasalgan tortlar va desertlar · Toshkent",
+  "theme": {
+    "background": "#eef3e6",
+    "accent": "#d6245b",
+    "accentText": "#ffffff",
+    "secondaryAccent": "#dbe7cf",
+    "textColor": "#12301f"
+  },
+  "links": [],
+  "translation": {
+    "lang": "ru",
+    "name": "Pista Atelier",
+    "bio": "Торты и десерты ручной работы · Ташкент"
+  },
+  "menu": {
+    "kicker": { "uz": "Konditerlik · Toshkent", "ru": "Кондитерская · Ташкент" },
+    "title": { "uz": "Pista *atelier*", "ru": "Pista *atelier*" },
+    "tagline": {
+      "uz": "Buyurtma bo'yicha tortlar va desertlar. Har biri yangi, mavsumiy mahsulotlardan.",
+      "ru": "Торты и десерты на заказ. Каждый свежий, из сезонных продуктов."
+    },
+    "heroSketch": { "kind": "tiers", "color": "#ffffff", "topper": "flower" },
+    "facts": [
+      { "uz": "Har kuni 09:00 – 20:00", "ru": "Ежедневно 09:00 – 20:00" },
+      { "uz": "Buyurtma 2 kun oldin", "ru": "Заказ за 2 дня" },
+      { "uz": "Yetkazib berish va olib ketish", "ru": "Доставка и самовывоз" }
+    ],
+    "order": { "url": "https://t.me/pista_atelier_demo", "label": { "uz": "Buyurtma", "ru": "Заказать" } },
+    "menuTitle": { "uz": "Menyu", "ru": "Меню" },
+    "menuSubtitle": {
+      "uz": "Pozitsiyalarni tanlang, sanani belgilang va bitta xabar bilan yuboring.",
+      "ru": "Выберите позиции, отметьте дату и отправьте одним сообщением."
+    },
+    "currency": { "uz": "so'm", "ru": "сум" },
+    "categories": [
+      {
+        "id": "cakes",
+        "title": { "uz": "Tortlar", "ru": "Торты" },
+        "items": [
+          {
+            "id": "pista",
+            "name": { "uz": "Pista-malina", "ru": "Фисташка-малина" },
+            "note": { "uz": "Pista kremi, malina konfi", "ru": "Фисташковый крем, малиновое конфи" },
+            "size": { "uz": "1.5 kg · 10 porsiya", "ru": "1.5 кг · 10 порций" },
+            "price": 420000,
+            "tag": { "uz": "Imzo", "ru": "Фирменный" },
+            "sketch": { "kind": "round", "color": "#a8d68f", "topper": "berries" }
+          },
+          {
+            "id": "napoleon",
+            "name": { "uz": "Napoleon", "ru": "Наполеон" },
+            "note": { "uz": "Vanil kremi, 12 qatlam", "ru": "Ванильный крем, 12 слоёв" },
+            "size": { "uz": "1.2 kg · 8 porsiya", "ru": "1.2 кг · 8 порций" },
+            "price": 320000,
+            "sketch": { "kind": "slice", "color": "#f1d9a6", "topper": "none" }
+          },
+          {
+            "id": "choco",
+            "name": { "uz": "Shokolad-karamel", "ru": "Шоколад-карамель" },
+            "note": { "uz": "Belgiya shokoladi", "ru": "Бельгийский шоколад" },
+            "size": { "uz": "1.5 kg · 10 porsiya", "ru": "1.5 кг · 10 порций" },
+            "price": 390000,
+            "sketch": { "kind": "round", "color": "#8a5a44", "topper": "cherry" }
+          },
+          {
+            "id": "wedding",
+            "name": { "uz": "To'y torti", "ru": "Свадебный торт" },
+            "note": { "uz": "3 qavat, jonli gullar", "ru": "3 яруса, живые цветы" },
+            "size": { "uz": "5 kg dan", "ru": "от 5 кг" },
+            "price": 1750000,
+            "sketch": { "kind": "tiers", "color": "#ffffff", "topper": "flower" }
+          }
+        ]
+      },
+      {
+        "id": "desserts",
+        "title": { "uz": "Desertlar", "ru": "Десерты" },
+        "items": [
+          {
+            "id": "cheesecake",
+            "name": { "uz": "Chizkeyk", "ru": "Чизкейк" },
+            "note": { "uz": "Nyu-York, mavsumiy meva", "ru": "Нью-Йорк, сезонные ягоды" },
+            "size": { "uz": "8 bo'lak", "ru": "8 порций" },
+            "price": 280000,
+            "tag": { "uz": "Mashhur", "ru": "Хит" },
+            "sketch": { "kind": "slice", "color": "#fff0cc", "topper": "berries" }
+          },
+          {
+            "id": "eclairs",
+            "name": { "uz": "Ekler to'plami", "ru": "Набор эклеров" },
+            "note": { "uz": "6 dona, 3 xil ta'm", "ru": "6 штук, 3 вкуса" },
+            "price": 180000,
+            "sketch": { "kind": "cupcake", "color": "#f4a6c2", "topper": "none" }
+          },
+          {
+            "id": "macarons",
+            "name": { "uz": "Makaron", "ru": "Макарон" },
+            "note": { "uz": "12 dona, aralash", "ru": "12 штук, ассорти" },
+            "price": 210000,
+            "sketch": { "kind": "cupcake", "color": "#c7b3ff", "topper": "none" }
+          }
+        ]
+      },
+      {
+        "id": "mini",
+        "title": { "uz": "Mini", "ru": "Мини" },
+        "items": [
+          {
+            "id": "bento",
+            "name": { "uz": "Bento tort", "ru": "Бенто-торт" },
+            "note": { "uz": "Yozuv va bezak bilan", "ru": "С надписью и декором" },
+            "size": { "uz": "500 g · 2–3 kishi", "ru": "500 г · 2–3 порции" },
+            "price": 170000,
+            "sketch": { "kind": "bento", "color": "#f4a6c2", "topper": "heart" }
+          },
+          {
+            "id": "cupcakes",
+            "name": { "uz": "Kapkeyk", "ru": "Капкейки" },
+            "note": { "uz": "6 dona", "ru": "6 штук" },
+            "price": 140000,
+            "sketch": { "kind": "cupcake", "color": "#ffffff", "topper": "cherry" }
+          }
+        ]
+      }
+    ],
+    "calendar": {
+      "title": { "uz": "Bo'sh sanalar", "ru": "Свободные даты" },
+      "subtitle": { "uz": "Keyingi uch hafta. Sanani bosing — xabarga qo'shiladi.", "ru": "Ближайшие три недели. Нажмите на дату — она попадёт в сообщение." },
+      "leadDays": 2,
+      "closedWeekdays": [1],
+      "busy": ["2026-10-09", "2026-10-10", "2026-10-11", "2026-10-16", "2026-10-17", "2026-10-23", "2026-10-24"],
+      "busyLabel": { "uz": "band", "ru": "занято" },
+      "freeLabel": { "uz": "bo'sh", "ru": "свободно" },
+      "weekdays": {
+        "uz": ["Du", "Se", "Ch", "Pa", "Ju", "Sh", "Ya"],
+        "ru": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+      }
+    },
+    "request": {
+      "title": { "uz": "Sizning buyurtma", "ru": "Ваш заказ" },
+      "empty": { "uz": "Hali hech narsa tanlanmagan. Menyudan + tugmasini bosing.", "ru": "Пока ничего не выбрано. Нажмите + в меню." },
+      "send": { "uz": "Telegramda yuborish", "ru": "Отправить в Telegram" },
+      "dateLabel": { "uz": "Sana", "ru": "Дата" },
+      "nameLabel": { "uz": "Ismingiz", "ru": "Ваше имя" },
+      "totalLabel": { "uz": "Jami", "ru": "Итого" },
+      "intro": { "uz": "Salom! Buyurtma bermoqchiman:", "ru": "Здравствуйте! Хочу сделать заказ:" }
+    },
+    "sizesTitle": { "uz": "Porsiyalar", "ru": "Порции" },
+    "sizes": [
+      { "id": "s", "label": { "uz": "1 kg", "ru": "1 кг" }, "serves": { "uz": "6–8 kishi", "ru": "6–8 порций" }, "price": { "uz": "290 000 dan", "ru": "от 290 000" } },
+      { "id": "m", "label": { "uz": "2 kg", "ru": "2 кг" }, "serves": { "uz": "14–16 kishi", "ru": "14–16 порций" }, "price": { "uz": "560 000 dan", "ru": "от 560 000" } },
+      { "id": "l", "label": { "uz": "3 kg", "ru": "3 кг" }, "serves": { "uz": "22–25 kishi", "ru": "22–25 порций" }, "price": { "uz": "820 000 dan", "ru": "от 820 000" } }
+    ],
+    "infoTitle": { "uz": "Shartlar", "ru": "Условия" },
+    "info": [
+      { "id": "lead", "title": { "uz": "Muddat", "ru": "Сроки" }, "text": { "uz": "Oddiy tortlar 2 kun oldin, to'y tortlari 2 hafta oldin.", "ru": "Обычные торты за 2 дня, свадебные за 2 недели." } },
+      { "id": "pay", "title": { "uz": "To'lov", "ru": "Оплата" }, "text": { "uz": "50% oldindan, qolgani topshirilganda. Click, Payme, naqd.", "ru": "50% предоплата, остальное при получении. Click, Payme, наличные." } },
+      { "id": "delivery", "title": { "uz": "Yetkazish", "ru": "Доставка" }, "text": { "uz": "Toshkent bo'ylab. Narxi manzilga qarab.", "ru": "По Ташкенту. Стоимость зависит от адреса." } }
+    ],
+    "channelsTitle": { "uz": "Aloqa", "ru": "Контакты" },
+    "channels": [
+      { "id": "tg", "type": "telegram", "label": { "uz": "Telegram", "ru": "Telegram" }, "handle": "@pista_atelier_demo", "url": "https://t.me/pista_atelier_demo" },
+      { "id": "ig", "type": "instagram", "label": { "uz": "Instagram", "ru": "Instagram" }, "handle": "@pista.atelier", "url": "https://instagram.com/" },
+      { "id": "ph", "type": "phone", "label": { "uz": "Telefon", "ru": "Телефон" }, "handle": "+998 90 000 00 00", "url": "tel:+998900000000" }
+    ],
+    "closingText": { "uz": "Shirinlik — oddiy narsalardagi katta quvonch.", "ru": "Сладкое — большая радость в простых вещах." }
+  }
+}

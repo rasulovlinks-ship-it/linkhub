@@ -486,6 +486,149 @@ export type ScentContent = {
   };
 };
 
+/** Drawn cake used by the "pop" and "menu" templates when there is no photo. */
+export type SketchKind = "round" | "tiers" | "bento" | "cupcake" | "slice";
+
+export type Sketch = {
+  kind: SketchKind;
+  /** Frosting colour (hex); the drawing derives its light and dark shades from it */
+  color: string;
+  topper?: "cherry" | "berries" | "candle" | "flower" | "heart" | "none";
+};
+
+/** A cake or dessert card on a "pop" page */
+export type PopItem = {
+  id: string;
+  name: BiText;
+  note?: BiText;
+  /** Display price, e.g. "от 180 000" */
+  price: BiText;
+  /** Small ribbon, e.g. "Хит" */
+  tag?: BiText;
+  sketch: Sketch;
+  /** Real photo; replaces the drawing */
+  photoUrl?: string;
+};
+
+export type PopReview = { id: string; name: string; text: BiText; source?: string };
+
+export type PopBuilder = {
+  title: BiText;
+  subtitle?: BiText;
+  occasionsLabel: BiText;
+  occasions: { id: string; label: BiText }[];
+  sizesLabel: BiText;
+  sizes: { id: string; label: BiText; serves: BiText; price: number }[];
+  flavorsLabel: BiText;
+  flavors: { id: string; name: BiText; color: string }[];
+  currency: BiText;
+  totalLabel: BiText;
+  sendLabel: BiText;
+  /** Message sent to the maker (in the page's primary language): {occasion} {size} {flavor} {price} */
+  message: BiText;
+};
+
+/**
+ * Content for template "pop": a loud sticker-style page for a young home
+ * bakery (bento, birthday and gift cakes) with a build-your-cake order
+ * picker. Colours come from the site theme: accent = main colour, secondaryAccent
+ * = highlight, background = page, textColor = ink.
+ */
+export type PopContent = {
+  kicker: BiText;
+  /** Headline; the part wrapped in *asterisks* gets a highlighter mark */
+  title: BiText;
+  tagline: BiText;
+  heroSketch: Sketch;
+  heroPhotoUrl?: string;
+  /** Up to three notes stuck around the hero picture */
+  stickers?: BiText[];
+  marquee?: BiText[];
+  order: { url: string; label: BiText };
+  stats?: LuxeStat[];
+  menuTitle: BiText;
+  menuSubtitle?: BiText;
+  menu: PopItem[];
+  /** Message sent when a card is tapped (primary language); "{name}" is the card's name */
+  itemMessage?: BiText;
+  builder?: PopBuilder;
+  stepsTitle?: BiText;
+  steps?: LuxeStep[];
+  reviewsTitle?: BiText;
+  reviews?: PopReview[];
+  infoTitle?: BiText;
+  info?: LuxeOccasion[];
+  channelsTitle?: BiText;
+  channels?: LuxeChannel[];
+  closingTitle?: BiText;
+  closingText?: BiText;
+};
+
+export type MenuItem = {
+  id: string;
+  name: BiText;
+  note?: BiText;
+  /** e.g. "1.2 kg · 8 porsiya" */
+  size?: BiText;
+  /** Price in so'm */
+  price: number;
+  tag?: BiText;
+  sketch: Sketch;
+  photoUrl?: string;
+};
+
+export type MenuCategory = { id: string; title: BiText; items: MenuItem[] };
+
+/**
+ * Content for template "menu": a calm pastry-menu page. Pick items from a
+ * priced menu, choose a free date on a booking strip, and send it all as one
+ * ready-made message. Colours: background = paper, textColor = ink,
+ * accent = the single bright colour, secondaryAccent = soft tint.
+ */
+export type MenuContent = {
+  kicker: BiText;
+  title: BiText;
+  tagline: BiText;
+  heroSketch: Sketch;
+  heroPhotoUrl?: string;
+  /** Mono facts under the hero, e.g. opening hours and city */
+  facts?: BiText[];
+  order: { url: string; label: BiText };
+  menuTitle: BiText;
+  menuSubtitle?: BiText;
+  categories: MenuCategory[];
+  currency: BiText;
+  /** Booking strip: the next three weeks; ISO dates ("2026-10-12") that are full, weekdays (0 = Sunday) that are closed */
+  calendar?: {
+    title: BiText;
+    subtitle?: BiText;
+    busy?: string[];
+    closedWeekdays?: number[];
+    /** Days between today and the first free date */
+    leadDays?: number;
+    busyLabel: BiText;
+    freeLabel: BiText;
+    weekdays: { uz: string[]; ru: string[] };
+  };
+  request: {
+    title: BiText;
+    empty: BiText;
+    send: BiText;
+    dateLabel: BiText;
+    nameLabel: BiText;
+    totalLabel: BiText;
+    /** First line of the message sent to the maker (in the page's primary language) */
+    intro: BiText;
+  };
+  sizesTitle?: BiText;
+  sizes?: { id: string; label: BiText; serves: BiText; price: BiText }[];
+  infoTitle?: BiText;
+  info?: LuxeOccasion[];
+  channelsTitle?: BiText;
+  channels?: LuxeChannel[];
+  closingText?: BiText;
+};
+
 export type SiteConfig = {
   /** Unique id, also the JSON filename under data/sites/ and the /s/[slug] path */
   slug: string;
@@ -544,7 +687,7 @@ export type SiteConfig = {
   serviceCardsCloudCover?: boolean;
   serviceCards?: ServiceCard[];
   /** Selects a dedicated page layout instead of the default link-in-bio profile. */
-  template?: "edu" | "cake" | "luxe" | "scent";
+  template?: "edu" | "cake" | "luxe" | "scent" | "pop" | "menu";
   /** Content for template "edu". */
   edu?: EduContent;
   /** Content for template "cake". */
@@ -553,6 +696,10 @@ export type SiteConfig = {
   luxe?: LuxeContent;
   /** Content for template "scent". */
   scent?: ScentContent;
+  /** Content for template "pop". */
+  pop?: PopContent;
+  /** Content for template "menu". */
+  menu?: MenuContent;
   theme?: SiteTheme;
   links: LinkItem[];
   /** Hides the "Сделано на ownlink.uz" footer credit when true. */

@@ -1,0 +1,176 @@
+{
+  "slug": "pop-template",
+  "lang": "uz",
+  "template": "pop",
+  "name": "Shirin Pop",
+  "bio": "Bento va tug'ilgan kun tortlari · Toshkent",
+  "theme": {
+    "background": "#ffd23f",
+    "accent": "#ff4b3e",
+    "accentText": "#ffffff",
+    "secondaryAccent": "#ffb3d1",
+    "textColor": "#1c1a1a"
+  },
+  "links": [],
+  "translation": {
+    "lang": "ru",
+    "name": "Shirin Pop",
+    "bio": "Бенто и торты на день рождения · Ташкент"
+  },
+  "pop": {
+    "kicker": { "uz": "Uyda pishirilgan · Toshkent", "ru": "Домашняя выпечка · Ташкент" },
+    "title": { "uz": "Kayfiyatingga mos *tortlar*", "ru": "Торты под твоё *настроение*" },
+    "tagline": {
+      "uz": "Bento, tug'ilgan kun va sovg'a tortlari. Tabiiy qaymoq, yozuv va bezak — hammasi sizniki.",
+      "ru": "Бенто, торты на день рождения и в подарок. Натуральные сливки, надпись и декор — всё на ваш вкус."
+    },
+    "heroSketch": { "kind": "round", "color": "#ff8fb8", "topper": "cherry" },
+    "stickers": [
+      { "uz": "Birinchi buyurtmaga −10%", "ru": "−10% на первый заказ" },
+      { "uz": "Halol · tabiiy", "ru": "Халяль · натурально" },
+      { "uz": "Yetkazib berish bor", "ru": "Доставка по городу" }
+    ],
+    "marquee": [
+      { "uz": "Bento tortlar", "ru": "Бенто-торты" },
+      { "uz": "Kapkeyklar", "ru": "Капкейки" },
+      { "uz": "Yozuv bepul", "ru": "Надпись бесплатно" },
+      { "uz": "Ertasi tayyor", "ru": "Готово на завтра" }
+    ],
+    "order": { "url": "https://t.me/shirinpop_demo", "label": { "uz": "Tort buyurtma qilish", "ru": "Заказать торт" } },
+    "stats": [
+      { "id": "cakes", "value": { "uz": "2 400+", "ru": "2 400+" }, "label": { "uz": "tort pishirildi", "ru": "тортов испечено" } },
+      { "id": "rating", "value": { "uz": "4.9", "ru": "4.9" }, "label": { "uz": "mijozlar bahosi", "ru": "оценка клиентов" } },
+      { "id": "days", "value": { "uz": "1 kun", "ru": "1 день" }, "label": { "uz": "minimal muddat", "ru": "минимальный срок" } }
+    ],
+    "menuTitle": { "uz": "Bugun *menyuda*", "ru": "Сегодня *в меню*" },
+    "menuSubtitle": { "uz": "Bosing — tanlagan tortingiz bilan chat ochiladi", "ru": "Нажмите — откроется чат с выбранным тортом" },
+    "itemMessage": {
+      "uz": "Salom! Menga «{name}» tortini buyurtma qilmoqchiman.",
+      "ru": "Здравствуйте! Хочу заказать «{name}»."
+    },
+    "menu": [
+      {
+        "id": "bento-heart",
+        "name": { "uz": "Yurakli bento", "ru": "Бенто с сердцем" },
+        "note": { "uz": "Vanil, malina · 500 g", "ru": "Ваниль, малина · 500 г" },
+        "price": { "uz": "180 000 dan", "ru": "от 180 000" },
+        "tag": { "uz": "Hit", "ru": "Хит" },
+        "sketch": { "kind": "bento", "color": "#ff8fb8", "topper": "heart" }
+      },
+      {
+        "id": "red-velvet",
+        "name": { "uz": "Red velvet", "ru": "Красный бархат" },
+        "note": { "uz": "Qaymoqli pishloq · 1.2 kg", "ru": "Сливочный сыр · 1.2 кг" },
+        "price": { "uz": "320 000 dan", "ru": "от 320 000" },
+        "sketch": { "kind": "round", "color": "#e0334c", "topper": "berries" }
+      },
+      {
+        "id": "pista",
+        "name": { "uz": "Pista-malina", "ru": "Фисташка-малина" },
+        "note": { "uz": "Pista kremi · 1.5 kg", "ru": "Фисташковый крем · 1.5 кг" },
+        "price": { "uz": "360 000 dan", "ru": "от 360 000" },
+        "tag": { "uz": "Yangi", "ru": "Новинка" },
+        "sketch": { "kind": "round", "color": "#9fd88a", "topper": "berries" }
+      },
+      {
+        "id": "cupcakes",
+        "name": { "uz": "Kapkeyk to'plami", "ru": "Набор капкейков" },
+        "note": { "uz": "6 dona, aralash", "ru": "6 штук, ассорти" },
+        "price": { "uz": "150 000", "ru": "150 000" },
+        "sketch": { "kind": "cupcake", "color": "#b79cff", "topper": "cherry" }
+      },
+      {
+        "id": "cheesecake",
+        "name": { "uz": "Chizkeyk", "ru": "Чизкейк" },
+        "note": { "uz": "Nyu-York · 1 kg", "ru": "Нью-Йорк · 1 кг" },
+        "price": { "uz": "280 000", "ru": "280 000" },
+        "sketch": { "kind": "slice", "color": "#ffd9a0", "topper": "berries" }
+      },
+      {
+        "id": "wedding",
+        "name": { "uz": "Katta bayram torti", "ru": "Праздничный ярусный" },
+        "note": { "uz": "3 qavat · 3 kg+", "ru": "3 яруса · от 3 кг" },
+        "price": { "uz": "900 000 dan", "ru": "от 900 000" },
+        "sketch": { "kind": "tiers", "color": "#ffffff", "topper": "flower" }
+      }
+    ],
+    "builder": {
+      "title": { "uz": "O'z *tortingni* yig'", "ru": "Собери *свой* торт" },
+      "subtitle": { "uz": "Uchta tanlov — va narx tayyor", "ru": "Три выбора — и цена готова" },
+      "occasionsLabel": { "uz": "Qanday bayram?", "ru": "Какой повод?" },
+      "occasions": [
+        { "id": "bd", "label": { "uz": "Tug'ilgan kun", "ru": "День рождения" } },
+        { "id": "love", "label": { "uz": "Sevgi", "ru": "Романтика" } },
+        { "id": "gift", "label": { "uz": "Sovg'a", "ru": "Подарок" } },
+        { "id": "kids", "label": { "uz": "Bolalar", "ru": "Детский" } }
+      ],
+      "sizesLabel": { "uz": "O'lcham", "ru": "Размер" },
+      "sizes": [
+        { "id": "s", "label": { "uz": "Bento", "ru": "Бенто" }, "serves": { "uz": "2–3 kishi", "ru": "2–3 порции" }, "price": 180000 },
+        { "id": "m", "label": { "uz": "O'rtacha", "ru": "Средний" }, "serves": { "uz": "8–10 kishi", "ru": "8–10 порций" }, "price": 360000 },
+        { "id": "l", "label": { "uz": "Katta", "ru": "Большой" }, "serves": { "uz": "20+ kishi", "ru": "20+ порций" }, "price": 900000 }
+      ],
+      "flavorsLabel": { "uz": "Ta'm", "ru": "Вкус" },
+      "flavors": [
+        { "id": "berry", "name": { "uz": "Malina", "ru": "Малина" }, "color": "#ff8fb8" },
+        { "id": "choc", "name": { "uz": "Shokolad", "ru": "Шоколад" }, "color": "#8a5a44" },
+        { "id": "pista", "name": { "uz": "Pista", "ru": "Фисташка" }, "color": "#9fd88a" },
+        { "id": "vanilla", "name": { "uz": "Vanil", "ru": "Ваниль" }, "color": "#ffe29a" }
+      ],
+      "currency": { "uz": "so'm", "ru": "сум" },
+      "totalLabel": { "uz": "Taxminiy narx", "ru": "Примерная цена" },
+      "sendLabel": { "uz": "Yuborish", "ru": "Отправить" },
+      "message": {
+        "uz": "Salom! Tort buyurtma qilmoqchiman.\nBayram: {occasion}\nO'lcham: {size}\nTa'm: {flavor}\nTaxminiy narx: {price}",
+        "ru": "Здравствуйте! Хочу заказать торт.\nПовод: {occasion}\nРазмер: {size}\nВкус: {flavor}\nПримерная цена: {price}"
+      }
+    },
+    "stepsTitle": { "uz": "Qanday *buyurtma* qilinadi", "ru": "Как *заказать*" },
+    "steps": [
+      {
+        "id": "1",
+        "title": { "uz": "Tanlang", "ru": "Выберите" },
+        "text": { "uz": "Menyudan yoki konstruktordan o'z tortingizni toping.", "ru": "Найдите торт в меню или соберите в конструкторе." }
+      },
+      {
+        "id": "2",
+        "title": { "uz": "Yozing", "ru": "Напишите" },
+        "text": { "uz": "Sana, yozuv va xohishlarni Telegramga yuboring.", "ru": "Отправьте в Telegram дату, надпись и пожелания." }
+      },
+      {
+        "id": "3",
+        "title": { "uz": "Oling", "ru": "Получите" },
+        "text": { "uz": "Oldindan to'lov 30% — qolganini tort kelganda.", "ru": "Предоплата 30%, остальное при получении." }
+      }
+    ],
+    "reviewsTitle": { "uz": "Mijozlar *aytadi*", "ru": "Что *говорят*" },
+    "reviews": [
+      {
+        "id": "r1",
+        "name": "Madina",
+        "source": "Instagram",
+        "text": { "uz": "Qizimning tug'ilgan kuniga olgandik — hamma so'rab oldi qayerdan deb!", "ru": "Брали дочке на день рождения — все спрашивали, где заказывали!" }
+      },
+      {
+        "id": "r2",
+        "name": "Jasur",
+        "source": "Telegram",
+        "text": { "uz": "Bento shirin ham, chiroyli ham. Aytilgan vaqtda yetkazishdi.", "ru": "Бенто и вкусный, и красивый. Привезли ровно ко времени." }
+      }
+    ],
+    "infoTitle": { "uz": "Bilish *kerak*", "ru": "Полезно *знать*" },
+    "info": [
+      { "id": "lead", "title": { "uz": "Muddat", "ru": "Сроки" }, "text": { "uz": "Bento — 1 kun, katta tortlar — 3 kun oldin.", "ru": "Бенто — за 1 день, большие торты — за 3 дня." } },
+      { "id": "delivery", "title": { "uz": "Yetkazib berish", "ru": "Доставка" }, "text": { "uz": "Toshkent bo'ylab 25 000 so'mdan. Olib ketish bepul.", "ru": "По Ташкенту от 25 000 сум. Самовывоз бесплатно." } },
+      { "id": "pay", "title": { "uz": "To'lov", "ru": "Оплата" }, "text": { "uz": "Click, Payme yoki naqd.", "ru": "Click, Payme или наличными." } }
+    ],
+    "channelsTitle": { "uz": "Bog'lanish", "ru": "Связаться" },
+    "channels": [
+      { "id": "tg", "type": "telegram", "label": { "uz": "Telegram", "ru": "Telegram" }, "handle": "@shirinpop_demo", "url": "https://t.me/shirinpop_demo" },
+      { "id": "ig", "type": "instagram", "label": { "uz": "Instagram", "ru": "Instagram" }, "handle": "@shirinpop.uz", "url": "https://instagram.com/" },
+      { "id": "ph", "type": "phone", "label": { "uz": "Qo'ng'iroq", "ru": "Позвонить" }, "handle": "+998 90 000 00 00", "url": "tel:+998900000000" }
+    ],
+    "closingTitle": { "uz": "Bayram *shu yerdan* boshlanadi", "ru": "Праздник *начинается* тут" },
+    "closingText": { "uz": "Bitta xabar — va tort yo'lda.", "ru": "Одно сообщение — и торт уже в пути." }
+  }
+}
